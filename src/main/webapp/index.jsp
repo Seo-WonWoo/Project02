@@ -66,7 +66,7 @@
 		
 		String sRN = request.getParameter("surch_restaurant_name");
 		String sKW = request.getParameter("surch_keyword");
-		
+		int i;
 	%>
 
 	<header id="header" class="sub">
@@ -348,9 +348,11 @@
 		
 		<%
 		int restaurantNumber = 1;
+		int restaurantListPage = 1;		
 		for(RestaurantDTO restaurant : restaurantList){
+			if(restaurantNumber <=10){
 		%>	
-			<tr>
+			<tr class="page<%=restaurantListPage%>" style="display: block">
 				<td><%=restaurantNumber%></td>
 				<td><%=restaurant.getRestaurantName()%></td>
 				<td><%=restaurant.getMenuName()%></td>
@@ -364,12 +366,42 @@
 				<td><%=restaurant.getRestaurantAddress()%></td>
 			</tr>
 		<%
+			} else {
+		%>	
+			
+			<tr class="page<%=restaurantListPage%>" style="display: none">
+				<td><%=restaurantNumber%></td>
+				<td><%=restaurant.getRestaurantName()%></td>
+				<td><%=restaurant.getMenuName()%></td>
+				<td><%=restaurant.getMenuPrice()%>원</td>
+				<td>
+					<div class="wrap_s center">
+						<img src="./images/content/sub/Icon fa-solid-star.svg" alt="">
+						<p class="score"><%=restaurant.getStarScore()%></p>
+					</div>
+				</td>
+				<td><%=restaurant.getRestaurantAddress()%></td>
+			</tr>
+		<%
+			}
+			if(restaurantNumber%10 == 0)
+				restaurantListPage++;
+		%>
+			
+		<%
 			restaurantNumber++;	
 		}
 		%>
 		</tbody>
+		
 	</table>
-
+		<%
+		for(i=1; i<=restaurantListPage; i++){
+		%>		
+			<span id="page_select_<%=i%>" onclick="pageSelect(this)"><%=i%></span>
+		<%
+		}
+		%>
 	</div>
 </section>
 
@@ -396,14 +428,27 @@
 		}
 		
 		function allCheckSelect(){
-			console.log(document.querySelector('#AllcheckYn').checked);
-			
 			convenienceList.forEach( (item, index) =>{
 				if(document.querySelector('#AllcheckYn').checked == true)
 					document.querySelector('#check_'+item.convenienceId).checked = true;
 				if(document.querySelector('#AllcheckYn').checked == false)
 					document.querySelector('#check_'+item.convenienceId).checked = false;				
 			})
+		}
+		
+		function pageSelect(e){
+			let i, j;			
+			for(i=1; i<=<%=restaurantListPage%>; i++ ){
+				for(j=0; j<10; j++){
+					if(e.innerText == document.querySelector('#page_select_'+i).innerText){
+						document.getElementsByClassName('page'+i)[j].style.display = "block";
+					} else {
+						document.getElementsByClassName('page'+i)[j].style.display = "none";
+					}
+				}				
+				
+			}
+			
 		}
 	</script>
 	
