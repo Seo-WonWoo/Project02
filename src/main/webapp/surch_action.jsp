@@ -15,7 +15,7 @@
 		int sCountry = (request.getParameter("surch_country") != null && !request.getParameter("surch_country").isEmpty()) ? Integer.parseInt(request.getParameter("surch_country")) : 0;
 		int sDong = (request.getParameter("surch_dong") != null && !request.getParameter("surch_dong").isEmpty()) ? Integer.parseInt(request.getParameter("surch_dong")) : 0;
 		int sRS = (request.getParameter("surch_restaurant_sector") != null && !request.getParameter("surch_restaurant_sector").isEmpty()) ? Integer.parseInt(request.getParameter("surch_restaurant_sector")) : 0;
-		int sCertification = (request.getParameter("surch_certification") != null && !request.getParameter("surch_certification").isEmpty()) ? Integer.parseInt(request.getParameter("surch_certification")) : 0;
+		int sCert = (request.getParameter("surch_certification") != null && !request.getParameter("surch_certification").isEmpty()) ? Integer.parseInt(request.getParameter("surch_certification")) : 0;
 
 		int sConv1 = (request.getParameter("surch_convenience_1") != null && !request.getParameter("surch_convenience_1").isEmpty()) ? 1  : 0;
 		int sConv2 = (request.getParameter("surch_convenience_2") != null && !request.getParameter("surch_convenience_2").isEmpty()) ? 2  : 0;
@@ -25,6 +25,10 @@
 		int sConv6 = (request.getParameter("surch_convenience_6") != null && !request.getParameter("surch_convenience_6").isEmpty()) ? 6  : 0;
 		int sConv7 = (request.getParameter("surch_convenience_7") != null && !request.getParameter("surch_convenience_7").isEmpty()) ? 7  : 0;
 		int sConv8 = (request.getParameter("surch_convenience_8") != null && !request.getParameter("surch_convenience_8").isEmpty()) ? 8  : 0;
+		
+		String sRN = request.getParameter("surch_restaurant_name");
+		String sKW = request.getParameter("surch_keyword");
+		
 	%>
 
 

@@ -6,11 +6,13 @@ public class RestaurantDTO {
 	String restaurantSectorName;
 	String restaurantName;
 	String menuName;
-	int menuPrice;
+	String menuPrice;
 	String restaurantTel;
 	int cityId;
 	int countryId;
 	int dongId;
+	double starScore;
+	int starCount;
 	String restaurantAddress;
 	int certificationId;
 	String certificationName;
@@ -19,19 +21,24 @@ public class RestaurantDTO {
 	
 	public RestaurantDTO() {}
 
-
+	
 	public RestaurantDTO(int restaurantId, int restaurantSectorId, String restaurantSectorName, String restaurantName,
-			String restaurantTel, int cityId, int countryId, int dongId, String restaurantAddress, int certificationId,
-			String certificationName, String restaurantState) {
+			String menuName, String menuPrice, String restaurantTel, int cityId, int countryId, int dongId,
+			double starScore, int starCount, String restaurantAddress, int certificationId, String certificationName,
+			String restaurantState) {
 		super();
 		this.restaurantId = restaurantId;
 		this.restaurantSectorId = restaurantSectorId;
 		this.restaurantSectorName = restaurantSectorName;
 		this.restaurantName = restaurantName;
+		this.menuName = menuName;
+		this.menuPrice = menuPrice;
 		this.restaurantTel = restaurantTel;
 		this.cityId = cityId;
 		this.countryId = countryId;
 		this.dongId = dongId;
+		this.starScore = starScore;
+		this.starCount = starCount;
 		this.restaurantAddress = restaurantAddress;
 		this.certificationId = certificationId;
 		this.certificationName = certificationName;
@@ -79,6 +86,26 @@ public class RestaurantDTO {
 	}
 
 
+	public String getMenuName() {
+		return menuName;
+	}
+
+
+	public void setMenuName(String menuName) {
+		this.menuName = menuName;
+	}
+
+
+	public String getMenuPrice() {
+		return menuPrice;
+	}
+
+
+	public void setMenuPrice(String menuPrice) {
+		this.menuPrice = menuPrice;
+	}
+
+
 	public String getRestaurantTel() {
 		return restaurantTel;
 	}
@@ -116,6 +143,26 @@ public class RestaurantDTO {
 
 	public void setDongId(int dongId) {
 		this.dongId = dongId;
+	}
+
+
+	public double getStarScore() {
+		return starScore;
+	}
+
+
+	public void setStarScore(double starScore) {
+		this.starScore = starScore;
+	}
+
+
+	public int getStarCount() {
+		return starCount;
+	}
+
+
+	public void setStarCount(int starCount) {
+		this.starCount = starCount;
 	}
 
 
@@ -157,6 +204,10 @@ public class RestaurantDTO {
 	public void setRestaurantState(String restaurantState) {
 		this.restaurantState = restaurantState;
 	}
+	
+	
+	
+
 	
 	
 	
