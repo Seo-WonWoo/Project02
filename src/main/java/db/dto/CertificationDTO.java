@@ -5,6 +5,8 @@ public class CertificationDTO {
 	int certificationId;
 	String certificationName;
 	
+	public CertificationDTO() {}
+	
 	
 	public CertificationDTO(int certificationId, String certificationName) {
 		super();

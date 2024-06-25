@@ -1,11 +1,13 @@
 package db.dto;
 
-public class restaurantSectorDTO {
+public class RestaurantSectorDTO {
 	
 	int restaurantSectorId;
 	String restaurantSectorName;
 	
-	public restaurantSectorDTO(int restaurantSectorId, String restaurantSectorName) {
+	public RestaurantSectorDTO(){}
+	
+	public RestaurantSectorDTO(int restaurantSectorId, String restaurantSectorName) {
 		super();
 		this.restaurantSectorId = restaurantSectorId;
 		this.restaurantSectorName = restaurantSectorName;

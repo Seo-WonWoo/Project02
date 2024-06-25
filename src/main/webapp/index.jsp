@@ -4,6 +4,10 @@
 <%@ page import="db.dao.CountryDAO"%>
 <%@ page import="db.dto.DongDTO"%>
 <%@ page import="db.dao.DongDAO"%>
+<%@ page import="db.dto.RestaurantSectorDTO"%>
+<%@ page import="db.dao.RestaurantSectorDAO"%>
+<%@ page import="db.dto.CertificationDTO"%>
+<%@ page import="db.dao.CertificationDAO"%>
 <%@ page import="db.dto.ConvenienceDTO"%>
 <%@ page import="db.dao.ConvenienceDAO"%>
 <%@ page import="java.util.List"%>
@@ -27,19 +31,10 @@
 		let convenience = new Array();
 	</script>
 	
-	<!-- 시 정보 데이터베이스 자바 객체 클래스 생성 및 자바스크립트 객체 배열 정보 추가 -->
+	<!-- 시 정보 데이터베이스 자바 객체 클래스 생성 -->
 	<%
 		CityDAO cityDAO = new CityDAO();
-		List<CityDTO> cityList = cityDAO.getCityList();	
-		for(CityDTO city : cityList){
-	%>
-			<script>
-					cityList.push( { cityId : <%=city.getCityId()%>,
-									 cityName : "<%=city.getCityName()%>"
-								   } );
-			</script>
-	<%
-		}
+		List<CityDTO> cityList = cityDAO.getCityList();
 	%>
 	
 	<!-- 군 정보 데이터베이스 자바 객체 클래스 생성 및 자바스크립트 객체 배열 정보 추가 -->	
@@ -72,8 +67,28 @@
 			</script>
 	<%
 		}
+	%>
+	
+	<!-- 업종 정보 데이터베이스 자바 객체 클래스 생성 -->
+	<%
+		RestaurantSectorDAO restaurantSectorDAO = new RestaurantSectorDAO();
+		List<RestaurantSectorDTO> restaurantSectorList = restaurantSectorDAO.getRestaurantSectorList();		
+	%>
+		
+	<!-- 인증 정보 데이터베이스 자바 객체 클래스 생성 -->
+	<%
+		CertificationDAO certificationDAO = new CertificationDAO();
+		List<CertificationDTO> certificationList = certificationDAO.getCertificationList();		
 	%>	
-
+	
+	
+	
+	
+	
+	
+	<form action="surch_action.jsp" method="get">
+	
+	
 	
 	<!-- 검색 select 입력 생성 -->	
 	<select name="surch_city" id="city_select" size="1" onclick="countryListByCitySelect()">
@@ -96,6 +111,31 @@
 	</select><br>
 	
 	
+	<!-- 업종 검색 select 입력 생성 -->
+	<select name="surch_restaurant_sector" size="1">
+   		<option value="" selected>전체</option>
+    <%
+    	for(RestaurantSectorDTO restaurantSector : restaurantSectorList){
+    %>
+    		<option value=<%=restaurantSector.getRestaurantSectorId()%> ><%=restaurantSector.getRestaurantSectorName()%></option>
+    <%	
+    	}    
+    %>    	
+	</select><br>
+	
+	<!-- 인증 검색 select 입력 생성 -->	
+	<select name="surch_certification" size="1">
+   		<option value="" selected>전체</option>
+    <%
+    	for(CertificationDTO certification : certificationList){
+    %>
+    		<option value=<%=certification.getCertificationId() %> ><%=certification.getCertificationName() %></option>
+    <%	
+    	}    
+    %>    	
+	</select><br>
+	
+	
 	<!-- 동 정보 데이터베이스 자바 객체 클래스 생성 및 자바스크립트 객체 배열 정보 추가 -->
 	<%
 		ConvenienceDAO convenienceDAO = new ConvenienceDAO();
@@ -104,17 +144,20 @@
 	<fieldset>
 		<legend>편의 기능</legend>
 	
-	
 	<%
 		for(ConvenienceDTO convenience : convenienceList){
 	%>	
             <label>
-                <input type="checkbox" name='<%=convenience.getConvenienceId()%>' value=<%=convenience.getConvenienceId()%>><%=convenience.getConvenienceName() %>
-            </label><br>
+                <input type="checkbox" name='surch_convenience_<%=convenience.getConvenienceId()%>' value="1"><%=convenience.getConvenienceName() %>                
+            </label>            	
+            <br>
 	<%
 		}
 	%>
 	</fieldset>
+	
+	<button type="submit">검색</button>
+	</form>
 	
 	
 	

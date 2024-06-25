@@ -17,27 +17,78 @@ public class ResestaurantDAO {
 	static PreparedStatement psmt = null;
 	static ResultSet rs = null;	
 	
-	public List<RestaurantDTO> findRestaurantList() {
+	public List<RestaurantDTO> findRestaurantList(
+			int sCity, int sCountry, int sDong, int sRS, int sCertification,
+			int sConv1, int sConv2, int sConv3, int sConv4,
+			int sConv5, int sConv6, int sConv7, int sConv8) {
 		
 		List<RestaurantDTO> restaurantList = null;
 		
 		try {
 			conn = DBConnectionManager.connectDB();
 			
-			String query = "select * from restaurant_list ";
+			String query = " select "
+					+ " rs.restaurant_sector_name restaurant_sector_name, "
+					+ " rl.restaurant_name restaurant_name, "
+					+ " rm.menu_name menu_name, "
+					+ " rm.menu_price menu_price, "
+					+ " rl.restaurant_tel restaurant_tel, "
+					+ " cl.certification_name certification_name, "
+					+ " rl.restaurant_address restaurant_address "
+					+ " from "
+					+ " restaurant_list rl, "
+					+ " restaurant_sector rs, "
+					+ " restaurant_menu rm, "
+					+ " certification_list cl, "
+					+ " restaurant_convenience rc "
+					+ " where "
+					+ " rl.restaurant_sector_id = rs.restaurant_sector_id "
+					+ " and rl.restaurant_id = rm.restaurant_id "
+					+ " and rl.certification_id = cl.certification_id "
+					+ " and rl.restaurant_id = rc.restaurant_id "
+					+ " and rm.menu_number = 1 "
+					+ " and rl.restaurant_state = 'T' ";
+			if( sCity > 0)
+				query += " and rl.city_id = " + sCity;
+			if( sCountry > 0)
+				query += " and rl.county_id = " + sCountry;
+			if( sDong > 0)
+				query += " and rl.dong_id = " + sDong;
+			if( sRS > 0)
+				query += " and rl.restaurant_sector_id = " + sRS;
+			if( sCertification > 0)
+				query += " and rl.certification_id = " + sCertification;
+			if( sConv1 > 0)
+				query += " and rc.convenience_id = " + sConv1;
+			if( sConv2 > 0)
+				query += " and rc.convenience_id = " + sConv2;
+			if( sConv3 > 0)
+				query += " and rc.convenience_id = " + sConv3;
+			if( sConv4 > 0)
+				query += " and rc.convenience_id = " + sConv4;
+			if( sConv5 > 0)
+				query += " and rc.convenience_id = " + sConv5;
+			if( sConv6 > 0)
+				query += " and rc.convenience_id = " + sConv6;
+			if( sConv7 > 0)
+				query += " and rc.convenience_id = " + sConv7;
+			if( sConv8 > 0)
+				query += " and rc.convenience_id = " + sConv8;
+
+			query += " group by rs.restaurant_sector_name, rl.restaurant_name, rm.menu_name, rm.menu_price, "
+					+ "rl.restaurant_tel, cl.certification_name, rl.restaurant_address ";
 			psmt = conn.prepareStatement(query);
 			rs = psmt.executeQuery();
 			restaurantList = new ArrayList<RestaurantDTO>();
 			while (rs.next()) {
 				RestaurantDTO restaurant = new RestaurantDTO();
-				
 				restaurant.setRestaurantId(rs.getInt("RESTAURANT_ID"));
 				restaurant.setRestaurantSectorId(rs.getInt("RESTAURANT_SECTOR_ID"));
 				restaurant.setRestaurantName(rs.getString("RESTAURANT_NAME"));
 				restaurant.setRestaurantTel(rs.getString("RESTAURANT_TEL"));
-				restaurant.setRestaurantCity(rs.getString("RESTAURANT_CITY"));
-				restaurant.setRestaurantCountry(rs.getString("RESTAURANT_COUNTY"));
-				restaurant.setRestaurantDong(rs.getString("RESTAURANT_DONG"));
+				restaurant.setCityId(rs.getInt("CITY_ID"));
+				restaurant.setCountryId(rs.getInt("COUNTY_ID"));
+				restaurant.setDongId(rs.getInt("DONG_ID"));
 				restaurant.setRestaurantAddress(rs.getString("RESTAURANT_ADDRESS"));
 				restaurant.setCertificationId(rs.getInt("CERTIFICATION_ID"));
 				restaurant.setRestaurantState(rs.getString("RESTAURANT_STATE"));
@@ -52,26 +103,26 @@ public class ResestaurantDAO {
 		return restaurantList;
 	}
 
-public List<RestaurantDTO> findRestaurantList1() {
+ public List<RestaurantDTO> findRestaurantList2() {
 		
 		List<RestaurantDTO> restaurantList = null;
 		
 		try {
 			conn = DBConnectionManager.connectDB();
+			
 			String query = "select * from restaurant_list ";
 			psmt = conn.prepareStatement(query);
 			rs = psmt.executeQuery();
 			restaurantList = new ArrayList<RestaurantDTO>();
 			while (rs.next()) {
 				RestaurantDTO restaurant = new RestaurantDTO();
-				
 				restaurant.setRestaurantId(rs.getInt("RESTAURANT_ID"));
 				restaurant.setRestaurantSectorId(rs.getInt("RESTAURANT_SECTOR_ID"));
 				restaurant.setRestaurantName(rs.getString("RESTAURANT_NAME"));
 				restaurant.setRestaurantTel(rs.getString("RESTAURANT_TEL"));
-				restaurant.setRestaurantCity(rs.getString("RESTAURANT_CITY"));
-				restaurant.setRestaurantCountry(rs.getString("RESTAURANT_COUNTY"));
-				restaurant.setRestaurantDong(rs.getString("RESTAURANT_DONG"));
+				restaurant.setCityId(rs.getInt("CITY_ID"));
+				restaurant.setCountryId(rs.getInt("COUNTY_ID"));
+				restaurant.setDongId(rs.getInt("DONG_ID"));
 				restaurant.setRestaurantAddress(rs.getString("RESTAURANT_ADDRESS"));
 				restaurant.setCertificationId(rs.getInt("CERTIFICATION_ID"));
 				restaurant.setRestaurantState(rs.getString("RESTAURANT_STATE"));
