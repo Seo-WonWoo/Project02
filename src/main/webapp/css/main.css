@@ -1,0 +1,72 @@
+@charset "utf-8";
+
+/* visual */
+#visual{background: url(../images/visual/visual_bg.svg) no-repeat center center/cover;height: 760px;}
+#visual .inner{position: relative;}
+#visual .visual_search{position: absolute; top: 0; right: 0; margin: 80px 0;}
+#visual .visual_search input{width: 500px; height: 80px; border: 5px solid #194E0F; border-radius: 15px 0 0 15px;}
+#visual .visual_search .btn{position: relative; width: 80px; height: 80px; border-radius: 0 15px 15px 0; background: #194E0F; cursor: pointer;}
+#visual .visual_search .btn img{position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}
+#visual .title_info{position: absolute; top: 230px; right: -50px;}
+
+@media (max-width: 1500px){
+    #visual .visual_search{margin-right: 50px;}
+    #visual .title_info{right: 0;margin-right: 50px;}
+    #visual .title_info img{width: 480px;}
+}
+
+
+/* find_business */
+#find_business {overflow: hidden;}
+#find_business select{width: 200px; font-size: 20px; font-weight: bold; height: 55px; border: 1px solid #ddd;}
+#find_business .item{margin: 0;}
+#find_business .business_list .swiper-wrapper{display: flex;}
+#find_business .box {min-width: 380px; box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.20); border-radius: 30px 0 30px 0;}
+#find_business .swiper_btn>div,
+#find_business .box{cursor: pointer;}
+#find_business .box .pic{height: 200px; background: url(../images/content/main/showImageFile.jpg) no-repeat center center/cover; border-radius: 30px 0 0 0;}
+#find_business .box .info{padding: 30px;}
+#find_business .box .info .title_name{font-size: 20px; font-weight: bold;}
+#find_business .box .info .title_scor,
+#find_business .box .info .title_menu,
+#find_business .box .info .title_price{font-size: 25px; font-weight: bold;}
+#find_business .box .info .title_submenu .lnb{padding: 7px 12px; border: 1px solid #ddd; border-radius: 20px; margin-right: 10px;}
+#find_business .box .info .title_submenu .lnb:last-child{margin: 0;}
+
+/* business_update */
+#business_update{background: #F3F3F3;}
+#business_update select{width: 200px; font-size: 20px; font-weight: bold; height: 55px; border: 1px solid #ddd;}
+#business_update .item{margin: 0;}
+#business_update .business_list{overflow: hidden;}
+#business_update .business_list .swiper-wrapper{display: flex;}
+#business_update .box {min-width: 300px; border: 1px solid #ddd; border-radius: 25px; background: white;}
+#business_update .swiper_btn>div,
+#business_update .box{cursor: pointer;}
+#business_update .box .info{padding: 30px;}
+#business_update .box .info .title_approval{border: 1px solid #ddd; border-radius: 8px; display: inline-block; padding: 10px 15px; margin-bottom: 30px;}
+#business_update .box .info .title_approval.active{background: #FCA104; border: 0; color: white;}
+#business_update .box .info .title_name{font-size: 22px; font-weight: bold;}
+#business_update .box .info .title_submenu .lnb{padding: 7px 12px; border: 1px solid #ddd; border-radius: 20px; margin-right: 10px;}
+#business_update .box .info .title_submenu .lnb:last-child{margin: 0;}
+
+/* price_comparison */
+#price_comparison{background: #9fbce2;}
+#price_comparison h1{color: white; text-align: center;}
+#price_comparison .box{width: 150px; padding: 20px 0;text-align: center; border-radius: 25px; background: white;}
+#price_comparison .box .pic{display: inline-block;}
+#price_comparison .box .menu_name{font-size: 18px; font-weight: bold; margin: 10px 0;}
+#price_comparison .box .menu_price{font-size: 20px; font-weight: bold; color: #D82929;}
+
+/* digital_dashboard */
+#digital_dashboard{}
+#digital_dashboard .info{width: 500px;}
+#digital_dashboard .info .box{border: 1px solid #ddd; border-radius: 15px; padding: 30px 40px;}
+#digital_dashboard .info .box .title{font-size: 25px;}
+#digital_dashboard .info .box .scor{font-size: 30px; font-weight: bold;}
+#digital_dashboard .gido{width: 800px; height: 400px; background: #aaa;}
+
+
+
+
+
+

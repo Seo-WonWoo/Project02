@@ -1,0 +1,29 @@
+
+
+
+
+/* container */
+.container .sub_title{border-bottom: 1px solid #ddd; padding-bottom: 20px;}
+.container .select_title{color: #646464; padding-left: 8px;}
+.container .title_maininfo{font-size: 20px; font-weight: bold; margin-bottom: 20px;}
+
+/* detail */
+.detail .pic p{font-size: 20px;}
+.detail .info{width: 600px; padding: 5px; margin-bottom: 120px;}
+.detail .info .gnb{margin-left: 50px;}
+.detail .info .gnb li{margin-bottom: 8px;}
+.detail .info .gnb li .review{width: 250px;}
+.detail .info .gnb li .title{color: #646464;}
+.detail .info .title_approval{border: 1px solid #ddd; border-radius: 8px; display: inline-block; padding: 10px 15px; margin-bottom: 30px;}
+.detail .info .title_name{font-size: 28px; font-weight: bold;}
+.detail .info .title_scor{font-size: 25px; font-weight: bold;}
+.detail .info .title_submenu .lnb{padding: 7px 12px; border: 1px solid #ddd; border-radius: 20px; margin-right: 10px;}
+.detail .info .title_submenu .lnb:last-child{margin: 0;}
+
+/* evaluation */
+.evaluation .box{background: #E9F4FF; padding: 40px 50px; border-radius: 20px; float: left;}
+.evaluation .box .btn2{text-align: center; padding: 15px 0; float: right;}
+.evaluation .icheck_wrap{margin-left: 40px;}
+.evaluation .icheck_wrap .icheck{margin-right: 50px;}
+
+

@@ -1,0 +1,1018 @@
+@charset "utf-8";
+
+/*주소찾기 버튼*/
+.btn_post{display:inline-block; border:1px solid #ccc; background:#fff; padding:3px 10px 4px; line-height: 14px; font-size:12px; border-radius:2px; cursor:pointer;}
+.btn_post:hover{background:#fafafa;  border:1px solid #a8a8a8;}
+
+
+/*통합게시판 팝업창*/
+.total_b_pop{padding:10px;}
+
+/* 통합게시판 상단 검색바*/
+.com_search_box{overflow:hidden; text-align:right; }
+.com_search_box_l{display:inline-block; margin-right:10px; overflow:hidden; font-weight:bold;}
+.com_search_box .com_search_box_l .com_cal_icon{ background:url(/images/communication/responsive/btn_co_cal.gif) no-repeat 95% center; border:1px solid #ccc; height:23px; padding:0 30px 0 5px; box-sizing:border-box; width:115px; cursor:pointer;}
+.com_search_box_r{display:inline-block; overflow:hidden;}
+.com_search_box .com_search_box_r input, .com_search_box .com_search_box_r select{border:1px solid #ccc; height:24px;  box-sizing:border-box; }
+.com_search_box .com_search_box_r input{padding:2px 5px; width:170px;}
+.com_search_box .com_search_box_r input::placeholder{font-size:12px;}
+.com_search_box .com_search_box_r select{width:70px;-webkit-appearance:menulist;}
+@media screen and (min-width:1px) and (max-width:800px) {
+	.boardHead .lSec{float:none; display:block;}
+	.boardHead .rSec{float:none; display:block; margin-top:10px; padding-top:0 !important;}
+
+}
+@media screen and (min-width:1px) and (max-width:610px) {
+	.com_search_box{text-align:left; margin-bottom:10px;}
+	.com_search_box_l{position:relative; display:block; width:100%;  box-sizing:border-box; margin-bottom:8px; margin-right:0;}
+		.com_search_box .com_search_box_l .com_cal_icon{width:48%;}
+	.com_search_box_r{position:relative; display:block; width:100%; padding:0 50px 0 75px; box-sizing:border-box;}
+		.com_search_box_r > input, .com_search_box .com_search_box_r > input{width:100%;}
+		.com_search_box_r > select, .com_search_box .com_search_box_r > select{position:absolute ; left:0; top:0;}
+		 span.btnwhite{/* position:absolute !important; *//* right:0; *//* top:0; */}
+}
+
+@media screen and (min-width:1px) and (max-width:470px) {
+	.com_search_box_l .com_cal_icon, .com_search_box .com_search_box_l .com_cal_icon{width:45%;}
+}
+
+
+
+/*시군조직도 테이블 추가*/
+.tbl_basic02{clear:both;position:relative;width:100%;border-collapse:collapse;border-top:2px solid #c8c8c8;border-bottom:1px solid #c8c8c8;background:#fff;line-height:1.25em;color:#666}
+.tbl_basic02 td{padding:5px; font-size:1.16em; border-bottom:1px solid #c8c8c8; border-right:1px solid #c8c8c8; text-align:center; letter-spacing:0; vertical-align:middle;}
+.tbl_basic02 td.last{border-right:0px;}
+
+
+
+
+/*엑셀다운로드 버튼*/
+.btn_excel_icon{display:block; background:url(http://www.chungnam.go.kr/images/board/excel_icon.png) no-repeat left 4px; padding:3px 0 0 22px;}
+.search_dis{display:inline; margin-bottom:5px;}
+@media screen and (min-width:1px) and (max-width:800px) {
+.search_dis{display:block;}
+}
+
+
+/* 통합게시판디자인변경 2013.10.24 */
+h4.comm {padding-left:20px; margin-bottom:10px; border-bottom:0}
+
+
+.new_tbl_board            {clear:both;position:relative;width:100%;border-collapse:collapse;border-top:2px solid #00B9FF;border-bottom:1px solid #cdcdcd;background:#fff;font-size:14px;line-height:18px;color:#555}
+.new_tbl_board th         {padding:18px 10px; border:1px solid #cdcdcd; border-left:0; text-align:center; color:#333;}
+.new_tbl_board th.stats   {padding:12px 3px; border:1px solid #cdcdcd; border-left:0; text-align:center}
+.new_tbl_board th.end     {border-right:0;}
+.new_tbl_board th:last-child,
+.new_tbl_board td:last-child {border-right:0;}
+.new_tbl_board td         {color:#666; padding:15px 12px;border:1px solid #cdcdcd; border-left:0; text-align:center; font-size:16px; line-height: 1.5;}
+.new_tbl_board td .score{margin-left: 7px;}
+.new_tbl_board td.stats   {color:#666; padding:12px 3px;border:1px solid #cdcdcd; border-left:0; text-align:center;}
+.new_tbl_board td.end     {border-right:0;} 
+.new_tbl_board td.number  {text-align:right;}
+.new_tbl_board td.title   {text-align:left;}
+.new_tbl_board td.title_comm   {text-align:left;}
+.new_tbl_board td.title_comm a {font-size: 15px; line-height: 20px;}
+.new_tbl_board td.notice   {background-color:#e9ebc4}
+.new_tbl_board td.tleft   {text-align:left;}
+.new_tbl_board td a{color:#666;text-decoration:none; }
+.new_tbl_board td a:hover,.new_tbl_board td a:active,.new_tbl_board td a:focus{color:#000;text-decoration:underline;}
+.bo_btn_or{display: inline-block; background:#fd8423; padding: 3px 7px; line-height: 14px; font-size: 12px; color: #fff; border:transparent;}
+.bo_btn_gray{display: inline-block; background:#a8a8a8; padding: 3px 7px; line-height: 14px; font-size: 12px; color: #fff; border:transparent;}
+
+
+@media screen and (min-width:1px) and (max-width:1049px) {
+	.new_tbl_board td img{ width:auto !important;}
+}
+
+@media screen and (max-width:500px){
+	.new_tbl_board .hd{display: none;}
+	.new_tbl_board td:first-child{width: 100%;}
+}
+
+
+.new_tbl_board .file{width:12px;height:15px;background:url(http://www.chungnam.net/images/board/ico_disket_small.gif) no-repeat left top}
+.new_tbl_board .pic{width:13px;height:16px;background:url(http://www.chungnam.net/images/board/ico_pic.gif) no-repeat left top}
+.new_tbl_board .new{width:10px;height:15px;background:url(http://www.chungnam.net/images/board/ico_new.gif) no-repeat left top}
+.new_tbl_board .filedown{width:16px;height:16px;background:url(http://www.chungnam.net/images/board/ico_disket.gif) no-repeat 1px 1px}
+.new_tbl_board .hwp{width:16px;height:16px;background:url(http://www.chungnam.net/images/board/file_hwp.gif) no-repeat left top}
+.new_tbl_board .doc{width:16px;height:16px;background:url(http://www.chungnam.net/images/board/file_doc.gif) no-repeat left top}
+.new_tbl_board .pdf{width:16px;height:16px;background:url(http://www.chungnam.net/images/board/file_pdf.gif) no-repeat left top}
+.new_tbl_board .xls{width:16px;height:16px;background:url(http://www.chungnam.net/images/board/file_xls.gif) no-repeat left top}
+.new_tbl_board .ppt{width:16px;height:16px;background:url(http://www.chungnam.net/images/board/file_ppt.gif) no-repeat left top}
+.new_tbl_board .view{width:16px;height:16px;background:url(http://www.chungnam.net/images/board/magnifier_left.png) no-repeat left top}
+.new_tbl_board .pic,.new_tbl_board .new,.new_new_tbl_board .filedown,.new_tbl_board .hwp,.new_tbl_board .doc,.new_tbl_board .pdf,.new_tbl_board .xls,.new_tbl_board .ppt,.new_tbl_board .view,.new_tbl_board .zipcodeSearch,.new_tbl_board .newwindow,.new_tbl_board .icon_date,.new_tbl_board .secret{display:inline-block;margin:0 0 2px;padding-left:3px;font-size:0;line-height:0;vertical-align:middle;cursor:pointer}
+
+
+.new_tbl_board .file {display:inline-block;margin:0 0 2px;padding-left:3px;font-size:0;line-height:0;vertical-align:middle;}
+
+/*사전정보공개*/
+.info_title_box{position:relative; display:block;}
+.info_circle{display:block;padding-left:18px; font-weight:bold;}
+.btn_detail_vi{position:absolute; right:0; top:-2px; display:block; }
+.info_arrow{display:block;padding-left:18px; margin-top:6px;}
+.info_btn_vi{display:block; border:1px solid #bec0ba; padding:3px 3px 0; font-size:11px; background:#f5f8ed; border-radius:2px;}
+@media screen and (min-width:1px) and (max-width: 639px) {
+.new_tbl_board .tb_info_time {display:none;}
+.btn_detail_vi{position:static; right:0; top:-2px; display:block; }
+}
+
+
+
+.new_tbl_board_view         {clear:both;position:relative;width:100%;border-collapse:collapse;border-top:2px solid #61870d;border-bottom:1px solid #cdcdcd;background:#fff;font-size:14px;line-height:18px;color:#555}
+.new_tbl_board_view th      {background:#f4f4f4; padding:12px 10px; border:1px solid #cdcdcd; border-left:0; text-align:center;  font-weight: 600;}
+.new_tbl_board_view th.end  {border-right:0;} 
+.new_tbl_board_view th.title{text-align:left; border-right:0; background:#fbfcf6; padding:14px 10px 14px 15px;}
+.new_tbl_board_view td.title_comm   {text-align:left;}
+.new_tbl_board_view th.title2{text-align:center; border-right:0; background:#fbfcf6; padding:14px 10px 14px 15px; font-size:16px;  color:#333; font-weight:500;}
+.new_tbl_board_view td      {color:#666; padding:10px 10px;border:1px solid #cdcdcd; border-left:0; text-align:left; font-size:14px;}
+.new_tbl_board_view td.end  {border-right:0;}
+.new_tbl_board_view td.number  {text-align:right;}
+.new_tbl_board_view td p{ text-align: initial !important; font-size:14px;}
+.new_tbl_board_view span.prev_list{ background:url(/images/cnportal/01communication/bul_prev.png) no-repeat left 4px; padding-left:15px;}
+.new_tbl_board_view span.next_list{ background:url(/images/cnportal/01communication/bul_next.png) no-repeat left 3px; padding-left:15px;}
+
+/*만족도*/
+
+.satisfaction_tb         {width:100%;border-collapse:collapse;border:1px solid #ccc; background:#fff;font-size:12px;line-height:1.5em;color:#555}
+.satisfaction_tb th      {background:#f4f4f4; padding:10px 10px; border:1px solid #ccc; border-left:0; text-align:center; }
+.satisfaction_tb td      {color:#666; padding:10px 10px;border:1px solid #ccc; border-left:0; text-align:left;}
+.satisfaction_tb td.opinion div{padding-right:87px; position:relative; margin-right:10px;}
+.satisfaction_tb td.opinion div input{border:1px solid #ccc !important; height:19px;}
+.satisfaction_tb td ul li{float:left;}
+.btn_opinion {display:block; position:absolute; right:0; top:0; }
+.btn_opinion a{color:#fff !important; background:#426ea6; font-size:12px; font-weight:bold; text-align: center; padding:6px 15px 3px; display:block }
+.btn_opinion a:hover{background:#37639b;}
+@media screen and (min-width:1px) and (max-width:600px) {
+	.satisfaction_tb td.opinion div{margin-right:0;}
+	.new_tbl_board_view .th_prev{width:30% !important;}
+}
+
+.new_tbl_board_view td.title{text-align:left;}
+.new_tbl_board_view td.con{text-align:left; padding:20px 15px 20px 15px; border-right:0; line-height:170%}
+
+.new_tbl_board_view td a{color:#666;text-decoration:none}
+.new_tbl_board_view td a:hover,.new_tbl_board_view td a:active,.new_tbl_board_view td a:focus{color:#000;text-decoration:none}
+/* 통합게시판디자인변경 끝 2013.10.24 */
+
+/* 개인정보 사항 추가 20140925 */
+.personal_info{ margin-bottom:10px;border:1px solid #ddd; background-color:#f9f9f9; padding:15px; height:80px; overflow-x:hidden; overflow-y:scroll;}
+.personal_info > p > strong{ font-size:14px; color:#222; }
+.personal_info > ul{ margin-top:10px;}
+.personal_info > ul > li{ margin-bottom:6px;}
+.personal_info > ul > li > p{ font-size:11px; color:#999; padding-left:10px;}
+.agree_box{ text-align:right;}
+.agree_box > p{ display:inline; margin-left:12px;}
+
+
+
+
+/* 권희진추가 20120605 */
+.tbl_type_list{width:100%; border-top:2px solid #4d86cf; background:#fff; font-size:1.25em;line-height:1.25em;color:#666; border-collapse:collapse;}
+.tbl_type_list caption{display:none}
+.tbl_type_list th{padding:0.5em; border-bottom:1px solid #ddd; background:#f5f5f5;}
+.tbl_type_list th.end01 {border-bottom:2px solid #4d86cf;}
+.tbl_type_list td{padding:0.5em;border-bottom:1px solid #ddd;}
+.tbl_type_list td.end01 {border-bottom:2px solid #4d86cf;}
+.tbl_type_list td.center01{text-align:center;}
+span.result {font-weight:bold; color:#FF6600;}
+span.result02 {color:#000;}
+.tdleft {text-align:left; padding:0 10px; }
+/* 권희진추가 끝 20120605 */
+
+/* 김현수추가 20120605 */
+.tbl_type_hs {width:100%; border-top:2px solid #c8c8c8; background:#fff; font-size:1.25em;line-height:1.25em;color:#666; border-collapse:collapse;}
+.tbl_type_hs caption{display:none}
+.tbl_type_hs th{padding:3px; border-bottom:1px solid #ddd; background:#f5f5f5; text-align:center;}
+.tbl_type_hs th.end01 {border-bottom:2px solid #4d86cf;}
+.tbl_type_hs td{padding:6px 10px 3px 10px; border:1px solid #ddd; border-right:0px solid #fff; letter-spacing:-0.05em; font-size: 13px;}
+
+.tbl_type_hs td.frist2013{padding:3px 10px 3px 10px; border:1px solid #ddd; border-left:0; letter-spacing:-0.05em; text-align:center}
+
+.tbl_type_hs td.end01 {padding:3px 10px 3px 10px; border-bottom:2px solid #4d86cf; letter-spacing:-0.05em;}
+.tbl_type_hs td.center01{padding:3px 10px 3px 10px; letter-spacing:-0.05em;}
+
+.center2013 { text-align:center}
+
+
+/* 권희진 추가 20130227 */
+.tbl_type_hs02          {width:100%; border-top:2px solid #c8c8c8; background:#fff; font-size:1.25em;line-height:1.25em;color:#666; border-collapse:collapse;}
+.tbl_type_hs02 caption  {display:none}
+.tbl_type_hs02 th       {padding:3px; border-bottom:1px solid #ddd; border-right:1px solid #ddd; background:#f4f4f4; text-align:center}
+.tbl_type_hs02 th.end02 {padding:3px; border-bottom:1px solid #ddd; border-right:0; background:#f4f4f4; text-align:center}
+.tbl_type_hs02 td       {padding:3px 7px 3px 7px; border-left:0; border-bottom:1px solid #ddd; border-right:1px solid #ddd; letter-spacing:-0.05em; text-align:center}
+.tbl_type_hs02 td.right {padding:3px 7px 3px 7px; text-align:right}
+.tbl_type_hs02 td.end03 {padding:3px 7px 3px 7px; border-left:0; border-bottom:1px solid #ddd; border-right:0; letter-spacing:-0.05em; text-align:center}
+/* 권희진 추가 끝 20130227 */
+
+
+span.result {font-weight:bold; color:#FF6600;}
+span.result02 {color:#000;}
+
+
+h4.h4_txt {	display:block; clear:both; margin:0 0 20px; padding:0 0 0 22px;	border-bottom:solid 1px #FFFFFF; background:url(http://www.chungnam.net/images/cnportal/ico_h5_blt.gif) no-repeat left 10px; font-weight:bold; font-size:1.5em; line-height:1.8; letter-spacing:-1px; text-align:left; color:#666}
+h6.h6_new {margin:0 0 0 0; padding:0 0 0 0;}
+/* 김현수추가 끝 20120605 */
+
+div.rgtBtn{display:block;float:right;margin:-30px 0 0 0;padding:0}
+div.rgtBtn span.button{font:bold 1em/1.25em '굴림',Gulim,Tahoma,Geneva,sans-serif}
+
+#bbs{clear:both;position:relative;width:100%;padding:0;margin:0;background:#fff;font-size:1em;color:#767676}
+table td img{width: auto !important; display: inline-block;}
+
+/* #bbs와 동일한 .bbs 추가시작 : 김인순 2013-09-24 웹호환성 작업의 일환. 동일한 id를 사용하는 데이터테이블이 있어 class로 속성을 바꾸고 스타일 적용을 위해서 * /
+.bbs{clear:both;position:relative;width:100%;padding:0;margin:0;background:#fff;font-size:1em;color:#767676}
+/* #bbs와 동일한 .bbs 추가끝 : 김인순 2013-09-24 웹호환성 작업의 일환. 동일한 id를 사용하는 데이터테이블이 있어 class로 속성을 바꾸고 스타일 적용을 위해서 * /
+ 
+/* Board Head */
+.boardHead{clear:both;display:inline-block;overflow:visible;position:relative;width:100%;padding:0 0 1em;white-space:nowrap}
+.boardHead .lSec{float:left}
+.boardHead .rSec{float:right}
+/* Board Foot */
+.boardFoot{clear:both;display:inline-block;overflow:visible;position:relative;width:100%;min-height:23px;padding:2em 0 1em;margin:0 auto;white-space:nowrap}
+.boardFoot .lSec{position:absolute;left:0;z-index:9}
+.boardFoot .rSec{position:absolute;right:0;text-align:right; z-index:9}
+.boardFootPage{clear:both;float:left;overflow:visible;position:relative;width:100%;padding:3em 0;margin:0 auto;white-space:nowrap;z-index:1;}
+.boardHead:after,.boardFoot:after:after{content:"";display:block;clear:both}
+.boardHead p.desc,.boardFoot p.desc{margin:5px 5px 0 0;font:1em/1.25em '굴림',Gulim,Tahoma,AppleGothic,sans-serif;color:#767676}
+.boardFoot.NewsListFoot{padding:.5em 0}
+.boardFoot2{clear:both;overflow:visible;position:relative;width:100%;padding:1em 0;margin:0 auto;white-space:nowrap}
+.boardFoot2 .cSec{text-align:center}
+
+.boardFoot input[type=checkbox]+label,.boardFoot input[type=radio]+label,.boardFoot input[type=file]+label{margin:0 8px 0 2px;line-height:15px;vertical-align:bottom;cursor:pointer}
+.boardFoot input[type=text],.boardFoot input[type=password],.boardFoot textarea{display:inline-block;padding:5px 4px 1px;margin:0;border:1px solid #b7b7b7;border-right-color:#e1e1e1;border-bottom-color:#e1e1e1;background:#fff;font:normal 1em/1em '굴림',Gulim,AppleGothic,sans-serif}
+.boardFoot input[type=file]{display:inline-block;padding:5px 4px 1px;margin:0;font:normal 1em/1em '굴림',Gulim,AppleGothic,sans-serif}
+.boardFoot textarea{display:inline-block;padding:4px;margin:.5em 0;border:1px solid #b7b7b7;border-right-color:#e1e1e1;border-bottom-color:#e1e1e1;background:transparent;font:normal 12px '굴림',Gulim,AppleGothic,sans-serif}
+.boardFoot input[type=checkbox],.boardFoot input[type=radio]{display:inline-block;margin:0;padding:0;width:13px;height:13px}
+.boardFoot input[type=radio]+label.last{margin-right:0}
+.boardFoot input.email,.boardFoot input.phoneNum,.boardFoot input.usrid,.boardFoot input.p643{margin-top:-1px;padding:6px 4px 3px}
+.boardFoot input,select,.boardFoot textarea,.boardFoot button{vertical-align:middle}
+
+
+
+
+
+
+form,fieldset,legend{/* margin:0; *//* padding:0; *//* border:0 none; */}
+legend{position:absolute;left:0;top:0;width:1px;height:1px;font-size:0;line-height:0;visibility:hidden}
+/* Select */
+*:first-child+html select{height:19px}
+select.bbs_select{border:1px solid #ccc; height:23px; z-index:9999999;font:normal 12px '굴림',Gulim,Tahoma,Geneva,sans-serif !important; -webkit-appearance:menulist; min-width:85px; box-sizing:border-box;}
+*:first-child+html select{height:19px}
+.selectbox-wrap{display:inline-block;position:relative;background:#fff;height:23px}
+* + html .selectbox-wrap{display:inline}
+.selectbox-wrap select{display:none;z-index:9999}
+.selectbox-wrap input.value-holder{width:auto;height:23px;padding:1px 21px 1px 5px;border:1px solid #C2C2C2;background:#fff url(http://www.chungnam.net/images/board/bg_select.gif) no-repeat scroll 100% 50%;font:1em/1.5em Tahoma,Geneva,sans-serif;color:#767676;text-align:left;z-index:1}
+* + html .selectbox-wrap input.value-holder{line-height:1.5em}
+.selectbox-wrap ul.new-selectbox{display:none;position:absolute;left:0;top:22px;border:1px solid #C2C2C2;background:#fff;font:1em Tahoma,Geneva,sans-serif;color:#767676;text-align:left;z-index:99999}
+.selectbox-wrap ul.new-selectbox li{position:relative;padding:3px 3px 1px 5px;background:none;cursor:default}
+.selectbox-wrap ul.new-selectbox li.hover,.selectbox-wrap ul.new-selectbox li.selected{background:#bfbfbf;color:#fff}
+.showSplitNo{min-width:80px !important;}
+
+.selectArea{display:inline-block;float:left;margin:2px 15px 3px 0}
+.selectArea.mtm20{float:right;margin:-20px 0 15px 0}
+.selectArea .searchSelect{display:inline-block;float:left;margin:0 5px 0 0}
+.selectArea select{padding:1px;border:1px solid #D7D7D7;font:normal 1em/1.25em '굴림',Gulim,Tahoma,Geneva,sans-serif;z-index:9999999}
+*:first-child+html .selectArea select{height:19px}
+/* total Page */
+p.totalpage{display:inline-block;margin-top:6px; line-height:1.25em}
+p.totalpage strong{margin-left:.25em; color:#222;letter-spacing:0}
+p.totalpage strong.line{border-right:1px solid #767676;padding:0 5px;margin:0 5px}
+p.position_ab {position:absolute;top:15px;right:0}
+/* Button */
+span.button,span.button a,span.button button,span.button input{ /* display:-moz-inline-stack; */ display:inline-block;overflow:hidden;position:relative;margin:0;border:0;background:url(http://www.chungnam.net/images/board/buttonBlue.gif) no-repeat left top;font:bold 1em/1.25em '굴림',Gulim,Tahoma,Geneva,sans-serif;color:#fff !important;text-decoration:none !important;vertical-align:top;white-space:nowrap;cursor:pointer}
+span.button{height:28px;padding:0 0 0 2px;background-position:left top}
+span.button a{overflow:hidden;width:auto;height:28px;padding:0 22px 0 9px;background-position:right top;letter-spacing:0;line-height:28px;line-height:28px; /* _line-height:28px; */ cursor:pointer; }
+span.button button,span.button input{overflow:hidden;width:auto;height:28px;padding:0 20px 0 10px;background-position:right top;letter-spacing:0;line-height:28px; cursor:pointer;}
+span.button button.disabled{color:#aaa !important;cursor:default}
+span.button.small{overflow:hidden;height:22px;background-position:0 -30px}
+span.button.small a,span.button.small button{overflow:hidden;height:22px;padding:0 22px 0 9px;background-position:100% -30px;font-size:1em;line-height:22px; /* _line-height:18px; */}
+span.button.large{overflow:hidden;height:55px;background-position:0 -55px}
+span.button.large a,span.button.large button{overflow:hidden;height:55px;padding:0 22px 0 21px;padding:0 11px 0 9px;background-position:100% -55px;font-size:1em;line-height:55px; /* _line-height:55px; */}
+span.rfloat{float:right}
+span.button.small2{overflow:hidden;height:28px;background-position:0 -110px}
+span.button.small2 a,span.button.small2 button{overflow:hidden;height:28px;padding:0 17px 0 15px;padding:0 11px 0 9px;background-position:100% -110px;font-size:1em;line-height:28px; /* _line-height:28px; */ }
+/* Button White */
+span.btnwhite,span.btnwhite a,span.btnwhite button{/* display:-moz-inline-stack; */ display:inline-block;position:relative;padding:0;margin:0;border:0;background:url(http://www.chungnam.net/images/board/buttonWhite.gif) no-repeat left top;font:normal 1em/1.25em '굴림',Gulim,Tahoma,Geneva,sans-serif;color:#000 !important;text-decoration:none !important;vertical-align:;white-space:nowrap;cursor:pointer}
+span.btnwhite{padding:2px 0 0 2px;background-position:left top}
+span.btnwhite a,span.btnwhite button{overflow:hidden;top:0;width:auto;height:20px;padding:0 9px 0 7px;background-position:right top;line-height:21px;line-height:20px; /* _line-height:21px; */ vertical-align:top;cursor:pointer;}
+span.btnwhite.small{background-position:0 -30px}
+span.btnwhite.small a{overflow:hidden;height:16px;padding:0 9px 0 7px;padding:0 9px 0 7px;background-position:100% -30px;font-size:1em;line-height:16px}
+span.btnwhite.small a,span.btnwhite.small button{/*_top:1px;*/ height:16px;padding:0 9px 0 7px;padding:0;background-position:100% -30px;line-height:17px}
+span.btnwhite.large{height:23px;background-position:0 -54px}
+span.btnwhite.large a{overflow:hidden;height:23px;padding:0 9px 0 7px;padding:0 9px 0 7px;background-position:100% -56px;font-size:1em;line-height:23px}
+span.btnwhite.large button{overflow:hidden;height:23px;padding:1px 14px 0 16px;padding:0 9px 0 7px;background-position:100% -56px;font-size:1em;line-height:24px}
+span.btnwhite.large button.t9{font-size:1em}
+span.btnwhite.small02{background-position:0 -89px}
+span.btnwhite.small02 a,span.btnwhite.small02 button{height:18px;padding:0 9px 0 7px;background-position:100% -89px;line-height:18px;letter-spacing:0}
+span.btnwhite.large02{margin:0;padding:0 0 0 2px;background-position:0 -117px}
+span.btnwhite.large02 a,span.btnwhite.large02 button{overflow:hidden;width:auto;height:24px;padding:0 10px 0 9px;background-position:100% -117px;letter-spacing:0;line-height:24px;cursor:pointer}
+span.btnwhite.large02 button.save{color:#2c4fae !important}
+span.btnwhite.large03{height:28px;background-position:0 -151px}
+span.btnwhite.large03 a,span.btnwhite.large03 button{height:28px;padding:0 15px 0 14px;margin:0 auto;background-position:100% -151px;line-height:28px;letter-spacing:0}
+span.btnwhite.large03 a.mlr70{padding:0 70px;text-align:center}
+span.btnwhite a{text-decoration:none}
+/* Icon Add */
+span.icon {/* _margin:0 0 1px 0; */}
+	span.icon button{ /* _margin:0 0 2px 0; _padding-top:3px; */ }
+		span.icon button img{ } /* position:relative; margin-bottom:3px; _margin-bottom:-1px; */
+		span.icon.small button{ /* _margin:-1px 0 2px 0; */ }
+		span.icon.small02 button img{ /* _margin-top:1px; */ }
+		span.icon.large button{ /* _margin:0 0 0 0; */}
+		span.icon.large button img{margin-bottom:3px;vertical-align:middle}
+		span.icon.large02 img{/* _margin-top:1px; */ }
+		span.icon.large03.arrow{position:absolute;right:15px;top:8px;width:5px;height:9px;background:url(http://www.chungnam.net/images/board/bg_sprite_ico.gif) no-repeat right -586px}
+/* disabled */
+span.btnwhite button.disabled{color:#aaa !important;cursor:default}
+/* 선택시 활성화 */
+span.btnwhite.on,span.btnwhite.on button{background:url(http://www.chungnam.net/images/board/buttonWhite_on.gif) no-repeat left top}
+span.btnwhite.on{background-position:left top}
+span.btnwhite.on button{background-position:right top;color:#fff !important}
+/* search */
+.tbl_search *{font:1em/1.5em '굴림',Gulim,Tahoma,Geneva,sans-serif; }
+.search{display:inline-block;margin:0;padding:0;}
+.search *{font:1em/1.5em '굴림',Gulim,Tahoma,Geneva,sans-serif}
+.search fieldset{margin:0;padding:0}
+.search legend{position:absolute;left:0;top:0;width:1px;height:1px;font-size:0;line-height:0;visibility:hidden}
+.search .item{display:inline-block;position:relative;vertical-align:bottom}
+.search .iLabel{position:absolute;top:3px;left:5px;color:#767676;white-space:nowrap; font-size:13px;}
+.search .iText{position:relative;height:23px;padding:2px 5px;margin:0; border:1px solid #ccc; width:170px; box-sizing:border-box; background:transparent;color:#333}
+
+.search .iText2{position:relative;height:15px;padding:3px 4px;border:1px solid #ccc;line-height:1.25em;color:#333; border-radius:3px; min-width:100px;}
+.search .span_title{display:inline-block;padding:5px 3px 0 0;font-weight:bold}
+.position_ab{position:absolute;top:37px;right:0}
+.search_select{margin:0;padding:0;z-index:999999}
+.search_select .span_title{display:inline-block;font-weight:bold}
+.unit{display:inline-block;margin:0;padding:0;font-size:.857em;vertical-align:top}
+.veti_midd{vertical-align:middle;}
+
+/* search 공공건축가제도 : 2020.06.11 */
+.search_form{display:inline-block;margin:0;padding:0;z-index:999999}
+.search_form *{font:1em/1.5em '굴림',Gulim,Tahoma,Geneva,sans-serif}
+.search_form fieldset{margin:0;padding:0}
+.search_form legend{position:absolute;left:0;top:0;width:1px;height:1px;font-size:0;line-height:0;visibility:hidden}
+.search_form .item{display:inline-block;position:relative;vertical-align:top}
+.search_form .iLabel{position:absolute;top:3px;left:5px;color:#767676;white-space:nowrap; font-size:13px;}
+.search_form .iText{position:relative;height:23px;padding:2px 5px;margin:0; border:1px solid #ccc; width:170px; box-sizing:border-box; background:transparent;color:#333}
+
+.basic_view{border-top:1px solid #666; margin-bottom:15px; font-size:14px;}
+.basic_view > dl > dt {border-top:1px solid #61870d; background:#fbfcf6; font-weight:600}
+.basic_view > dl > dt, .basic_view > dl > dd{ padding:13px 22px;border-bottom:1px solid #ccc;  }
+.basic_view > dl > dd{position:relative;}
+.basic_view > dl > dt, .basic_view > dl > dd.viewinfo_02{padding:13px 22px;border-bottom:1px solid #ccc;}
+.basic_view > dl > dd.viewinfo_02 span{display:inline-block;}
+.basic_view > dl > dd.viewinfo_02 span.tit{font-weight:600; width:9%; padding-left:4%; font-size:14px; color:#444;}
+.basic_view > dl > dd.viewinfo_02 span.tit:first-child{padding-left:0;}
+.basic_view > dl > dd.viewinfo_02 span.txt_date{ padding:0; width:20%; font-size:14px;}
+
+.basic_view > dl > dd span{display:inline-block;}
+.basic_view > dl > dd span.tit{display:inline-block;font-weight:500;color:#333;padding-left:8%; font-size:14px;border-right:1px solid #ddd;padding: 0 50px;}
+.basic_view > dl > dd span.txt_date{display:inline-block;padding:0 0 0 10px;font-size: 14px;}
+
+ul.photoList_pulblic{display:block; padding:10px 0 0 0; overflow:hidden; }
+ul.photoList_pulblic li{float:left; position:relative; width:105px; height:65px; margin:0 10px 15px; border:1px solid #d5d5d5; box-sizing:border-box; overflow:hidden; text-align:center}
+ul.photoList_pulblic li img{width:105px;height:65px;}
+ul.photoList_pulblic li.on{border:3px solid #f3a600;}
+.basic_view > dl > dd.viewcont .photo_box img {height:auto; width: 100%;}
+
+.basic_view > dl > dd.btn_pho_box{border-bottom:none;text-align:center;padding:20px 0;}
+.basic_view > dl > dd.btn_pho_box > span{display:inline-block;margin:0 15px;font-weight:600;font-size:17px;height: 42px;vertical-align: middle;}
+.basic_view > dl > dd.btn_pho_box > a > img{ vertical-align:top;}
+.basic_view > dl > dd.btn_pho_box > span > em{ color:#ff5629}
+.basic_view > dl > dd.viewcont{padding:0 20px 20px 20px; font-size:15px; line-height:24px;}
+.viewcont .photo_box{height:auto;}
+.basic_view > dl > dd.viewcont .photo_box img {height:auto; width: 100% !important; }
+
+
+
+@media screen and (min-width:1px) and (max-width:639px) {
+	.basic_search_box select{float:none; width:100%; margin-right:0; margin-top:10px; box-sizing:border-box; margin-bottom:5px;} 
+	.basic_search_box input.iText{float:none;width:100%; box-sizing:border-box; margin-right:0; margin-bottom:5px;}
+	.basic_search_box input.iText2{float:none;width:100%; margin-top:5px; margin-right:0; margin-bottom:5px;}
+	.basic_search_box .search_btn{float:none; width:100%; box-sizing:border-box; height:40px; line-height:40px; font-size:15px; background:#666;}
+	.basic_view > dl > dd.viewinfo{ padding:0;}
+	.basic_view > dl > dt{ text-align:center;}
+	.basic_view > dl > dd span.tit{ padding-left:0; width:100%; margin:0 0; border-bottom:1px solid #ccc; text-align:center;}
+	.basic_view > dl > dd span.txt_date{padding-left:0; width:100%; margin:0;  padding:10px 0; text-align:center;}
+	.basic_view > dl > dd span.tit{ border-right:1px dashed #ccc; width:100%; margin-right:0; background:#fafafa; padding:10px 0; text-align:center; font-weight:bold;}
+	.viewlist > dl > dt{ width:100%;}
+	.viewlist > dl > dd{ width:100%;}
+
+	.basic_view > dl > dd.viewinfo_02 span.tit, .basic_view > dl > dd.viewinfo_02 span.txt_date{padding-left:0; width:50%; margin:5px 0;}
+	.basic_view > dl > dd.viewinfo_02 span.tit{border-right:1px dashed #ccc; width:30%; margin-right:10%;}
+
+
+		
+}
+
+
+
+
+/* Pagination */
+.pagination{width:100%;height:24px;padding:0;margin:0 auto;font:normal 1em/1.25em Tahoma,Geneva,sans-serif;text-align:center}
+.pagination a{display: inline;}
+.pagination a.pagenum{display:inline-block;padding: 5px 9px 6px;margin:0;text-decoration:none;vertical-align:top;cursor:pointer; border-radius: 6px;}
+.pagination a.pagenum:link,.pagination a.pagenum:visited,.pagination a.pagenum:active{color:#424242}
+.pagination a.pagenum:hover{color: #1B5FE9;}
+.pagination strong{display:inline-block;border:1px solid #1B5FE9;padding: 4px 9px 7px;margin:0;font-weight:bold;color:#1B5FE9; border-radius: 6px;}
+.pagination span.arrow{display:inline-block;width:30px;height:30px;border:1px solid #d9d9d9;font-size:0;line-height:0;vertical-align:top;cursor:pointer; border-radius: 6px;}
+.pagination span.arrow.pagefirst{background:#fff url(http://www.chungnam.net/images/board/btn_page_first.gif) no-repeat 10px 5px}
+.pagination span.arrow.pageprev{margin-right:30px;background:#fff url(http://www.chungnam.net/images/board/btn_page_prev.gif) no-repeat 10px 5px}
+.pagination span.arrow.pagenext{margin-left:30px;background:#fff url(http://www.chungnam.net/images/board/btn_page_next.gif) no-repeat 10px 5px}
+.pagination span.arrow.pageend{background:#fff url(http://www.chungnam.net/images/board/btn_page_end.gif) no-repeat 10px 5px}
+
+.pagination a:hover span.arrow{border:1px solid #1B5FE9;text-decoration:none}
+/* Contents Table */
+
+.tbl_basic{clear:both;position:relative;width:100%;border-collapse:collapse;border-top:2px solid #c8c8c8;border-bottom:1px solid #c8c8c8;background:#fff;line-height:1.25em;color:#666;}
+.tbl_basic th,
+.tbl_basic td{padding:1em 0 .9em;font-size:1.16em;border-bottom:1px solid #c8c8c8;border-right:1px solid #c8c8c8;text-align:center;letter-spacing:0;}
+.tbl_basic td.txtleft{text-align:left; padding:0 10px;}
+.tbl_basic td{vertical-align:middle}
+.tbl_basic td[scope=rowgroup]{vertical-align:middle}
+.tbl_basic th.last,.tbl_basic td.last{border-right:0}
+.tbl_basic th{background:#fafafa;font-weight:bold}
+.tbl_basic th.aleft,.tbl_basic td.aleft{padding:1em .9em .9em;text-align:left}
+.tbl_basic th.title,.tbl_basic td.title{padding:1em .9em .9em;text-align:left}
+.tbl_basic th.title2013,.tbl_basic td.title2013{padding:1em .9em .9em;text-align:left}
+.tbl_basic tbody th {background: #fff; font-weight:normal;}
+.tbl_basic tbody th.bgcolor{background: #f2f2f2;}
+.tbl_basic tbody th.doc_title{padding:6px .9em; font-size:12px; font-weight:bold; background: #f2f2f2; text-align:center;}
+.tbl_basic tbody td.btn_pa{text-align:left; padding:6px .9em;}
+
+.tbl_basic th.vtop,.tbl_basic td.vtop{vertical-align:top}
+.tbl_basic .score,.tbl_basic .tel,.tbl_basic .datetime,.tbl_basic .email,.tbl_basic .userid,.tbl_basic .eng,.tbl_basic .numValue{font:1em/1.5em Tahoma;letter-spacing:0;vertical-align:middle}
+.tbl_basic ul{padding:0;margin:0}
+.tbl_basic ul li{padding:0 0 0 .8em;background:url(http://www.chungnam.net/images/common/li_icon_dash.gif) no-repeat 0 .7em;line-height:1.25em;text-align:left}
+.tbl_basic .txt_lft{text-align:left}
+.tbl_basic span.button,.tbl_basic span.btnwhite{font-size:.857em}
+.tbl_basic td span.import{color:#ff2a00}
+
+.tbl_basic td.border_none {border-bottom: 1px solid #fff !important;}
+thead{background: #F3F8FF;}
+.tbl_basic thead th.border_none {border-top:2px solid #fff !important;border-bottom: 1px solid #fff !important;}
+th.border_left_tb, td.border_left_tb {border-left:1px solid #c8c8c8 !important;}
+
+.tbl_basic ul li ul li{background: url(http://www.chungnam.net/images/common/h6_title.gif) no-repeat scroll 0 7px transparent;padding:0 0 0 0.5em;text-align:left;margin:2px 0;line-height:1.5}
+.tbl_basic ul li ul{margin:0 0 5px}
+.tbl_basic ul li ul li ul{margin:0 0 5px}
+.tbl_basic ul li ul li ul li{background:none;padding:0;}
+.tbl_basic td.arrow_y{background: url(http://www.chungnam.net/images/cnportal/03administration/arrow_y.gif) no-repeat right center;}
+.tbl_basic td.btn{padding:5px 0}
+.tbl_basic .view{background: url(http://www.chungnam.net/images/admin/board/magnifier_left.png) no-repeat scroll left top;height: 16px;width: 16px;display: inline-block;font-size: 0;line-height: 0;margin: 0 0 2px;vertical-align: middle}
+.tbl_basic .view_t{font-size:0.875em}
+
+.tbl_green tbody th{color:#639314;background:none;font-size:1em}
+.tbl_basic tbody th{background:none;font-weight:normal}
+.tbl_basic tbody.th_second th{background:#fafafa;font-weight:bold}
+.tbl_basic tbody th.aleft{text-align:left}
+.tbl_basic tbody.left td{text-align:left;padding:1em .5em .9em}
+.tbl_basic tbody.left td.center{text-align:center}
+.tbl_basic td .star{background:url(http://www.chungnam.net/images/common/icon_star.gif) no-repeat 2px 4px;padding-left:15px;margin:0;text-align:left;margin-left:10px;line-height: 1.6;}
+.tbl_basic tbody.left td .star{margin-left:0}
+.tbl_basic .aleft p{line-height:1.75}
+#contents .tbl_basic td span.star_s{background:url(http://www.chungnam.net/images/common/li_icon_star.gif) no-repeat 0px 6px;padding-left:7px;margin:10px 0 5px;line-height:1.5;font-size: 0.875em;}
+
+.tbl_bg_gr{background:#e8f2d3 !important;}
+.tbl_bg_bl{background:#d4eaf3 !important;}
+.tbl_bg_or{background:#f7edd3 !important;}
+.tbl_bg_gray{background:#fafafa !important;}
+.tbl_bg_ye{background:#f8f6e6 !important}
+.tbl_bg_pu{background:#f5eaf4 !important}
+
+@media screen and (min-width:1px) and (max-width:1049px) {
+
+.tbl_basic th img, .tbl_basic td img{ width:auto;}
+}
+
+
+.tbl_basic2{width:100%; border-top:2px solid #4d86cf;border-bottom:1px solid #c8c8c8;background:#fff;font-size:1.16em;line-height:1.25em; border-collapse:collapse;}
+.tbl_basic2 th {padding:10px; border:1px solid #c8c8c8; background-color:#fafafa}
+.tbl_basic2 td {padding:10px; border:1px solid #c8c8c8; text-align:center;letter-spacing:0}
+.tbl_basic2 td.txtleft{text-align:left;}
+
+
+
+.tbl_basic_thin{clear:both;position:relative;width:100%;border-collapse:collapse;border-top:2px solid #c8c8c8;border-bottom:1px solid #c8c8c8;background:#fff;font-size:1.1em;line-height:1.25em;color:#666}
+.tbl_basic_thin th,.tbl_basic_thin td{padding:7px 5px 5px 5px; border-bottom:1px dashed #c8c8c8; border-right:1px dashed #c8c8c8; text-align:center;letter-spacing:0}
+.tbl_basic_thin td.txtleft{text-align:left; padding:0 10px}
+.tbl_basic_thin td{vertical-align:middle}
+.tbl_basic_thin td[scope=rowgroup]{vertical-align:middle}
+.tbl_basic_thin th.last,.tbl_basic_thin td.last{border-right:0}
+.tbl_basic_thin th{background:#fafafa;font-weight:bold}
+.tbl_basic_thin th.aleft,.tbl_basic_thin td.aleft{padding:7px 5px 5px 5px; text-align:left}
+.tbl_basic_thin th.title,.tbl_basic_thin td.title{padding:7px 5px 5px 5px; text-align:left}
+.tbl_basic_thin th.vtop,.tbl_basic_thin td.vtop{vertical-align:top}
+.tbl_basic_thin .score,.tbl_basic_thin .tel,.tbl_basic_thin .datetime,.tbl_basic_thin .email,.tbl_basic_thin .userid,.tbl_basic_thin .eng,.tbl_basic_thin .numValue{font:1em/1.5em Tahoma;letter-spacing:0;vertical-align:middle}
+.tbl_basic_thin ul{padding:0;margin:0}
+.tbl_basic_thin ul li{padding:0 0 0 .8em;background:url(http://www.chungnam.net/images/common/li_icon_dash.gif) no-repeat 0 .7em;line-height:1.75em;text-align:left}
+.tbl_basic_thin .txt_lft{text-align:left}
+.tbl_basic_thin span.button,.tbl_basic_thin span.btnwhite{font-size:.857em}
+.tbl_basic_thin td span.import{color:#ff2a00}
+
+
+
+.tbl_basic_mo {clear:both;position:relative;width:100%;border-collapse:collapse;border-top:2px solid #c8c8c8;border-bottom:1px solid #c8c8c8;background:#fff;font-size:1.167em;line-height:1.25em;color:#666}
+.tbl_basic_mo th,.tbl_basic_mo td{padding:1px;border-right:1px dashed #ddd;border-bottom:1px dashed #ddd;text-align:center;letter-spacing:-0.03em; font-size:11px;}
+.tbl_basic_mo td{vertical-align:middle}
+.tbl_basic_mo td img {vertical-align:middle}
+.tbl_basic_mo td[scope=rowgroup]{vertical-align:middle}
+.tbl_basic_mo th.last,.tbl_basic_mo td.last{border-right:0}
+.tbl_basic_mo th{background:#fafafa;font-weight:bold}
+.tbl_basic_mo th.aleft,.tbl_basic_mo td.aleft{padding:1em .9em .9em;text-align:left}
+.tbl_basic_mo th.title,.tbl_basic_mo td.title{padding:1em .9em .9em;text-align:left}
+.tbl_basic_mo th.vtop,.tbl_basic_mo td.vtop{vertical-align:top}
+.tbl_basic_mo .score,.tbl_basic_mo .tel,.tbl_basic_mo .datetime,.tbl_basic_mo .email,.tbl_basic_mo .userid,.tbl_basic_mo .eng,.tbl_basic_mo .numValue{font:1em/1.5em Tahoma;letter-spacing:0;vertical-align:middle}
+.tbl_basic_mo ul{padding:0;margin:0}
+.tbl_basic_mo ul li{padding:0 0 0 .8em;background:url(http://www.chungnam.net/images/common/li_icon_dash.gif) no-repeat 0 .7em;line-height:1.75em;text-align:left}
+.tbl_basic_mo .txt_lft{text-align:left}
+.tbl_basic_mo span.button,.tbl_basic_mo span.btnwhite{font-size:.857em}
+.tbl_basic_mo td span.import{color:#ff2a00}
+
+
+/* Table List */
+.box_type{padding:10px;margin-bottom:20px;border:5px solid #ececec}
+.bd_topline{clear:both;position:relative;width:100%;margin:0;padding:0;border-top:2px solid #4d86cf}
+.bd_prevnext{display:inline-block;position:relative;width:100%;margin:1.5em 0 0 0;padding:0}
+.bd_comment{display:inline-block;position:relative;width:100%;margin:1.5em 0 0 0;padding:0}
+.bd_comment h5{border-bottom:2px solid #7d7d7d;margin-bottom:5px;font:bold 1.5em/1.5em '굴림',Gulim,AppleGothic,sans-serif;color:#444;letter-spacing:-1px}
+.bd_comment h5 span{font:normal .583em/1em tahoma,AppleGothic,sans-serif;color:#fd2100;letter-spacing:0}
+
+
+.tbl_board2{clear:both;position:relative;width:100%;border-collapse:collapse;border-top:1px solid #cdcdcd;border-bottom:1px solid #cdcdcd;background:#fff;font-size:1em;line-height:1.5em;color:#555}
+.tbl_board2 th{padding:10px;border:1px solid #cdcdcd;text-align:center;letter-spacing:0}
+.tbl_board2 td{padding:10px;border:1px solid #cdcdcd;letter-spacing:0}
+.tbl_board2 th{background:#f4f4f4;}
+.tbl_board2 td{color:#666}
+
+.tbl_board2 th.title,.tbl_board2 td.title{text-align:left}
+.tbl_board2 th.title2013,.tbl_board2 td.title2013{text-align:left}
+
+.tbl_board2 td span.filename{font-weight:bold}
+.tbl_board2 .num,.tbl_board2 .date,.tbl_board2 .hit{font:1em/1.5em Tahoma;letter-spacing:0}
+
+.tbl_board2 .num2013,.tbl_board2 .date2013,.tbl_board2 .hit2013{font:1em/1.5em Tahoma;letter-spacing:0}
+
+.tbl_board2 .score,.tbl_board .tel,.tbl_board2 .datetime,.tbl_board2 .email,.tbl_board2 .userid,.tbl_board2 .eng,.tbl_board2 .numValue{font:1em/1.5em Tahoma;letter-spacing:0;vertical-align:middle}
+.tbl_board2 tr.reply .title{padding-left:1.75em}
+.tbl_board2 tr.reply .title a{padding-left:2.25em;background:url(http://www.chungnam.net/images/board/ico_re.gif) no-repeat left top}
+
+.tbl_board2 tr.reply .title2013{padding-left:1.75em}
+.tbl_board2 tr.reply .title2013 a{padding-left:2.25em;background:url(http://www.chungnam.net/images/board/ico_re.gif) no-repeat left top}
+@media(max-width: 640px) {
+
+.tbl_board2 tr, .tbl_board2 th, .tbl_board2 td {/* display: block; */}
+}
+
+
+.tbl_board{clear:both;position:relative;width:100%;border-collapse:collapse;border-top:1px solid #cdcdcd;border-bottom:1px solid #cdcdcd;background:#fff;font-size:1em;line-height:1.5em;color:#555}
+.tbl_board th,.tbl_board td{padding:10px;border:1px solid #cdcdcd;text-align:center;letter-spacing:0}
+.tbl_board th{background:#f4f4f4;}
+.tbl_board td{color:#666}
+
+.tbl_board th.title,.tbl_board td.title{text-align:left}
+.tbl_board th.title2013,.tbl_board td.title2013{text-align:left}
+
+.tbl_board td span.filename{font-weight:bold}
+.tbl_board .num,.tbl_board .date,.tbl_board .hit{font:1em/1.5em Tahoma;letter-spacing:0}
+
+.tbl_board .num2013,.tbl_board .date2013,.tbl_board .hit2013{font:1em/1.5em Tahoma;letter-spacing:0}
+
+.tbl_board .score,.tbl_board .tel,.tbl_board .datetime,.tbl_board .email,.tbl_board .userid,.tbl_board .eng,.tbl_board .numValue{font:1em/1.5em Tahoma;letter-spacing:0;vertical-align:middle}
+.tbl_board tr.reply .title{padding-left:1.75em}
+.tbl_board tr.reply .title a{padding-left:2.25em;background:url(http://www.chungnam.net/images/board/ico_re.gif) no-repeat left top}
+
+.tbl_board tr.reply .title2013{padding-left:1.75em}
+.tbl_board tr.reply .title2013 a{padding-left:2.25em;background:url(http://www.chungnam.net/images/board/ico_re.gif) no-repeat left top}
+
+
+.tbl_board tr.reply td a.comment{padding:0;background:none;font-weight:bold;color:#4d4d4d}
+.tbl_board tr.notice{background:#f5f5f5}
+.tbl_board tr.notice .num{font-size:1em;letter-spacing:-1px}
+.tbl_board td *[disabled=disabled]{background:#ddd; /* text-shadow:1px 1px 0 #fff */}
+.tbl_board td.cont{padding:.9em 1em;font-size:1.167em;line-height:1.75em;color:#4d4d4d;text-align:center;vertical-align:top}
+.tbl_board td.cont_textarea{padding:.9em .5em;line-height:1.75em;text-align:center;vertical-align:top}
+.tbl_board td.cont p{display:block;margin:10px 0}
+.tbl_board td.cont p img{margin:0 auto;text-align:center;vertical-align:top}
+.tbl_board td a{color:#767676;text-decoration:none}
+.tbl_board td a:hover,.tbl_board tbody.tb_lft td a:active,.tbl_board tbody.tb_lft td a:focus{color:#767676;text-decoration:none}
+.tbl_board td a.comment{padding-left:5px;font-weight:bold;color:#639314}
+.tbl_board td a.email{display:block}
+.tbl_board td a.download{display:block;padding:2px 0}
+.tbl_board td p{display:inline-block;color:#767676}
+.tbl_board td p.input{display:inline-block;float:left}
+.tbl_board td p.inputblock{display:block;vertical-align:middle}
+.tbl_board td p.inputblock label.check{display:inline-block;height:16px;vertical-align:top}
+.tbl_board td .select_mail{display:inline-block;float:left;margin-left:10px}
+.tbl_board td p.NLBtn{position:absolute;right:10px;}
+.tbl_board td p.desc{margin:3px 0 0;color:#999}
+.tbl_board td p.descguide{display:inline;margin:3px 0 0;color:#999;letter-spacing:0}
+.tbl_board td p.btntype{display:inline-block;float:left;margin:0 0 5px 5px}
+.tbl_board td p.txtcheck{display:inline-block;padding:5px 0 0 5px;vertical-align:middle}
+.tbl_board td p em{font-weight:bold;color:#ff2a00}
+.tbl_board td span.title,.tbl_board td span.filename,.tbl_board td span.filedel,.tbl_board td span.fileadd{display:inline-block;margin:3px;vertical-align:middle}
+.tbl_board td span.title{margin-left:0}
+
+.tbl_board td span.title2013,.tbl_board td span.filename,.tbl_board td span.filedel,.tbl_board td span.fileadd{display:inline-block;margin:3px;vertical-align:middle}
+.tbl_board td span.title2013{margin-left:0}
+
+
+
+.tbl_board td span.filename{font-weight:bold}
+.tbl_board td span.filedel{margin-top:0}
+.tbl_board td .short_item{display:none}
+.tbl_board td .short_item.open{display:inline-block}
+.tbl_board td .short_item span.txt{display:inline-block;line-height:1.25em;vertical-align:bottom;background:#fff}
+.tbl_board td .short_item_desc{display:none;margin:3px 0 0;font:normal .917em/1.25em '굴림',Gulim,AppleGothic,sans-serif;color:#767676;letter-spacing:0}
+.tbl_board td .short_item_desc.open{display:inline-block}
+.tbl_board td button.zipcode{width:65px;padding:0;margin:0 5px;border:0;background:0}
+.tbl_board .file{width:12px;height:15px;background:url(http://www.chungnam.net/images/board/ico_disket_small.gif) no-repeat left top}
+.tbl_board .pic{width:13px;height:16px;background:url(http://www.chungnam.net/images/board/ico_pic.gif) no-repeat left top}
+.tbl_board .new{width:10px;height:15px;background:url(http://www.chungnam.net/images/board/ico_new.gif) no-repeat left top}
+.tbl_board .filedown{width:16px;height:16px;background:url(http://www.chungnam.net/images/board/ico_disket.gif) no-repeat 1px 1px}
+.tbl_board .hwp{width:16px;height:16px;background:url(http://www.chungnam.net/images/board/file_hwp.gif) no-repeat left top}
+.tbl_board .doc{width:16px;height:16px;background:url(http://www.chungnam.net/images/board/file_doc.gif) no-repeat left top}
+.tbl_board .pdf{width:16px;height:16px;background:url(http://www.chungnam.net/images/board/file_pdf.gif) no-repeat left top}
+.tbl_board .xls{width:16px;height:16px;background:url(http://www.chungnam.net/images/board/file_xls.gif) no-repeat left top}
+.tbl_board .ppt{width:16px;height:16px;background:url(http://www.chungnam.net/images/board/file_ppt.gif) no-repeat left top}
+.tbl_board .view{width:16px;height:16px;background:url(http://www.chungnam.net/images/board/magnifier_left.png) no-repeat left top}
+.tbl_board .zipcodeSearch{width:65px;height:16px;background:url(http://www.chungnam.net/images/board/btn_zipcodeSearch.gif) no-repeat left top}
+.tbl_board .newwindow{width:16px;height:16px;background:url(http://www.chungnam.net/images/board/ico_newwindow.gif) no-repeat right 3px}
+.tbl_board .icon_date{width:16px;height: 16px;background:url(http://www.chungnam.net/images/board/icon_date.gif) no-repeat 3px 3px}
+.tbl_board .icoApprove01{width:54px;height:19px;background:url(http://www.chungnam.net/images/board/ico_approve.gif) no-repeat left top}
+.tbl_board .icoApprove02{width:54px;height:19px;background:url(http://www.chungnam.net/images/board/ico_approve.gif) no-repeat left -20px}
+.tbl_board .icoApprove03{width:54px;height:19px;background:url(http://www.chungnam.net/images/board/ico_approve.gif) no-repeat left -40px}
+.tbl_board .secret{width:11px;height:15px;background:url(http://www.chungnam.net/images/board/ico_secret.gif) no-repeat left top}
+.tbl_board .file,.tbl_board .pic,.tbl_board .new,.tbl_board .filedown,.tbl_board .hwp,.tbl_board .doc,.tbl_board .pdf,.tbl_board .xls,.tbl_board .ppt,.tbl_board .view,.tbl_board .zipcodeSearch,.tbl_board .newwindow,.tbl_board .icon_date,.tbl_board .secret{display:inline-block;margin:0 0 2px;padding-left:3px;font-size:0;line-height:0;vertical-align:middle;cursor:pointer}
+
+
+.tbl_board .pic,.tbl_board .new,.tbl_board .filedown,.tbl_board .hwp,.tbl_board .doc,.tbl_board .pdf,.tbl_board .xls,.tbl_board .ppt,.tbl_board .view,.tbl_board .zipcodeSearch,.tbl_board .newwindow,.tbl_board .icon_date,.tbl_board .secret{display:inline-block;margin:0 0 2px;padding-left:3px;font-size:0;line-height:0;vertical-align:middle;cursor:pointer}
+
+
+.tbl_board .icoApprove01,.tbl_board .icoApprove02,.tbl_board .icoApprove03{display:inline-block;margin-left:5px;font-size:0;line-height:0;vertical-align:middle;cursor:pointer}
+.tbl_board .file,.tbl_board .pic{margin:3px 3px 0 0}
+.tbl_board .new{margin:4px 0 0 0}
+.tbl_board .item{position:relative}
+.tbl_board .item .iHelp{position:absolute;top:4px;right:0}
+.tbl_board .item .iLabel{position:absolute;top:6px;left:6px;font:1em '굴림',Gulim;color:#767676}
+.tbl_board .item .iDesc{margin:2px 0}
+.tbl_board .item .iText{background:transparent}
+.tbl_board .item label{margin:0 10px 0 0;cursor:pointer}
+.tbl_board .profilePhoto{display:inline-block;float:left;width:75px;height:75px;margin-right:10px;border:1px solid #dadada;background:#eee;text-align:center;vertical-align:middle;line-height:1.5}
+.tbl_board thead.tb_list th,.tbl_board thead.tb_list td,.tbl_board tbody.tb_list th,.tbl_board tbody.tb_list td{border:0;border-bottom:1px solid #e8e8e8}
+/* Table View */
+.tbl_board thead.tb_lft th.title     {border-bottom:1px solid #c8c8c8;background:#fff;color:#555;text-align:center}
+.tbl_board thead.tb_lft th.title2013 {border-bottom:1px solid #c8c8c8;background:#fff;color:#555;text-align:center}
+
+.tbl_board thead.tb_lft th,.tbl_board thead.tb_lft td,.tbl_board tbody.tb_lft th,.tbl_board tbody.tb_lft td,.tbl_board tbody.tb_prevnext th,.tbl_board tbody.tb_prevnext td{text-align:left}
+.tbl_board tbody.tb_lft td{letter-spacing:0}
+.tbl_board tbody.tb_lft td.media{text-align:center}
+/* Table View PrevNext */
+.tbl_board tbody.tb_prevnext tr.tb_prev th,.tbl_board tbody.tb_prevnext tr.tb_prev td,.tbl_board tbody.tb_prevnext tr.tb_next th,.tbl_board tbody.tb_prevnext tr.tb_next td{padding:.6em 1.05em .3em;border:0;background:#fff}
+.tbl_board tbody.tb_prevnext tr.tb_prev th,.tbl_board tbody.tb_prevnext tr.tb_prev td{border-top:1px solid #acacac;border-bottom:1px solid #dadada}
+.tbl_board tbody.tb_prevnext tr.tb_next th,.tbl_board tbody.tb_prevnext tr.tb_next td{border-top:1px solid #dadada;border-bottom:1px solid #dadada}
+.tbl_board tbody.tb_prevnext .prev{display:inline-block;padding:0 0 0 12px;background:url(http://www.chungnam.net/images/board/ico_blt_prev.gif) no-repeat left 7px}
+.tbl_board tbody.tb_prevnext .next{display:inline-block;padding:0 0 0 12px;background:url(http://www.chungnam.net/images/board/ico_blt_next.gif) no-repeat left 7px}
+/* Table Write */
+/* .tbl_board thead.tb_form th,.tbl_board thead.tb_form td,.tbl_board tbody.tb_form th,.tbl_board tbody.tb_form td{padding:.7em 1.15em .6em;text-align:left} */
+
+.tbl_board thead.tb_form th,.tbl_board thead.tb_form td,.tbl_board tbody.tb_form th,.tbl_board tbody.tb_form td{padding:10px;text-align:left;}
+.tbl_board th span.import{color:#ff2a00}
+.tbl_board td div#ipt_SecDay,.tbl_board td div#ipt_SecMonth,.tbl_board td div#ipt_SecYear{display:none}
+.tbl_board td div#ipt_SecDay,.tbl_board td div#ipt_SecMonth,.tbl_board td div#ipt_SecYear{display:inline-block}
+.tbl_board td .icon_state{float:right}
+.tbl_board td .icon_state span{display: inline-block;width:25px;height: 13px;margin: 0 3px;background: url(http://www.chungnam.net/images/board/icon_state.gif) no-repeat scroll 0 0 transparent;font-size:0;line-height:0;margin-top:3px}
+.tbl_board td .icon_state span.photo{background-position:0 -15px;width:35px}
+.tbl_board td .icon_state span.main{background-position:0 -30px;width:29px}
+.tbl_board td .icon_state span.vod{background-position:0 -45px;width:29px}
+
+
+
+
+/* Table PollResult */
+.tbl_board thead.pollRes th{padding:.7em 1em .6em;border-left:1px solid #e8e8e8;border-right:1px solid #e8e8e8;text-align:left}
+.tbl_board tbody.pollRes td{padding:.5em 1em .4em;border-left:1px solid #e8e8e8;border-right:1px solid #e8e8e8}
+.webEditor{border-top:1px solid #dadada;margin-top:3px;padding-top:10px}
+span.import{color:#ff2a00}
+.tbl_board p.descript{display:block;padding-top:3px;font:1em/1.25em '굴림',Gulim,Tahoma,AppleGothic,sans-serif;color:#666}
+.descTip{display:inline-block;float:left;height:15px;padding:0 0 0 33px;margin:5px 0 0 15px;background: url(http://www.chungnam.net/images/board/ico_tip.gif) no-repeat scroll 0 3px transparent}
+
+
+/* SNS Icon */ 
+.cmnet{width:18px;height:17px;background:url(http://www.chungnam.net/images/board/ico_clog.gif) no-repeat 0 0}
+.twitter{width:18px;height:17px;background:url(http://www.chungnam.net/images/board/ico_twitter.gif) no-repeat 0 0}
+.me2day{width:18px;height:17px;background:url(http://www.chungnam.net/images/board/ico_me2day.gif) no-repeat 0 0}
+.facebook{width:18px;height:17px;background:url(http://www.chungnam.net/images/board/ico_facebook.gif) no-repeat 0 0}
+.insta{width:18px;height:17px;background:url(http://www.chungnam.net/images/board/ico_instargram.gif) no-repeat 0 0}
+.yozm{width:18px;height:17px;background:url(http://www.chungnam.net/images/board/ico_yozm.gif) no-repeat 0 0}
+.yozm{width:18px;height:17px;background:url(http://www.chungnam.net/images/board/ico_yozm.gif) no-repeat 0 0}
+.blog{width:18px;height:17px;background:url(http://www.chungnam.net/images/board/ico_blog.gif) no-repeat 0 0}
+.cmnet,.twitter,.me2day,.facebook,.yozm,.blog,.insta{display:inline-block;font-size:0;line-height:0;vertical-align:top}
+/* POLL */
+.poll_opinion{position:relative;width:100%;margin:0 0 10px 0;padding:0}
+.poll_opinion ul.poll{width:100%;padding:0;margin:0}
+.poll_opinion ul.poll li{float:left;width:100%;margin:0;padding:0}
+.poll_opinion ul.poll li.dotline{float:left;width:100%;height:1px;margin:3px 0;padding:0;border-bottom:1px dotted #E5E5E5;font-size:0;line-height:0}
+.poll_opinion ul.poll li img{margin:5px 0 0 0;vertical-align:top}
+.poll_opinion ul.poll li strong{color:#222}
+.poll_opinion ul.poll li ul.bu{margin:7px 0 0 60px;padding:0}
+.poll_opinion ul.poll li ul.bu li{float:left;width:100%;margin:0;padding:0}
+.poll_opinion ul.poll li ul.bu li.nosp{float:left;width:100%;height:8px;margin:0;padding:0;font-size:0;line-height:0}
+.poll_opinion ul.poll li ul.bu li input.radioTxt{height:21px;margin:0;padding:0;border:0;background:#fff;vertical-align:middle}
+.poll_opinion ul.poll li ul.bu li.objective{width:250px;margin:0;padding:0;background:none;font:1em/1.25em;letter-spacing:-1px}
+.poll_opinion ul.poll li ul.bu li.particnum{width:90px;margin:0;padding:0 5px 0 0;background:none;font:1em/1.25em Dotum,"돋움",Verdana;text-align:left}
+.poll_opinion ul.poll li ul.bu li.pollgraph{width:245px;height:21px;margin:0;padding:0;background:url(http://www.chungnam.net/images/board/survey_graphLine.gif) no-repeat left top;font-size:0;line-height:0}
+.poll_opinion ul.poll li ul.bu li.pollgraph img{margin:0;padding:0;vertical-align:top}
+
+
+
+
+
+#popupConts{position:relative;padding:10px;margin:0;border:2px solid #acacac;background:#fff;font:1em Tahoma, Geneva, sans-serif;color:#767676;line-height:normal;white-space:normal}
+#popupConts .item{position:relative;padding:0;margin:0}
+#popupConts .iLabel{position:absolute;top:4px;left:6px;font:1em '굴림',Gulim;color:#767676}
+#popupConts .iText{display:block}
+#popupConts p{display:inline-block}
+#popupConts .close{position:absolute;top:3px;right:3px;width:25px;height:25px;padding:0;border:0;background: url(http://www.chungnam.net/images/admin/board/btn_close_layer.gif) no-repeat 3px 3px;overflow:visible;font:11px/25px Verdana, Geneva, sans-serif;font-size:0;line-height:0;color:#767676;text-align:center;text-decoration:none !important;cursor:pointer}
+.popupPartition{clear:both;float:left;overflow:visible;position:relative;width:100%;padding:0 0 .5em;white-space:nowrap}
+.popupPartition .lSec{float:left}
+.popupPartition .rSec{float:right}
+.mediaReg{clear:both;float:left;overflow:visible;position:relative;width:280px;height:180px;padding:20px 20px 10px;margin:0;border:2px solid #dadada}
+.mediaReg dt{display:block;padding-bottom:5px;margin-bottom:5px;border-bottom:1px solid #dadada;font-weight:bold}
+.mediaReg dd{display:block;padding-bottom:15px;margin:15px 0;border-bottom:1px dotted #dadada}
+.mediaReg dd.last{margin:15px 0 0;border-bottom:0}
+.mediaReg dd.textArea{padding-bottom:0;margin:0;border-bottom:0}
+.mediaReg dd p.desc{margin:3px 0;font:normal 1em/1.25em '굴림',Gulim,AppleGothic,sans-serif;color:#767676;letter-spacing:0}
+.mediaReg dd p.txtcheck{margin:3px 0 0;font:normal 1.083em/1.25em Tahoma,AppleGothic,sans-serif;vertical-align:middle}
+.mediaReg dd p em{font-weight:bold;color:#ff2a00}
+
+
+.popup_contents{clear:both;position:relative;width:688px;padding:0;margin:0;border:1px solid #dadada;background:#fff;font-size:1em;color:#767676}
+.popup_contents .popoup_Head{position:relative;width:688px;height:25px;margin:0 auto;padding:10px 0 0 0;background:#eee;font:bold 1em '굴림',Gulim;text-align:center}
+.popup_contents .popoup_Head span{width:100%;height:20px;padding:3px 0 5px 0;text-align:center}
+.popup_contents .popoup_Foot{position:relative;height:40px;border-top:1px solid #dadada;background: none repeat scroll 0 0 #eee;text-align:center;font: normal 10px/40px tahoma;color:#767676}
+.popup_contents .popup_content{position:relative;overflow:auto;padding:10px 15px}
+.popup_contents .btn{position:absolute;right:10px;top:0}
+.popup_contents .btn span a{font:12px/2em '굴림',Gulim}
+.popup_contents .popup_content #bbs{float:none}
+/* etc */
+
+/* 아이디비번찾기 팝업 20131119 */
+#popup { background-image:none; padding:0; margin:0}
+.popup_contents02{clear:both;position:relative;width:688px;padding:0;margin:0;border:1px solid #dadada;background:#fff;font-size:1em;color:#767676}
+.popup_contents02 .popoup_Head{position:relative;width:688px;height:25px;margin:0 auto;padding:10px 0 0 0;background:#eee;font:bold 1em '굴림',Gulim;text-align:center}
+.popup_contents02 .popoup_Head span{width:100%;height:20px;padding:3px 0 5px 0;text-align:center}
+.popup_contents02 .popoup_Foot{position:relative;height:40px;border-top:1px solid #dadada;background: none repeat scroll 0 0 #eee;text-align:center;font: normal 10px/40px tahoma;color:#767676}
+.popup_contents02 .popup_content{position:relative;overflow:auto;padding:10px 15px}
+.popup_contents02 .btn{position:absolute;right:10px;top:0}
+.popup_contents02 .btn span a{font:12px/2em '굴림',Gulim}
+.popup_contents02 .popup_content #bbs{float:none}
+/* 아이디비번찾기 팝업 끝 20131119 */
+
+
+
+p.notice_title{padding-left:12px;margin-bottom:15px;background:url(http://www.chungnam.net/images/admin/common/icon_star.gif) no-repeat 0 5px;}
+p.date_icon {background:url(http://www.chungnam.net/images/admin/common/date_icon.gif) no-repeat 0 3px;padding-left:25px}
+ul.userGroup{clear:both;float:left;position:relative;width:100%}
+ul.userGroup li.userGroup_lft{display:inline-block;float:left;width:180px;margin:0 10px 0 0}
+ul.userGroup li.userGroup_rgt{display:inline-block;float:left;width:520px;margin-right:0}
+.relevantNews{overflow:auto;height:75px}
+.webEditor{border-top:1px solid #dadada;margin-top:3px;padding-top:10px}
+
+/* 충남소개 > 청사견학 > 견학Q&A CAPTCHA 적용 20140530 */
+#captcha_area {position:relative; top:30px; height:70px; 
+			padding:10px 0 10px 20px; margin-bottom:50px;
+			background-color:#f8f8f8;border:1px solid #dfdfdf;}		
+#captcha_area div {clear:both; margin-top:10px; float:left;}
+#captcha_area div span.txt {position:absolute; top:32px; left:180px; font-size:11px;}
+#captcha_area div span.txt_area {position:absolute; top:56px; left:180px; font-size:11px;}
+
+/* 산업 > 국내기업정보 > 제품게시판 적용 20150202 */
+.new_tbl_board_view_list{ border-top:1px solid #CDCDCD; margin-top:3px;}
+
+
+/* Layer Popup */
+.layer_pop{display:inline-block;float:left;margin:-2px 0 0 0;font:1em/1.5em '굴림',Gulim,Tahoma,Geneva,sans-serif;z-index:9}
+.layer_pop p{display:block;float:left;margin:0;padding:0}
+.layer_pop p span,.layer_pop p a{display:block;float:left;margin:0 2px 0 0;font:1em/1.25em '굴림',Gulim,Tahoma,Geneva,sans-serif}
+.layer_pop p a{cursor:pointer}
+.layer_pop p.cclLayerGuideBox{display:block;float:left;padding:5px 0 5px 5px;margin-right:5px;border:1px solid #e6e6e6}
+.layer_pop .question_mark{width:14px;height:15px;margin:0 5px 0 2px;margin:0 5px 0 2px;background:url(http://www.chungnam.net/images/board/btn_help.gif) no-repeat left top;font-size:0;line-height:0}
+.layer_pop .ccl_Attribution{width:15px;height:15px;margin:5px 2px 0 0;background:url(http://www.chungnam.net/images/board/ico_ccl.gif) no-repeat left top;font-size:0;line-height:0}
+.layer_pop .ccl_Noncommercial{width:15px;height:15px;margin:5px 2px 0 0;background:url(http://www.chungnam.net/images/board/ico_ccl.gif) no-repeat -25px top;font-size:0;line-height:0}
+.layer_pop .ccl_NoDerivativeWorks{width:15px;height:15px;margin:5px 2px 0 0;background:url(http://www.chungnam.net/images/board/ico_ccl.gif) no-repeat -50px top;font-size:0;line-height:0}
+.layer_pop .ccl_ShareAlike{width:15px;height:15px;margin:5px 2px 0 0;background:url(http://www.chungnam.net/images/board/ico_ccl.gif) no-repeat -75px top;font-size:0;line-height:0}
+.layer_pop .ccl_guide{display:inline-block;float:left;margin:6px 0 0 0;padding:0;z-index:9}
+.layer_pop input[type=checkbox],.layer_pop input[type=radio]{display:inline-block;float:left;margin:0;padding:0;width:13px;height:13px;vertical-align:top}
+.layer_pop label{display:inline-block;float:left;margin:0 10px 0 2px;line-height:1.4em;vertical-align:middle;cursor:pointer}
+.layer_pop *[disabled=disabled]{background:#dddddd; /* text-shadow:1px 1px 0 #ffffff; */ }
+
+.layer_pop .ccl_layer{position:absolute;left:88px;bottom:25px;left:88px;bottom:25px}
+
+.layer_pop .ccl_layer_guide{position:absolute;left:122px;bottom:28px}
+.layer_pop .ccl_layer_use{position:absolute;left:208px;bottom:27px}
+.layer_pop .copylink_layer{position:absolute;right:0;bottom:-45px/*bottom:30px*/}
+.layer_pop .layerClose{position:absolute;top:3px;right:4px;width:19px;height:19px;background:url(http://www.chungnam.net/images/board/btn_close_layer2.gif) no-repeat left top;font-size:0;line-height:0}
+.layer_pop .layerBlur{visibility:hidden;overflow:hidden;position:absolute;top:0;left:0;font-size:0;line-height:0}
+.layer_pop .content{position:relative;float:left;padding:3px 25px 5px 9px;border:1px solid #919191;background:#fff;font:1em/1.25em '돋움',Dotum,Tahoma,Geneva,sans-serif;text-align:left}
+.layer_pop .content p{display:block;width:100%;margin:0;padding:5px 0}
+.layer_pop .content ul{display:block;width:100%;margin:0}
+.layer_pop .content ul li{display:block;float:left;height:16px;margin:0 3px 0 0}
+.layer_pop .content ul li span{display:block;float:left;height:15px;margin:0 5px 0 0}
+.layer_pop .content ul li.social{display:block;float:left;height:16px;margin:0 2px 0 0}
+.layer_pop .content ul li.social_tit{display:block;float:left;height:16px;margin:2px 6px 0 0}
+.layer_pop button{display:inline-block !important;overflow:visible;float:left;width:19px;height:19px;margin:0;padding:0;border:0;background:#fff url(http://www.chungnam.net/images/board/blank.gif) no-repeat left top;cursor:pointer}
+.layer_pop .content dl.ccl_check{display:block;width:183px;margin:0;padding:5px 0 0 0}
+.layer_pop .content dl.ccl_check dt,.layer_pop .content dl.ccl_check dd{display:inline-block;float:left;height:16px}
+.layer_pop .content dl.ccl_check dt{width:85px;padding:0}
+.layer_pop .content dl.ccl_check dt span{display:inline-block;float:left;height:15px;margin:0 3px 0 0}
+.layer_pop .content dl.ccl_check dd{width:95px;margin:0}
+.layer_pop .content dl.ccl_check dd label{display:inline-block;float:left}
+.layer_pop .ccl_layer_position{position:absolute;width:9px;height:6px;bottom:-6px; /* _bottom:-8px; */ left:11px;background:url(http://www.chungnam.net/images/board/bg_layer_edge2.gif) no-repeat;}
+.layer_pop .copylink_layer_position{position:absolute;width:9px;height:8px;top:-6px;top:-6px;left:100px;background:url(http://www.chungnam.net/images/board/bg_layer_edge.gif) no-repeat}
+
+.labHide {position:absolute;left:-1000px;top:-1000px;font-size:0;} 
+
+/* 여성인재DB등록 */
+.woman_board{clear:both;position:relative;width:100%;border-collapse:collapse;border-top:1px solid #cdcdcd;border-bottom:1px solid #cdcdcd;background:#fff;font-size:1em;line-height:1.5em;color:#555}
+.woman_board th,.tbl_board td{padding: 7px;border:1px solid #cdcdcd;text-align:center;letter-spacing:0;}
+.woman_board th{background:#f4f4f4;}
+.woman_board td{color:#666; border-right:1px solid #cdcdcd; text-align:center !important; border-bottom:1px solid #cdcdcd;padding:5px 0}
+.woman_board td:first-child {border-left:1px solid #cdcdcd;}
+.w95per {width:85% !important;border:1px solid #cdcdcd;padding:8px;box-sizing: border-box;}
+.w35per {width:35% !important;border:1px solid #cdcdcd;padding:8px;box-sizing: border-box;}
+.w55per {width:55% !important;border:1px solid #cdcdcd;padding:8px;box-sizing: border-box;}
+.w30per {width:30% !important;border:1px solid #cdcdcd;padding:8px;box-sizing: border-box;}
+.w60pix {width:60px !important;border:1px solid #cdcdcd;padding:8px;box-sizing: border-box;}
+.w10pix {width:20px !important;border:1px solid #cdcdcd;padding:8px 4px;box-sizing: border-box;}
+
+.woman_choice {padding:1px;border:1px solid #bbb; height:32px; vertical-align: middle; font-size:14px; min-width:100px; -webkit-appearance:menulist;
+	background:#fff url(http://www.chungnam.net/images/common/relation_select_bg.jpg) no-repeat 100% top;} 
+.woman_board .text_left {text-align:left !important; }
+
+.text_area_forwoman {border:1px solid #cdcdcd; height:70px; width:100%; padding:15px; box-sizing: border-box;}
+
+
+/* 게시판 view 상세화면 */
+.basic_view {border-top:1px solid #ccc;font-size:14px;}
+.basic_view > dl > dt, .basic_view > dl > dd{ padding:13px 10px;border-bottom:1px solid #ccc;}
+.basic_view > dl > dt{font-weight:600;font-size:16px;background-color:#fafafa;border-bottom:1px solid #adadad;text-align: center;color:#222;}
+.basic_view > dl > dd span{display:inline-block;}
+.basic_view > dl > dd span.tit{font-weight:600;padding-left:8%;font-size:14px;width: 21%;}
+.basic_view > dl > dd span.tit:first-child{padding-left:0;}
+.basic_view > dl > dd span.txt_info{font-size:14px;}
+
+.basic_view > dl > dt, .basic_view > dl > dd.viewinfo_02{padding:13px 10px;border-bottom:1px solid #ccc;}
+.basic_view > dl > dd.viewinfo_02 span{display:inline-block;}
+.basic_view > dl > dd.viewinfo_02 span.tit{font-weight:600;width: 21%;padding-left:4%;vertical-align: top;font-size:14px;color:#444;}
+.basic_view > dl > dd.viewinfo_02 span.tit:first-child{padding-left:0;}
+.basic_view > dl > dd.viewinfo_02 span.txt_info{ padding:0; width:70%; font-size:14px;}
+
+@media screen and (min-width:1px) and (max-width:700px) {
+	.basic_view > dl > dd.viewfile a{ padding:5px 10px 5px 0;}
+	.basic_view > dl > dd span.tit, .basic_view > dl > dd span.txt_info{ padding-left:0; width:50%; margin:5px 0;}
+	.basic_view > dl > dd span.tit{ border-right:1px dashed #ccc; width:30%; margin-right:10%;}
+	.viewlist > dl > dt{ width:20%;}
+	.viewlist > dl > dd{ width:70%;}
+	.basic_view > dl > dd.viewinfo_02 span.tit, .basic_view > dl > dd.viewinfo_02 span.txt_info{padding-left:0; width:50%; margin:5px 0;}
+	.basic_view > dl > dd.viewinfo_02 span.tit{border-right:1px dashed #ccc;width:30%;margin-right:10%;}
+}
+
+@media screen and (min-width:1px) and (max-width:800px) {
+	.w35per {width:100% !important;}
+	.w55per {width:100% !important;}
+}
+
+
+/************************************************************* 반응형 **************************************************************************/
+
+
+@media screen and (min-width:1px) and (max-width:500px) {
+	
+}
+
+#contents .tbl_basic img{width:auto !important;}
+
+
+/* 게시판 상단설명 이미지 - 텍스트 변환 박스*/
+
+a.btn_link_inlinebox{ font-weight:bold; display:inline-block; padding:5px 10px; border:1px solid #2c4fae; color:#2c4fae; border-radius:4px; font-size: 14px; line-height: 15px;}
+
+.point_red {color:#9e1e1e}
+.point_blue {color:#2c4fae;}
+.point_green {color:#61870d;}
+
+
+
+
+
+/* table */
+
+
+table{table-layout:auto;border-collapse:collapse;border-spacing:0; width:100%;}
+table td{padding:5px; text-align:center;}
+.table{table-layout:auto;border-collapse:collapse;border-spacing:0; width:100%; border-top:2px solid #4d4d4d; border-bottom:1px solid #959595;}
+.table th,
+.table td{font-weight:600; font-size:13px; border-left:1px solid #d9d9d9; text-align:center; border-bottom:1px solid #d9d9d9;}
+.table.font_12 th,
+.table.font_12 td{padding:5px 2px; font-size:12px;}
+.table th{padding:10px 8px; color:#222; background:#fafafa;}
+.table th.point{background:#fafafa;}
+.table td{padding:10px 20px; font-weight:normal; color:#444;}
+.table td.point{background:#fafafa;}
+
+
+
+/* 모바일로 볼때 표가 잘려서 media로 수정 */
+@media screen and (max-width:768px){
+   .pd th{padding:5px 3px;}
+   .pd td{padding:5px 8px;}
+}
+
+table.basic_table{margin-bottom: 40px; border-bottom: 2px solid #aaa;}
+.table thead th{border-bottom:1px solid #c1c1c1;}
+.table tbody th{color:#333;}
+.table ul.list li{padding-left:10px; background:url("/images/common/content/table_list_bul.gif") no-repeat left 11px}
+.table ul.list li ul li{padding-left:0px; background:none;}
+.table_top{margin:0px 0px 0px 0px; font-size:14px; color:#444;}
+.table_top_a{margin:-20px 0px 8px 0px; font-size:14px; color:#444;}
+.table_bott{margin:8px 0px 0px 0px; font-size:14px; color:#ea3639;}
+.table table.notable{table-layout:auto;border-collapse:collapse;border-spacing:0; width:100%;}
+
+.table table.no{table-layout:auto;border-collapse:collapse;border-spacing:0; width:100%;}
+.table table.no th,
+.table table.no td{border:none; padding:3px 0px;}
+
+.table .table{border-top:1px solid #4d4d4d;}
+.table .table th{background:none;}
+
+
+
+.table strong.h7, .table span.h7, .table em.h7, .table .h7 li, .table .def li .h7 li,
+.table strong.h8, .table span.h8, .table em.h8, .table .h8 li, .table .def li .h8 li{font-size:13px !important;}
+
+
+.basic_table,
+.tbl_basic{table-layout:fixed;border-collapse:collapse;border-spacing:0; width:100%; margin-top:0px; border-top:2px solid #4d4d4d; border-bottom:1px solid #959595;}
+.basic_table th,
+.basic_table td,
+.tbl_basic th,
+.tbl_basic td{word-break:break-all !important; line-height:22px; font-weight:600; font-size:13px; border-left:1px solid #d9d9d9; border-right:1px solid #d9d9d9; /*text-align:center;*/ border-bottom:1px solid #d9d9d9;}
+.basic_table th,
+.tbl_basic th{padding:10px; color:#222; background:#F3F6EF;}
+.basic_table thead th,
+.tbl_basic thead th{color:#222;}
+.basic_table th.point,
+.tbl_basic th.point{background:#fafafa;}
+.basic_table td,
+.tbl_basic td{padding:10px; font-weight:normal; text-align:center; color:#444;}
+.basic_table td.point,
+.tbl_basic td.point{background:#fafafa;}
+.basic_table tr th:first-child,
+.basic_table tr td:first-child,
+.tbl_basic tr th:first-child,
+.tbl_basic tr td:first-child{border-left:none; border-right:1px solid #d9d9d9;}
+.basic_table tr th:last-child,
+.basic_table tr td:last-child,
+.tbl_basic tr th:last-child,
+.tbl_basic tr td:last-child{border-right:none;}
+.basic_table thead th,
+.tbl_basic thead th{border-bottom:1px solid #c1c1c1;}
+.basic_table tbody th,
+.tbl_basic tbody th{color:#333;}
+.cell_left{text-align:left !important;}
+.cell_center{text-align:center !important;}
+.cell_right{text-align:right !important;}
+
+@media only all and (max-width:1120px){   
+   .table th,
+   .table td{font-size:13px;}
+}
+
+
+
+
+
+
+
+
+/* icheck */
+.icheck_wrap {display: flex;flex-wrap: wrap;}
+.icheck {display: flex;align-items: center;height: 48px;}
+.icheck.center {justify-content: center;}
+.icheck.mar {margin-right: 20px;}
+.icheck input[type="checkbox"] {outline: none;border: none;background-color: #fff;-webkit-border-radius: 0;-webkit-appearance: none;display: none;}
+.icheck input[type=checkbox]:checked + label {background-position: 0 0;}
+.icheck label {cursor: pointer;height: 22px;-webkit-box-align: center;align-items: center;display: flex;font-size: 18px;color: #555555;font-weight: 500;}
+.icheck input[type="checkbox"] + label:before {content: "";margin-right: 10px;width: 22px;display: flex;height: 22px;overflow: hidden;background-position: 0 0;background-image:url('../images/content/sub/ico_chk.png');}
+.icheck input[type="checkbox"]:checked + label:before {background-position: -22px 0;}
+
+
+/* store_search_box */
+.store_search_box {padding: 40px;background-color: #f5f6f9;border-radius: 20px;}
+.store_search_box input {max-width: 290px;height: 48px;border: 1px solid #b3b7bb;border-radius: 10px;font-size: 18px;color: #333;font-weight: 500;padding: 0 15px;width: 100%;}
+.item {overflow: hidden;margin: 15px;}
+.item .col3 {width: 33.333333333%;float: left;}
+.field {display: flex;align-items: center;}
+.field .th {font-size: 18px;color: #333;font-weight: 600;width: 85px;}
+.field .td {font-size: 18px;color: #333;font-weight: 500;flex: 1;padding-right: 15px;}
+select {max-width: 290px;height: 48px;border: 1px solid #b3b7bb;border-radius: 10px;font-size: 18px;color: #333;font-weight: 500;padding: 0 15px;width: 100%;}
