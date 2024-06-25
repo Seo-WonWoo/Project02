@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_레이어_2" data-name="레이어 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50.99 63.95">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #51db49;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-width: 0px;
+      }
+
+      .cls-3 {
+        font-family: YoonAMeolijeongche2StencilVariable, 'YoonA Meolijeongche2S Stencil Variable';
+        font-size: 18.66px;
+        font-variation-settings: 'STEN' 1;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="_레이어_1-2" data-name="레이어 1">
+    <g>
+      <g>
+        <path class="cls-1" d="m50.9,25.4C50.9,11.37,39.52,0,25.5,0S.1,11.37.1,25.4c-1.91,18.31,25.4,38.54,25.4,38.54,0,0,27.31-20.24,25.4-38.54Z"/>
+        <circle class="cls-2" cx="25.5" cy="26.14" r="17.91"/>
+      </g>
+      <text class="cls-3" transform="translate(16.5 33.76)"><tspan x="0" y="0">착</tspan></text>
+    </g>
+  </g>
+</svg>
