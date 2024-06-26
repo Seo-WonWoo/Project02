@@ -1,5 +1,6 @@
 
-
+#find_business_table tbody tr{cursor: pointer;}
+#find_business_table tbody tr:hover{background: #E9F4FF;}
 
 
 /* container */
