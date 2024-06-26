@@ -1,6 +1,6 @@
 package db.dto;
 
-public class RestaurantSectorDTO {
+public class RestaurantSectorDTO { 
 	
 	int restaurantSectorId;
 	String restaurantSectorName;
