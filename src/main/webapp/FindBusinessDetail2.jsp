@@ -98,7 +98,7 @@
 				<div class="wrap_c mt50">
 					<div class="pic">
 						<div style="background: #ddd; width: 700px; height: 400px;">
-						<img style="width: 700px; height: 400px;"" src="./images/content/main/restaurant_img/restaurant<%=restaurant.getRestaurantId() %>.jpg" alt=""></div>
+						<img style="width: 700px; height: 400px;" " src="./images/content/main/restaurant_img/restaurant<%=restaurant.getRestaurantId() %>.jpg" alt=""></div>
 						<p class="mt50">찾아오시는 길</p>
 						<div class="restaurantList mt20">
 							<div class="restaurant">
@@ -285,6 +285,7 @@
 								
 	%>
 										<li class="wrap_s">
+											<img style="width: 30px; height: 30px;" src="./images/content/sub/appraisal_icon/appraisal_icon<%=appraisalItem.getAppraisalId()%>.png" alt="">
 											<p class="review"><%=appraisalItem.getAppraisalName() %></p>
 											<p class="score ml30"><%=appraisalItem.getAppraisalCheckCount() %></p>
 										</li>								
