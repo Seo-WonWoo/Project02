@@ -4,13 +4,13 @@ public class MenuDTO {
     int restaurantId;
     int menuNumber;
     String menuName;
-    int menuPrice;
+    String menuPrice;
     int menuSectorId;
     String menuState;
 
     public MenuDTO() {}
 
-    public MenuDTO(int restaurantId, int menuNumber, String menuName, int menuPrice, int menuSectorId, String menuState) {
+    public MenuDTO(int restaurantId, int menuNumber, String menuName, String menuPrice, int menuSectorId, String menuState) {
         this.restaurantId = restaurantId;
         this.menuNumber = menuNumber;
         this.menuName = menuName;
@@ -43,11 +43,11 @@ public class MenuDTO {
         this.menuName = menuName;
     }
 
-    public int getMenuPrice() {
+    public String getMenuPrice() {
         return menuPrice;
     }
 
-    public void setMenuPrice(int menuPrice) {
+    public void setMenuPrice(String menuPrice) {
         this.menuPrice = menuPrice;
     }
 

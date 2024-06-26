@@ -251,7 +251,7 @@ public class RestaurantDAO {
 		       List<MenuDTO> menuList = null;
 		       try {
 		           conn = DBConnectionManager.connectDB();
-		           String query = "SELECT restaurant_id, menu_number, menu_name, menu_price, menu_sector_id, menu_state FROM restaurant_menu WHERE restaurant_id = ?";
+		           String query = "SELECT restaurant_id, menu_number, menu_name, to_char(menu_price, '999,999') menu_price, menu_sector_id, menu_state FROM restaurant_menu WHERE restaurant_id = ?";
 		           psmt = conn.prepareStatement(query);
 		           psmt.setInt(1, restaurantId);
 		           rs = psmt.executeQuery();
@@ -261,7 +261,7 @@ public class RestaurantDAO {
 		                   rs.getInt("restaurant_id"),
 		                   rs.getInt("menu_number"),
 		                   rs.getString("menu_name"),
-		                   rs.getInt("menu_price"),
+		                   rs.getString("menu_price"),
 		                   rs.getInt("menu_sector_id"),
 		                   rs.getString("menu_state")
 		               );
