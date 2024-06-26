@@ -169,9 +169,9 @@
 				
 				List<RestaurantDTO> restaurantList = restaurantDAO.findRestaurantList();
 				for(RestaurantDTO restaurant : restaurantList){
-				%>							
+				%>	
 					<div class="swiper-slide box">
-						<div class="pic"></div>
+						<div class="pic"><img src="./images/content/main/restaurant_img/restaurant<%=restaurant.getRestaurantId()%>.jpg" alt=""></div>
 						<div class="info">
 							<div class="wrap">
 								<div class="title_name"><%=restaurant.getRestaurantName()%></div>
