@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import db.dto.AppraisalDTO;
-import db.dto.ConvenienceDTO;
 import db.util.DBConnectionManager;
 
 public class AppraisalDAO {

@@ -9,7 +9,6 @@ import java.util.List;
 
 import com.google.gson.Gson;
 
-import db.dto.MenuDTO;
 import db.dto.RestaurantDTO;
 import db.util.DBConnectionManager;
 
@@ -200,7 +199,7 @@ public class RestaurantDAO {
 		return restaurantList;
 	}
 		
-		 public RestaurantDTO getRestaurantById(int restaurantId) {
+	public RestaurantDTO getRestaurantById(int restaurantId) {
 		      RestaurantDTO restaurant = null;
 		      try {
 		         conn = DBConnectionManager.connectDB();
@@ -245,37 +244,9 @@ public class RestaurantDAO {
 		         DBConnectionManager.disconnectDB(conn, psmt, rs);
 		      }
 		      return restaurant;
-		   }
+	}
 
-		   public List<MenuDTO> getMenuByRestaurantId(int restaurantId) {
-		       List<MenuDTO> menuList = null;
-		       try {
-		           conn = DBConnectionManager.connectDB();
-		           String query = "SELECT restaurant_id, menu_number, menu_name, to_char(menu_price, '999,999') menu_price, menu_sector_id, menu_state FROM restaurant_menu WHERE restaurant_id = ?";
-		           psmt = conn.prepareStatement(query);
-		           psmt.setInt(1, restaurantId);
-		           rs = psmt.executeQuery();
-		           menuList = new ArrayList<MenuDTO>();
-		           while (rs.next()) {
-		               MenuDTO menu = new MenuDTO(
-		                   rs.getInt("restaurant_id"),
-		                   rs.getInt("menu_number"),
-		                   rs.getString("menu_name"),
-		                   rs.getString("menu_price"),
-		                   rs.getInt("menu_sector_id"),
-		                   rs.getString("menu_state")
-		               );
-		               menuList.add(menu);
-		           }
-		       } catch (SQLException e) {
-		           e.printStackTrace();
-		       } finally {
-		           DBConnectionManager.disconnectDB(conn, psmt, rs);
-		       }
-		       return menuList;
-		   }
-
-		   public String getRestaurantListJson() {
+	public String getRestaurantListJson() {
 		      List<RestaurantDTO> restaurantList = findRestaurantList();
 		      return new Gson().toJson(restaurantList);
 	}

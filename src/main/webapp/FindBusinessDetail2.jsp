@@ -1,6 +1,7 @@
-<%@ page import="db.dao.RestaurantDAO"%>
 <%@ page import="db.dto.RestaurantDTO"%>
+<%@ page import="db.dao.RestaurantDAO"%>
 <%@ page import="db.dto.MenuDTO"%>
+<%@ page import="db.dao.MenuDAO"%>
 <%@ page import="db.dto.ConvenienceDTO"%>
 <%@ page import="db.dao.ConvenienceDAO"%>
 <%@ page import="db.dto.AppraisalDTO"%>
@@ -52,7 +53,8 @@
 			int restaurantId = Integer.parseInt(restaurantIdParam);
 			RestaurantDAO restaurantDAO = new RestaurantDAO();
 			RestaurantDTO restaurant = restaurantDAO.getRestaurantById(restaurantId);
-			List<MenuDTO> menuList = restaurantDAO.getMenuByRestaurantId(restaurantId);
+			MenuDAO menuDAO = new MenuDAO();
+			List<MenuDTO> menuList = menuDAO.getMenuByRestaurantId(restaurantId);
 	%>
 	<%
 	// DAO 객체 생성
@@ -297,6 +299,7 @@
 				</div>
 				<div class="evaluation">
 							<div class="inner">
+								<form action="appraisal_action.jsp" method="get" id="appraisal_form">
 								<div class="box mb70">
 									<div class="wrap_s">
 										<div class="title_maininfo wrap_s">
@@ -321,8 +324,9 @@
 	%>
 									</div>
 
-									<div class="btn2">평가제출</div>
+									<div class="btn2" onclick="reviewSubmit()">평가제출</div>
 								</div>
+								</form>
 							</div>
 						</div>
 					</div>
@@ -378,6 +382,12 @@
 	// 예: 오류 메시지 출력 또는 리다이렉트 등
 	}
 	%>
-
+	<script>
+		function reviewSubmit(){
+			document.getElementById('appraisal_form').submit();
+			alert('리뷰평가 제출하였습니다.');
+		}
+		
+	</script>
 </body>
 </html>
