@@ -26,6 +26,10 @@
 .evaluation .box .btn2{text-align: center; padding: 15px 0; float: right;}
 .evaluation .icheck_wrap{margin-left: 40px;}
 .evaluation .icheck_wrap .icheck{margin-right: 50px;}
+.evaluation .answer_sel{border-bottom: 1px solid #c7d2dd; padding-bottom: 20px; margin-left: 40px;}
+.evaluation .answer_sel label{font-size: 20px;}
+.evaluation .answer_sel input{margin-left: 20px; width: 20px;}
+.evaluation .answer_sel input:first-child{margin: 0;}
 
 
 /* pagenation */
