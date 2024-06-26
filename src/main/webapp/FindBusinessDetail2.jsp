@@ -277,7 +277,7 @@
 							</div>
 							<ul class="gnb">
 							<%
-							AppraisalDAO appraisalDAO = new AppraisalDAO();
+							AppraisalDAO appraisalDAO = new AppraisalDAO(); 
 							List<AppraisalDTO> appraisal = appraisalDAO.getAppraisalListByRestaurantId(restaurant.getRestaurantId());
 							if(appraisal != null){
 								for(AppraisalDTO appraisalItem : appraisal){
@@ -309,12 +309,25 @@
 										</div>
 									</div>
 
+									<div class="answer_sel mt10 mb20">
+										<input name="stsfc_scr" type="radio"  value="5">
+										<label for="answer01">5점(매우 만족)</label>
+										 <input name="stsfc_scr" type="radio"  value="4">
+										<label for="answer02">4점(만족)</label> 
+										<input name="stsfc_scr" type="radio"  value="3"> 
+										<label for="answer03">3점(보통)</label>
+										<input name="stsfc_scr" type="radio" value="2">
+										<label for="answer04">2점(불만)</label> 
+										<input name="stsfc_scr" type="radio" value="1"> 
+										<label for="answer05">1점(매우 불만)</label>
+									</div>
+
 									<div class="icheck_wrap">
 									
-	<%							
-							List<AppraisalDTO> appraisalList = appraisalDAO.getAppraisalList();
-							for(AppraisalDTO appraisalItem : appraisalList){
-	%>
+	<%
+										List<AppraisalDTO> appraisalList = appraisalDAO.getAppraisalList();
+										for (AppraisalDTO appraisalItem : appraisalList) {
+										%>
 										<div class="icheck mar">
 											<input type="checkbox" name="select<%=appraisalItem.getAppraisalId() %>" id="select<%=appraisalItem.getAppraisalId() %>"> <label
 												for="select<%=appraisalItem.getAppraisalId() %>"><%=appraisalItem.getAppraisalName() %></label>
