@@ -1,6 +1,11 @@
-<%@ page import="db.dao.RestaurantDAO"%>
 <%@ page import="db.dto.RestaurantDTO"%>
+<%@ page import="db.dao.RestaurantDAO"%>
 <%@ page import="db.dto.MenuDTO"%>
+<%@ page import="db.dao.MenuDAO"%>
+<%@ page import="db.dto.ConvenienceDTO"%>
+<%@ page import="db.dao.ConvenienceDAO"%>
+<%@ page import="db.dto.AppraisalDTO"%>
+<%@ page import="db.dao.AppraisalDAO"%>
 <%@ page import="java.util.List"%>
 <%@ page import="com.google.gson.Gson"%> 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -48,9 +53,10 @@
 			int restaurantId = Integer.parseInt(restaurantIdParam);
 			RestaurantDAO restaurantDAO = new RestaurantDAO();
 			RestaurantDTO restaurant = restaurantDAO.getRestaurantById(restaurantId);
-			List<MenuDTO> menuList = restaurantDAO.getMenuByRestaurantId(restaurantId);
+			MenuDAO menuDAO = new MenuDAO();
+			List<MenuDTO> menuList = menuDAO.getMenuByRestaurantId(restaurantId);
 	%>
-	<% 
+	<%
 	// DAO 객체 생성
 	RestaurantDAO restaurantListDAO = new RestaurantDAO();
 	// DAO를 통해 데이터베이스에서 모든 레스토랑 리스트 가져오기
@@ -91,7 +97,8 @@
 
 				<div class="wrap_c mt50">
 					<div class="pic">
-						<div style="background: #ddd; width: 700px; height: 400px;"></div>
+						<div style="background: #ddd; width: 700px; height: 400px;">
+						<img style="width: 700px; height: 400px;"" src="./images/content/main/restaurant_img/restaurant<%=restaurant.getRestaurantId() %>.jpg" alt=""></div>
 						<p class="mt50">찾아오시는 길</p>
 						<div class="restaurantList mt20">
 							<div class="restaurant">
@@ -248,9 +255,20 @@
 							</ul>
 						</div>
 						<ul class="title_submenu wrap_s mb40">
-							<li class="lnb">포장</li>
-							<li class="lnb">예약</li>
-							<li class="lnb">남녀화장실구분</li>
+							<%
+							ConvenienceDAO convenienceDAO = new ConvenienceDAO();
+							List<ConvenienceDTO> convenienceList = convenienceDAO.getConvenienceListByRestaurantId(restaurant.getRestaurantId());
+							if(convenienceList != null){
+								for(ConvenienceDTO convenience : convenienceList){
+									if(convenience.getConvenienceId() > 0){	
+								
+	%>
+										<li class="lnb"><%=convenience.getConvenienceName()%></li>
+	<%
+									}
+								}
+							}
+	%>
 						</ul>
 						<div class="box mb30">
 							<div class="title_maininfo wrap_s">
@@ -258,40 +276,30 @@
 								<p class="ml20">리뷰</p>
 							</div>
 							<ul class="gnb">
-								<li class="wrap_s">
-									<p class="review">매장이 깨끗해요</p>
-									<p class="score ml30">70</p>
-								</li>
-								<li class="wrap_s">
-									<p class="review">매장이 넓어요</p>
-									<p class="score ml30">55</p>
-								</li>
-								<li class="wrap_s">
-									<p class="review">맛이 있어요</p>
-									<p class="score ml30">43</p>
-								</li>
-								<li class="wrap_s">
-									<p class="review">재료가 신선해요</p>
-									<p class="score ml30">22</p>
-								</li>
-								<li class="wrap_s">
-									<p class="review">특별한 날 오기 좋아요</p>
-									<p class="score ml30">15</p>
-								</li>
-								<li class="wrap_s">
-									<p class="review">좌석이 편해요</p>
-									<p class="score ml30">4</p>
-								</li>
-								<li class="wrap_s">
-									<p class="review">청소가 잘되어있어요</p>
-									<p class="score ml30">1</p>
-								</li>
+							<%
+							AppraisalDAO appraisalDAO = new AppraisalDAO();
+							List<AppraisalDTO> appraisal = appraisalDAO.getAppraisalListByRestaurantId(restaurant.getRestaurantId());
+							if(appraisal != null){
+								for(AppraisalDTO appraisalItem : appraisal){
+									if(appraisalItem.getAppraisalId() > 0){	
+								
+	%>
+										<li class="wrap_s">
+											<p class="review"><%=appraisalItem.getAppraisalName() %></p>
+											<p class="score ml30"><%=appraisalItem.getAppraisalCheckCount() %></p>
+										</li>								
+	<%
+									}
+								}
+							}
+	%>
 							</ul>
 						</div>
 						
 				</div>
 				<div class="evaluation">
 							<div class="inner">
+								<form action="appraisal_action.jsp" method="get" id="appraisal_form">
 								<div class="box mb70">
 									<div class="wrap_s">
 										<div class="title_maininfo wrap_s">
@@ -301,66 +309,24 @@
 									</div>
 
 									<div class="icheck_wrap">
+									
+	<%							
+							List<AppraisalDTO> appraisalList = appraisalDAO.getAppraisalList();
+							for(AppraisalDTO appraisalItem : appraisalList){
+	%>
 										<div class="icheck mar">
-											<input type="checkbox" name="AllcheckYn" id="AllcheckYn">
-											<label for="AllcheckYn">매장이 깨끗해요</label>
-										</div>
-										<div class="icheck mar">
-											<input type="checkbox" name="select" id="select1"> <label
-												for="select1">매장이 넓어요</label>
-										</div>
-										<div class="icheck mar">
-											<input type="checkbox" name="select" id="select2"> <label
-												for="select2">맛이 있어요</label>
-										</div>
-										<div class="icheck mar">
-											<input type="checkbox" name="select" id="select3"> <label
-												for="select3">재료가 신선해요</label>
-										</div>
-										<div class="icheck mar">
-											<input type="checkbox" name="select" id="select4"> <label
-												for="select4">특별한 날 오기 좋아요</label>
-										</div>
-										<div class="icheck mar">
-											<input type="checkbox" name="select" id="select5"> <label
-												for="select5">좌석이 편해요</label>
-										</div>
-										<div class="icheck mar">
-											<input type="checkbox" name="select" id="select6"> <label
-												for="select6">청소가 잘되어있어요</label>
-										</div>
-										<div class="icheck mar">
-											<input type="checkbox" name="select" id="select7"> <label
-												for="select7">매장이 깨끗해요</label>
-										</div>
-										<div class="icheck mar">
-											<input type="checkbox" name="select" id="select8"> <label
-												for="select8">매장이 넓어요</label>
-										</div>
-										<div class="icheck mar">
-											<input type="checkbox" name="select" id="select9"> <label
-												for="select9">맛이 있어요</label>
-										</div>
-										<div class="icheck mar">
-											<input type="checkbox" name="select" id="select10"> <label
-												for="select10">재료가 신선해요</label>
-										</div>
-										<div class="icheck mar">
-											<input type="checkbox" name="select" id="select11"> <label
-												for="select11">특별한 날 오기 좋아요</label>
-										</div>
-										<div class="icheck mar">
-											<input type="checkbox" name="select" id="select12"> <label
-												for="select12">좌석이 편해요</label>
-										</div>
-										<div class="icheck mar">
-											<input type="checkbox" name="select" id="select13"> <label
-												for="select13">청소가 잘되어있어요</label>
-										</div>
+											<input type="checkbox" name="select<%=appraisalItem.getAppraisalId() %>" id="select<%=appraisalItem.getAppraisalId() %>"> <label
+												for="select<%=appraisalItem.getAppraisalId() %>"><%=appraisalItem.getAppraisalName() %></label>
+										</div>							
+	<%
+									
+							}
+	%>
 									</div>
 
-									<div class="btn2">평가제출</div>
+									<div class="btn2" onclick="reviewSubmit()">평가제출</div>
 								</div>
+								</form>
 							</div>
 						</div>
 					</div>
@@ -416,6 +382,12 @@
 	// 예: 오류 메시지 출력 또는 리다이렉트 등
 	}
 	%>
-
+	<script>
+		function reviewSubmit(){
+			document.getElementById('appraisal_form').submit();
+			alert('리뷰평가 제출하였습니다.');
+		}
+		
+	</script>
 </body>
 </html>
