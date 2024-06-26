@@ -1,3 +1,14 @@
+<%@ page import="db.dto.RestaurantSectorDTO"%>
+<%@ page import="db.dao.RestaurantSectorDAO"%>
+<%@ page import="db.dto.CertificationDTO"%>
+<%@ page import="db.dao.CertificationDAO"%>
+<%@ page import="db.dto.RestaurantDTO"%>
+<%@ page import="db.dao.RestaurantDAO"%>
+<%@ page import="db.dto.ConvenienceDTO"%>
+<%@ page import="db.dao.ConvenienceDAO"%>
+<%@ page import="db.dto.MenuSectorDTO"%>
+<%@ page import="db.dao.MenuSectorDAO"%>
+<%@ page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -87,24 +98,32 @@
 							<div class="col3">
 								<div class="field">
 									<div class="td">
-										<label style="display: none">평점</label> <select>
-											<option value="">평점</option>
-											<option>5.0 ~ 4.0</option>
-											<option>4.0 ~ 3.0</option>
-											<option>3.0 ~ 2.0</option>
+										<label style="display: none">업종</label> <select>
+											<option value="" selected>업종 전체</option>
+    <%
+										    RestaurantSectorDAO restaurantSectorDAO = new RestaurantSectorDAO();
+											List<RestaurantSectorDTO> restaurantSectorList = restaurantSectorDAO.getRestaurantSectorList();							
+										    for(RestaurantSectorDTO restaurantSector : restaurantSectorList){
+    %>
+    										<option value=<%=restaurantSector.getRestaurantSectorId()%> ><%=restaurantSector.getRestaurantSectorName()%></option>
+    <%	
+    										}    
+    %> 
 										</select>
 									</div>
 
 									<div class="td ml30">
-										<label style="display: none">가격</label> <select>
-											<option value="">가격</option>
-											<option>10000원 이하</option>
-											<option>9000원 이하</option>
-											<option>8000원 이하</option>
-											<option>7000원 이하</option>
-											<option>6000원 이하</option>
-											<option>5000원 이하</option>
-											<option>4000원 이하</option>
+										<label style="display: none">인증 구분</label> <select>
+											<option value="" selected>인증 전체</option>
+	<%
+											CertificationDAO certificationDAO = new CertificationDAO();
+											List<CertificationDTO> certificationList = certificationDAO.getCertificationList();																		
+											for(CertificationDTO certification : certificationList){
+    %>
+											<option value=<%=certification.getCertificationId() %> ><%=certification.getCertificationName() %></option>
+    <%	
+    										}    
+    %>
 										</select>
 									</div>
 								</div>
@@ -143,34 +162,55 @@
 
 			<div class="swiper-container business_list">
 				<div class="swiper-wrapper">
+				
+				<%
+				RestaurantDAO restaurantDAO = new RestaurantDAO();
+				ConvenienceDAO convenienceDAO = new ConvenienceDAO();
+				
+				List<RestaurantDTO> restaurantList = restaurantDAO.findRestaurantList();
+				for(RestaurantDTO restaurant : restaurantList){
+				%>							
 					<div class="swiper-slide box">
 						<div class="pic"></div>
 						<div class="info">
 							<div class="wrap">
-								<div class="title_name">보라곤돌이11111111</div>
+								<div class="title_name"><%=restaurant.getRestaurantName()%></div>
 								<div class="title_scor wrap">
 									<div class="star">
 										<img src="./images/content/main/Icon fa-solid-star.svg" alt="">
 									</div>
-									<p class="scor ml10">4.9</p>
+									<p class="scor ml10"><%=restaurant.getStarScore()%></p>
 								</div>
 							</div>
 							<div class="title_phon wrap_s mb20">
 								<img src="./images/content/main/Icon fa-solid-phone-flip.svg"
 									alt="">
-								<p class="ml10">042-0000-0000</p>
+								<p class="ml10"><%=restaurant.getRestaurantTel()%></p>
 							</div>
 							<div class="wrap_s mb30">
-								<div class="title_menu">보리밥</div>
-								<div class="title_price ml20">5,000원</div>
+								<div class="title_menu"><%=restaurant.getMenuName()%></div>
+								<div class="title_price ml20"><%=restaurant.getMenuPrice()%>원</div>
 							</div>
 							<ul class="title_submenu wrap_s">
-								<li class="lnb">포장</li>
-								<li class="lnb">예약</li>
-								<li class="lnb">남녀화장실구분</li>
+	<%		
+							List<ConvenienceDTO> convenienceList = convenienceDAO.getConvenienceListByRestaurantId(restaurant.getRestaurantId());
+							if(convenienceList != null){
+								for(ConvenienceDTO convenience : convenienceList){
+									if(convenience.getConvenienceId() > 0){	
+								
+	%>
+										<li class="lnb"><%=convenience.getConvenienceName()%></li>
+	<%
+									}
+								}
+							}
+	%>
 							</ul>
 						</div>
 					</div>
+	<%
+				}
+	%>
 
 					<div class="swiper-slide box">
 						<div class="pic"></div>
@@ -397,145 +437,40 @@
 
 			<div class="swiper-container business_list">
 				<div class="swiper-wrapper">
+				
+			<%
+				List<RestaurantDTO> shutDouwnRestaurantList = restaurantDAO.shutDownRestaurantList();
+				String falseStr = "F";
+				String pending = "P";
+				for(RestaurantDTO shutDouwnRestaurant : shutDouwnRestaurantList){
+			%>
 					<div class="swiper-slide box">
 						<div class="info">
+			<%
+					if(shutDouwnRestaurant.getRestaurantState().equals(falseStr)) {
+			%>		
 							<div class="title_approval">승인완료</div>
-							<div class="wrap">
-								<div class="title_name mb20">보라곤돌이11111111</div>
-							</div>
-							<div class="title_phon wrap_s mb20">
-								<img src="./images/content/main/Icon fa-solid-phone-flip.svg"
-									alt="">
-								<p class="ml10">042-0000-0000</p>
-							</div>
-							<div class="title_data wrap_s">
-								<img
-									src="./images/content/main/Icon material-calendar-today.svg"
-									alt="">
-								<p class="ml10">2024-06-22</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="swiper-slide box">
-						<div class="info">
-							<div class="title_approval">승인완료</div>
-							<div class="wrap">
-								<div class="title_name mb20">보라곤돌이11111111</div>
-							</div>
-							<div class="title_phon wrap_s mb20">
-								<img src="./images/content/main/Icon fa-solid-phone-flip.svg"
-									alt="">
-								<p class="ml10">042-0000-0000</p>
-							</div>
-							<div class="title_data wrap_s">
-								<img
-									src="./images/content/main/Icon material-calendar-today.svg"
-									alt="">
-								<p class="ml10">2024-06-22</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="swiper-slide box">
-						<div class="info">
-							<div class="title_approval">승인완료</div>
-							<div class="wrap">
-								<div class="title_name mb20">보라곤돌이11111111</div>
-							</div>
-							<div class="title_phon wrap_s mb20">
-								<img src="./images/content/main/Icon fa-solid-phone-flip.svg"
-									alt="">
-								<p class="ml10">042-0000-0000</p>
-							</div>
-							<div class="title_data wrap_s">
-								<img
-									src="./images/content/main/Icon material-calendar-today.svg"
-									alt="">
-								<p class="ml10">2024-06-22</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="swiper-slide box">
-						<div class="info">
+			<%
+					} else if (shutDouwnRestaurant.getRestaurantState().equals(pending)) {
+			%>
 							<div class="title_approval active">승인대기</div>
-							<div class="wrap">
-								<div class="title_name mb20">보라곤돌이11111111</div>
+			<%
+					}
+			%>
+							<div class="wrap">								
+								<div class="title_name mb20"><%=shutDouwnRestaurant.getRestaurantName()%></div>
 							</div>
 							<div class="title_phon wrap_s mb20">
 								<img src="./images/content/main/Icon fa-solid-phone-flip.svg"
 									alt="">
-								<p class="ml10">042-0000-0000</p>
-							</div>
-							<div class="title_data wrap_s">
-								<img
-									src="./images/content/main/Icon material-calendar-today.svg"
-									alt="">
-								<p class="ml10">승인 대기중입니다</p>
-							</div>
+								<p class="ml10"><%=shutDouwnRestaurant.getRestaurantTel() %></p>
+							</div>							
 						</div>
 					</div>
+			<%
+				}
+			%>
 
-					<div class="swiper-slide box">
-						<div class="info">
-							<div class="title_approval">승인완료</div>
-							<div class="wrap">
-								<div class="title_name mb20">보라곤돌이11111111</div>
-							</div>
-							<div class="title_phon wrap_s mb20">
-								<img src="./images/content/main/Icon fa-solid-phone-flip.svg"
-									alt="">
-								<p class="ml10">042-0000-0000</p>
-							</div>
-							<div class="title_data wrap_s">
-								<img
-									src="./images/content/main/Icon material-calendar-today.svg"
-									alt="">
-								<p class="ml10">2024-06-22</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="swiper-slide box">
-						<div class="info">
-							<div class="title_approval">승인완료</div>
-							<div class="wrap">
-								<div class="title_name mb20">보라곤돌이11111111</div>
-							</div>
-							<div class="title_phon wrap_s mb20">
-								<img src="./images/content/main/Icon fa-solid-phone-flip.svg"
-									alt="">
-								<p class="ml10">042-0000-0000</p>
-							</div>
-							<div class="title_data wrap_s">
-								<img
-									src="./images/content/main/Icon material-calendar-today.svg"
-									alt="">
-								<p class="ml10">2024-06-22</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="swiper-slide box">
-						<div class="info">
-							<div class="title_approval">승인완료</div>
-							<div class="wrap">
-								<div class="title_name mb20">보라곤돌이11111111</div>
-							</div>
-							<div class="title_phon wrap_s mb20">
-								<img src="./images/content/main/Icon fa-solid-phone-flip.svg"
-									alt="">
-								<p class="ml10">042-0000-0000</p>
-							</div>
-							<div class="title_data wrap_s">
-								<img
-									src="./images/content/main/Icon material-calendar-today.svg"
-									alt="">
-								<p class="ml10">2024-06-22</p>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 	</section>
@@ -544,62 +479,24 @@
 		<div class="inner">
 			<h1 class="mb50">주요 외식메뉴 가격 비교</h1>
 			<div class="wrap mb40">
+			<%
+				MenuSectorDAO menuSectorDAO = new MenuSectorDAO();
+				List<MenuSectorDTO> menuSectorList = menuSectorDAO.getMenuSectorList();
+				for(MenuSectorDTO menuSector : menuSectorList){
+					if(menuSector.getMenuSectorId() <= 8){
+			%>
 				<div class="box">
 					<div class="pic">
-						<img src="./images/content/main/menu_icon/icon_tab1.svg" alt="">
+						<img src="./images/content/main/menu_icon/icon_tab<%=menuSector.getMenuSectorId() %>.svg" alt="">
 					</div>
-					<p class="menu_name">김밥</p>
-					<p class="menu_price">3,391원</p>
-				</div>
-				<div class="box">
-					<div class="pic">
-						<img src="./images/content/main/menu_icon/icon_tab2.svg" alt="">
-					</div>
-					<p class="menu_name">김치찌개 백반</p>
-					<p class="menu_price">3,391원</p>
-				</div>
-				<div class="box">
-					<div class="pic">
-						<img src="./images/content/main/menu_icon/icon_tab3.svg" alt="">
-					</div>
-					<p class="menu_name">냉면</p>
-					<p class="menu_price">3,391원</p>
-				</div>
-				<div class="box">
-					<div class="pic">
-						<img src="./images/content/main/menu_icon/icon_tab4.svg" alt="">
-					</div>
-					<p class="menu_name">비빔밥</p>
-					<p class="menu_price">3,391원</p>
-				</div>
-				<div class="box">
-					<div class="pic">
-						<img src="./images/content/main/menu_icon/icon_tab5.svg" alt="">
-					</div>
-					<p class="menu_name">삼계탕</p>
-					<p class="menu_price">3,391원</p>
-				</div>
-				<div class="box">
-					<div class="pic">
-						<img src="./images/content/main/menu_icon/icon_tab6.svg" alt="">
-					</div>
-					<p class="menu_name">짜장면</p>
-					<p class="menu_price">3,391원</p>
-				</div>
-				<div class="box">
-					<div class="pic">
-						<img src="./images/content/main/menu_icon/icon_tab7.svg" alt="">
-					</div>
-					<p class="menu_name">칼국수</p>
-					<p class="menu_price">3,391원</p>
-				</div>
-				<div class="box">
-					<div class="pic">
-						<img src="./images/content/main/menu_icon/icon_tab8.svg" alt="">
-					</div>
-					<p class="menu_name">삼겹살</p>
-					<p class="menu_price">3,391원</p>
-				</div>
+					<p class="menu_name"><%=menuSector.getMenuSectorName()%></p>
+					<p class="menu_price"><%=menuSector.getMenuSectorPrice()%>원</p>
+				</div>			
+			<%
+				 	}
+				}
+			
+			%>
 			</div>
 		</div>
 	</section>

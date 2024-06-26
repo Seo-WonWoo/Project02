@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import db.dto.ProductDTO;
 import db.dto.RestaurantDTO;
 import db.util.DBConnectionManager;
 
@@ -25,8 +24,10 @@ public class RestaurantDAO {
 			conn = DBConnectionManager.connectDB();
 			
 			String query = " select "
+							+ " rl.restaurant_id restaurant_id, "
 							+ " rl.restaurant_name restaurant_name, "
-							+ " rm.menu_name menu_name, "							
+							+ " rl.restaurant_tel restaurant_tel, "
+							+ " rm.menu_name menu_name, "
 							+ " to_char(nvl(rm.menu_price, 0), '999,999') menu_price, "
 							+ " round(rss.star_score, 1) star_score, "
 							+ " rl.restaurant_address restaurant_address "
@@ -46,7 +47,9 @@ public class RestaurantDAO {
 							+ " and rm.menu_number = 1 "
 							+ " and rl.restaurant_state = 'T' "
 							+ " group by "
+							+ " rl.restaurant_id, "
 							+ " rl.restaurant_name, "
+							+ " rl.restaurant_tel, "
 							+ " rm.menu_name, "
 							+ " rm.menu_price, "
 							+ " rss.star_score, "
@@ -57,7 +60,9 @@ public class RestaurantDAO {
 			restaurantList = new ArrayList<RestaurantDTO>();
 			while (rs.next()) {
 				RestaurantDTO restaurant = new RestaurantDTO();
+				restaurant.setRestaurantId(rs.getInt("restaurant_id"));				
 				restaurant.setRestaurantName(rs.getString("restaurant_name"));
+				restaurant.setRestaurantTel(rs.getString("restaurant_tel"));
 				restaurant.setMenuName(rs.getString("menu_name"));				
 				restaurant.setMenuPrice(rs.getString("menu_price"));
 				restaurant.setStarScore(rs.getDouble("star_score"));
@@ -84,7 +89,9 @@ public List<RestaurantDTO> findRestaurantList(
 			conn = DBConnectionManager.connectDB();
 			
 			String query = " select "
+							+ " rl.restaurant_id restaurant_id, "
 							+ " rl.restaurant_name restaurant_name, "
+							+ " rl.restaurant_tel restaurant_tel, "
 							+ " rm.menu_name menu_name, "							
 							+ " to_char(nvl(rm.menu_price, 0), '999,999') menu_price, "
 							+ " round(rss.star_score, 1) star_score, "
@@ -128,7 +135,9 @@ public List<RestaurantDTO> findRestaurantList(
 				query += " and rm.menu_name like '%" + sRN + "%' ";
 			
 			query += " group by "
+						+ " rl.restaurant_id, "
 						+ " rl.restaurant_name, "
+						+ " rl.restaurant_tel, "
 						+ " rm.menu_name, "
 						+ " rm.menu_price, "
 						+ " rss.star_score, "
@@ -139,7 +148,9 @@ public List<RestaurantDTO> findRestaurantList(
 			restaurantList = new ArrayList<RestaurantDTO>();
 			while (rs.next()) {
 				RestaurantDTO restaurant = new RestaurantDTO();
+				restaurant.setRestaurantId(rs.getInt("restaurant_id"));				
 				restaurant.setRestaurantName(rs.getString("restaurant_name"));
+				restaurant.setRestaurantTel(rs.getString("restaurant_tel"));
 				restaurant.setMenuName(rs.getString("menu_name"));				
 				restaurant.setMenuPrice(rs.getString("menu_price"));
 				restaurant.setStarScore(rs.getDouble("star_score"));
@@ -154,5 +165,36 @@ public List<RestaurantDTO> findRestaurantList(
 		return restaurantList;
 	}
 	
+	public List<RestaurantDTO> shutDownRestaurantList() {
+	
+	List<RestaurantDTO> restaurantList = null;
+	
+	try {
+		conn = DBConnectionManager.connectDB();
+		
+		String query = " select "
+					 + " restaurant_name, "
+					 + " restaurant_tel, "
+					 + " restaurant_state "
+					 + " from restaurant_list "
+					 + " where restaurant_state in('P', 'F') ";
+		
+		psmt = conn.prepareStatement(query);
+		rs = psmt.executeQuery();
+		restaurantList = new ArrayList<RestaurantDTO>();
+		while (rs.next()) {
+			RestaurantDTO restaurant = new RestaurantDTO();
+			restaurant.setRestaurantName(rs.getString("restaurant_name"));
+			restaurant.setRestaurantTel(rs.getString("restaurant_tel"));
+			restaurant.setRestaurantState(rs.getString("restaurant_state"));
+			restaurantList.add(restaurant);	
+		}
+	} catch (SQLException e) {
+		e.printStackTrace();
+	} finally {
+		DBConnectionManager.disconnectDB(conn, psmt, rs);
+	}
+	return restaurantList;
+}
 
 }
