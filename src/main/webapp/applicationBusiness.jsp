@@ -31,7 +31,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Cache-Control" content="no-cache; no-store; no-save">
 <meta property="og:title" content="프로젝트">
-<title>프로젝트</title>
+<title>폐업신청 페이지</title>
 
 <link rel="stylesheet" href="./css/sub.css">
 <link rel="stylesheet" href="./css/header.css">
@@ -246,7 +246,7 @@
 							</div>
 						</div>
 
-						<div class="col3 mt20">
+						<div class="col3  mt20">
 							<div class="field">
 								<div class="th">인증</div>
 								<div class="td">
@@ -346,18 +346,16 @@
 					<col style="width: 4%;">
 					<col style="width: 15%;">
 					<col style="width: 10%;">
-					<col style="width: 10%;">
-					<col style="width: 7%;">
 					<col style="width: 25%;">
+					<col style="width: 1%;">
 				</colgroup>
 				<thead>
 					<tr>
 						<th scope="col" class="hd">번호</th>
 						<th scope="col" class="hd">업소명</th>
-						<th scope="col" class="hd">주요품목</th>
-						<th scope="col">가격</th>
-						<th scope="col">평점</th>
+						<th scope="col" class="hd">업소 전화번호</th>
 						<th scope="col">주소</th>
+						<th scope="col"></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -380,15 +378,9 @@
 						onclick="location.href='FindBusinessDetail2.jsp?restaurantId=<%=restaurant.getRestaurantId()%>'">
 						<td><%=restaurantNumber%></td>
 						<td><%=restaurant.getRestaurantName()%></td>
-						<td><%=restaurant.getMenuName()%></td>
-						<td><%=restaurant.getMenuPrice()%>원</td>
-						<td>
-							<div class="wrap_s center">
-								<img src="./images/content/sub/Icon fa-solid-star.svg" alt="">
-								<p class="score"><%=restaurant.getStarScore()%></p>
-							</div>
-						</td>
+						<td><%=restaurant.getRestaurantTel()%></td>
 						<td><%=restaurant.getRestaurantAddress()%></td>
+						<td><div class="btn2" onclick="" style="width:130px; padding: 8px 0;">폐업신청</div></td>
 					</tr>
 					<%
 					}

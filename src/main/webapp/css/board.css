@@ -1008,7 +1008,7 @@ table.basic_table{margin-bottom: 40px; border-bottom: 2px solid #aaa;}
 
 
 /* store_search_box */
-.store_search_box {padding: 40px;background-color: #f5f6f9;border-radius: 20px;}
+.store_search_box {padding: 40px;background-color: #f5f6f9;border-radius: 20px; width:100%; display: inline-block;}
 .store_search_box input {max-width: 290px;height: 48px;border: 1px solid #b3b7bb;border-radius: 10px;font-size: 18px;color: #333;font-weight: 500;padding: 0 15px;width: 100%;}
 .item {overflow: hidden;margin: 15px;}
 .item .col3 {width: 33.333333333%;float: left;}
