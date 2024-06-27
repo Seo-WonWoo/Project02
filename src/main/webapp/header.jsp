@@ -13,7 +13,6 @@
 				<li><a href="signUp.jsp">회원가입</a></li>
 			</ul>
 		</div>
-
 	</div>
 	<div class="main_nav">
 		<div class="inner">
