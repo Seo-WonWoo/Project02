@@ -25,23 +25,30 @@
 </head>
 <body>
 	<div class="field">
+		<form action="loginAction.jsp" method="post" id="login_form">
         <div class="store_search_box center_box">
             <h2 class="title mb30">로그인</h2>
             <div class="wrap_s">
                 <div class="wrap_s box">
                     <p class="text">아이디</p>
-                    <input type="text">
+                    <input type="text" name="id">
                 </div>
             </div>
             
 
             <div class="wrap_s box mt20">
                 <p class="text">비밀번호</p>
-                <input type="text">
+                <input type="password" name="pw">
             </div>
 
-            <div class="btn2 mt30" style="float: right; padding: 15px 0;">로그인</div>
+            <div class="btn2 mt30" style="float: right; padding: 15px 0;" onclick="loginSubmit()">로그인</div>
         </div>
+        </form>
     </div>
+    <script>
+    	function loginSubmit(){
+			document.getElementById('login_form').submit();
+		}
+    </script>
 </body>
 </html>

@@ -25,38 +25,50 @@
 </head>
 <body>
 	<div class="field">
+		<form action="signUpAction.jsp" method="post" id="signUp_form">
         <div class="store_search_box center_box">
             <h2 class="title mb30">회원가입</h2>
             <div class="wrap_s">
                 <div class="wrap_s box">
                     <p class="text">아이디</p>
-                    <input type="text">
+                    <input type="text" name="id_signUp">
                 </div>
             </div>
             
-
             <div class="wrap_s box mt20">
                 <p class="text">비밀번호</p>
-                <input type="text">
+                <input type="password" name="pw_signUp">
+            </div>
+            
+            <div class="wrap_s box mt20">
+                <p class="text">이름</p>
+                <input type="text" name="name_signUp">
             </div>
 
             <div class="wrap_s box mt20">
-                <p class="text">이메일</p>
-                <input type="email">
+                <p class="text">주민번호</p>
+                <input type="text" name="jumin_signUp">
             </div>
 
             <div class="wrap_s box mt20">
                 <p class="text">전화번호</p>
-                <input type="tel">
+                <input type="tel" name="tel_signUp">
             </div>
 
             <div class="wrap_s box mt20">
                 <p class="text">주소</p>
-                <input type="text">
+                <input type="text" name="address_signUp">
             </div>
 
-            <div class="btn2 mt30" style="float: right; padding: 15px 0;">가입하기</div>
+            <div class="btn2 mt30" style="float: right; padding: 15px 0;" onclick="signUpSubmit()">가입하기</div>
         </div>
+        </form>
     </div>
+    
+    <script>
+    	function signUpSubmit(){
+			document.getElementById('signUp_form').submit();
+		}
+    </script>
 </body>
 </html>
