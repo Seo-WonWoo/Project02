@@ -39,3 +39,11 @@
 .pagenation .number.on a{color: #0F64BB;}
 
 
+/* signUp, login */
+.center_box{width: auto !important; padding: 50px 60px; background: #E9F4FF; box-shadow: 0 3px 6px 0 rgb(0 0 0 / 20%); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}
+.center_box .title{padding-bottom: 20px; border-bottom: 1px solid #ddd;}
+.center_box .box{width: 100%;}
+.center_box .box .text{width: 80px; font-size: 18px; font-weight: bold;}
+.center_box .box input{width: auto;}
+
+
