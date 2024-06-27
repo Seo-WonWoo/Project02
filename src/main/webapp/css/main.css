@@ -4,7 +4,7 @@
 #visual{background: url(../images/visual/visual_bg.svg) no-repeat center center/cover;height: 760px;}
 #visual .inner{position: relative;}
 #visual .visual_search{position: absolute; top: 0; right: 0; margin: 80px 0;}
-#visual .visual_search input{width: 500px; height: 80px; border: 5px solid #194E0F; border-radius: 15px 0 0 15px;}
+#visual .visual_search input{width: 500px; height: 80px; border: 5px solid #194E0F; border-radius: 15px 0 0 15px; line-height: 80px; font-size: 30px; padding: 0 20px;}
 #visual .visual_search .btn{position: relative; width: 80px; height: 80px; border-radius: 0 15px 15px 0; background: #194E0F; cursor: pointer;}
 #visual .visual_search .btn img{position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}
 #visual .title_info{position: absolute; top: 230px; right: -50px;}
@@ -26,8 +26,7 @@
 #find_business .box{cursor: pointer;}
 #find_business .box .pic img{width:100%; height: 200px; border-radius: 30px 0 0 0;}
 #find_business .box .info{padding: 30px;}
-#find_business .box .info .title_name{font-size: 20px; font-weight: bold;}
-#find_business .box .info .title_menu{white-space: nowrap;overflow: hidden;text-overflow: ellipsis}
+#find_business .box .info .title_name{font-size: 20px; font-weight: bold; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; overflow: hidden; text-overflow: ellipsis; white-space: normal;}
 #find_business .box .info .title_scor,
 #find_business .box .info .title_menu,
 #find_business .box .info .title_price{font-size: 25px; font-weight: bold;}

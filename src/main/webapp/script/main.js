@@ -46,4 +46,5 @@ $(document).ready(function () {
     $('#business_update .swiper-button-stop').click(function () {
         businessUpdateSwiper.autoplay.stop();
     });
+    
 });
