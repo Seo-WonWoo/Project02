@@ -203,24 +203,25 @@ public class RestaurantDAO {
 		      RestaurantDTO restaurant = null;
 		      try {
 		         conn = DBConnectionManager.connectDB();
-		         String query =  "    SELECT rl.restaurant_id,  " +
-		      "          rl.restaurant_name, " +
-		      "       rl.restaurant_address, " +
-		      "          rl.restaurant_tel,  " +
-		      "          rl.restaurant_sector_id,  " +
-		      "          rs.restaurant_sector_name,  " +
-		      "          rss.star_score,  " +
-		      "          rl.certification_id,  " +
-		      "          cl.certification_name, " +
-		      "          rl.restaurant_state  " +
-		      "      FROM restaurant_list rl,  " +
-		      "          restaurant_star_score rss,  " +
-		      "          certification_list cl, " +
-		      "          restaurant_sector rs " +
-		      "      WHERE rl.restaurant_id = ? " +
-		      "      AND rl.restaurant_id = rss.restaurant_id " +
-		      "      AND rl.certification_id = cl.certification_id " +
-		      "      AND rl.restaurant_sector_id = rs.restaurant_sector_id ";
+		         String query =  " SELECT rl.restaurant_id, " +
+		        		 		 " rl.restaurant_name restaurant_name, " +
+		        		 		 " rl.restaurant_address restaurant_address, " +
+		        		 		 " rl.restaurant_tel restaurant_tel, " +
+		        		 		 " rl.restaurant_sector_id restaurant_sector_id, " +
+		        		 		 " rs.restaurant_sector_name restaurant_sector_name, " +
+		        		 		 " rss.star_score star_score, " +
+		        		 		 " rss.star_count star_count, " +
+		        		 		 " rl.certification_id certification_id, " +
+		        		 		 " cl.certification_name certification_name, " +
+		        		 		 " rl.restaurant_state restaurant_state " +
+		        		 		 " FROM restaurant_list rl, " +
+		        		 		 " restaurant_star_score rss, " +
+		        		 		 " certification_list cl, " +
+		        		 		 " restaurant_sector rs " +
+		        		 		 " WHERE rl.restaurant_id = ? " +
+		        		 		 " AND rl.restaurant_id = rss.restaurant_id " +
+		        		 		 " AND rl.certification_id = cl.certification_id " +
+		        		 		 " AND rl.restaurant_sector_id = rs.restaurant_sector_id ";
 		            
 		         psmt = conn.prepareStatement(query);
 		         psmt.setInt(1, restaurantId);
@@ -234,6 +235,7 @@ public class RestaurantDAO {
 		            restaurant.setRestaurantSectorId(rs.getInt("restaurant_sector_id"));
 		            restaurant.setRestaurantSectorName(rs.getString("restaurant_sector_name"));
 		            restaurant.setStarScore(rs.getDouble("star_score"));
+		            restaurant.setStarCount(rs.getInt("star_count"));
 		            restaurant.setCertificationId(rs.getInt("certification_id"));
 		            restaurant.setCertificationName(rs.getString("certification_name"));
 		            restaurant.setRestaurantState(rs.getString("restaurant_state"));

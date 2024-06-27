@@ -160,7 +160,7 @@
 
 			<h3 class="select_title mt50">지역별검색</h3>
 			
-			<form action="index.jsp" method="post">	
+			<form action="index.jsp" method="post" id="surch_form">	
 			<div class="store_search_box mt20">
 				<div class="item">
 					<div class="col3">
@@ -304,7 +304,7 @@
 					</div>
 
 				</div>
-				<button type="submit" class="btn2">검색</button>
+				<div class="btn2" onclick="surchSubmit()">검색</div>
 			</div>
 			</form>	
 	
@@ -436,6 +436,11 @@
 			})
 		}
 		
+	
+		function surchSubmit(){
+			document.getElementById('surch_form').submit();
+		}
+			
 		function pageSelect(e){
 			let i, j;			
 			for(i=1; i<=<%=restaurantListPage%>; i++ ){

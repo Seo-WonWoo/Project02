@@ -204,7 +204,7 @@
 								별점 정보를 찾을 수 없습니다
 								<%
 								}
-								%>
+								%>								
 							</p>
 						</div>
 						<div class="box mb30">
@@ -300,7 +300,7 @@
 				</div>
 				<div class="evaluation">
 							<div class="inner">
-								<form action="appraisal_action.jsp" method="get" id="appraisal_form">
+								<form action="appraisal_action.jsp" method="get" id="appraisal_form">																
 								<div class="box mb70">
 									<div class="wrap_s">
 										<div class="title_maininfo wrap_s">
@@ -308,17 +308,16 @@
 											<p class="ml20">리뷰 평가하기</p>
 										</div>
 									</div>
-
 									<div class="answer_sel mt10 mb20">
-										<input name="stsfc_scr" type="radio"  value="5">
+										<input name="select_star_score" type="radio"  value="5">
 										<label for="answer01">5점(매우 만족)</label>
-										 <input name="stsfc_scr" type="radio"  value="4">
+										 <input name="select_star_score" type="radio"  value="4">
 										<label for="answer02">4점(만족)</label> 
-										<input name="stsfc_scr" type="radio"  value="3"> 
+										<input name="select_star_score" type="radio"  value="3"> 
 										<label for="answer03">3점(보통)</label>
-										<input name="stsfc_scr" type="radio" value="2">
+										<input name="select_star_score" type="radio" value="2">
 										<label for="answer04">2점(불만)</label> 
-										<input name="stsfc_scr" type="radio" value="1"> 
+										<input name="select_star_score" type="radio" value="1"> 
 										<label for="answer05">1점(매우 불만)</label>
 									</div>
 
@@ -340,6 +339,9 @@
 
 									<div class="btn2" onclick="reviewSubmit()">평가제출</div>
 								</div>
+								<input type="hidden" name="restaurant_id" value='<%=restaurant.getRestaurantId() %>'>
+								<input type="hidden" name="star_score" value='<%=restaurant.getStarScore() %>'>
+								<input type="hidden" name="star_count" value='<%=restaurant.getStarCount()%>'>
 								</form>
 							</div>
 						</div>
