@@ -292,7 +292,7 @@ span.rfloat{float:right}
 span.button.small2{overflow:hidden;height:28px;background-position:0 -110px}
 span.button.small2 a,span.button.small2 button{overflow:hidden;height:28px;padding:0 17px 0 15px;padding:0 11px 0 9px;background-position:100% -110px;font-size:1em;line-height:28px; /* _line-height:28px; */ }
 /* Button White */
-span.btnwhite,span.btnwhite a,span.btnwhite button{/* display:-moz-inline-stack; */ display:inline-block;position:relative;padding:0;margin:0;border:0;background:url(http://www.chungnam.net/images/board/buttonWhite.gif) no-repeat left top;font:normal 1em/1.25em '굴림',Gulim,Tahoma,Geneva,sans-serif;color:#000 !important;text-decoration:none !important;vertical-align:;white-space:nowrap;cursor:pointer}
+span.btnwhite,span.btnwhite a,span.btnwhite button{/* display:-moz-inline-stack; */ display:inline-block;position:relative;padding:0;margin:0;border:0;background:url(http://www.chungnam.net/images/board/buttonWhite.gif) no-repeat left top;font:normal 1em/1.25em '굴림',Gulim,Tahoma,Geneva,sans-serif;color:#000 !important;text-decoration:none !important;vertical-align:center;white-space:nowrap;cursor:pointer}
 span.btnwhite{padding:2px 0 0 2px;background-position:left top}
 span.btnwhite a,span.btnwhite button{overflow:hidden;top:0;width:auto;height:20px;padding:0 9px 0 7px;background-position:right top;line-height:21px;line-height:20px; /* _line-height:21px; */ vertical-align:top;cursor:pointer;}
 span.btnwhite.small{background-position:0 -30px}
