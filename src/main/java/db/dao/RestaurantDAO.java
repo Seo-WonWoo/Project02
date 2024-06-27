@@ -245,6 +245,38 @@ public class RestaurantDAO {
 		      }
 		      return restaurant;
 	}
+	
+	
+	public List<RestaurantDTO> findCountryCount() {
+        List<RestaurantDTO> countryCountList = new ArrayList<RestaurantDTO>();
+
+        try {
+            conn = DBConnectionManager.connectDB();
+
+            String query = "SELECT "
+                    + " count(case when county_id = 1 then 1 end) AS count_city_1, "
+                    + " count(case when county_id = 2 then 1 end) AS count_city_2 "
+                    + " FROM restaurant_list";
+
+            psmt = conn.prepareStatement(query);
+            rs = psmt.executeQuery();
+
+            if (rs.next()) {
+                RestaurantDTO countryCount = new RestaurantDTO();
+                countryCount.setCountCityKind(rs.getInt("count_city_1"));
+                countryCount.setCountCityExample(rs.getInt("count_city_2"));
+                countryCountList.add(countryCount);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBConnectionManager.disconnectDB(conn, psmt, rs);
+        }
+        return countryCountList;
+    }
+	
+	
+	
 
 	public String getRestaurantListJson() {
 		      List<RestaurantDTO> restaurantList = findRestaurantList();

@@ -17,6 +17,8 @@ public class RestaurantDTO {
 	int certificationId;
 	String certificationName;
 	String restaurantState;
+	int countCityKind;
+    int countCityExample;
 	
 	
 	public RestaurantDTO() {}
@@ -25,7 +27,7 @@ public class RestaurantDTO {
 	public RestaurantDTO(int restaurantId, int restaurantSectorId, String restaurantSectorName, String restaurantName,
 			String menuName, String menuPrice, String restaurantTel, int cityId, int countryId, int dongId,
 			double starScore, int starCount, String restaurantAddress, int certificationId, String certificationName,
-			String restaurantState) {
+			String restaurantState, int countCityKind, int countCityExample) {
 		super();
 		this.restaurantId = restaurantId;
 		this.restaurantSectorId = restaurantSectorId;
@@ -43,6 +45,8 @@ public class RestaurantDTO {
 		this.certificationId = certificationId;
 		this.certificationName = certificationName;
 		this.restaurantState = restaurantState;
+		this.countCityKind = countCityKind;
+		this.countCityExample = countCityExample;
 	}
 
 
@@ -204,11 +208,21 @@ public class RestaurantDTO {
 	public void setRestaurantState(String restaurantState) {
 		this.restaurantState = restaurantState;
 	}
-	
-	
-	
 
-	
-	
+	public int getCountCityKind() {
+        return countCityKind;
+    }
+
+    public void setCountCityKind(int countCity1) {
+        this.countCityKind = countCity1;
+    }
+
+    public int getCountCityExample() {
+        return countCityExample;
+    }
+
+    public void setCountCityExample(int countCity2) {
+        this.countCityExample = countCity2;
+    }
 	
 }

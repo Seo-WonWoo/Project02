@@ -27,10 +27,11 @@
 #find_business .box .pic img{width:100%; height: 200px; border-radius: 30px 0 0 0;}
 #find_business .box .info{padding: 30px;}
 #find_business .box .info .title_name{font-size: 20px; font-weight: bold;}
+#find_business .box .info .title_menu{white-space: nowrap;overflow: hidden;text-overflow: ellipsis}
 #find_business .box .info .title_scor,
 #find_business .box .info .title_menu,
 #find_business .box .info .title_price{font-size: 25px; font-weight: bold;}
-#find_business .box .info .title_submenu .lnb{padding: 7px 12px; border: 1px solid #ddd; border-radius: 20px; margin-right: 10px;}
+#find_business .box .info .title_submenu .lnb{padding: 7px 12px; border: 1px solid #ddd; border-radius: 20px; margin-right: 10px; margin-bottom: 10px}
 #find_business .box .info .title_submenu .lnb:last-child{margin: 0;}
 
 /* business_update */
@@ -63,7 +64,6 @@
 #digital_dashboard .info .box{border: 1px solid #ddd; border-radius: 15px; padding: 30px 40px;}
 #digital_dashboard .info .box .title{font-size: 25px;}
 #digital_dashboard .info .box .scor{font-size: 30px; font-weight: bold;}
-#digital_dashboard .gido{width: 800px; height: 400px; background: #aaa;}
 
 
 
