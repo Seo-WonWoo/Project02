@@ -53,7 +53,9 @@ public class AppraisalDAO {
 						 + " restaurant_appraisal ra, appraisal_list al "
 						 + " where "
 						 + " ra.appraisal_id = al.appraisal_id "
-						 + " and ra.restaurant_id = ? ";
+						 + " and ra.appraisal_check_count > 0 "
+						 + " and ra.restaurant_id = ? "
+						 + " order by ra.appraisal_check_count desc ";
 			psmt = conn.prepareStatement(query);
 			psmt.setInt(1, restaurantId);
 			rs = psmt.executeQuery();
@@ -74,5 +76,26 @@ public class AppraisalDAO {
 			DBConnectionManager.disconnectDB(conn, psmt, rs);
 		}
 		return appraisalList;
+	}
+	
+	public int modifyAppraisal(int restId, int sAppr, int ApprCount) {		
+		int result = 0;
+		
+		try {
+			conn = DBConnectionManager.connectDB();
+			String query = " update restaurant_appraisal"
+						 + " set appraisal_check_count = ?"
+						 + " where restaurant_id = ? and appraisal_id = ? ";
+			psmt = conn.prepareStatement(query);
+			psmt.setInt(1, ApprCount );
+			psmt.setInt(2, restId );
+			psmt.setInt(3, sAppr);
+			result = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBConnectionManager.disconnectDB(conn, psmt, null);
+		}
+		return result;
 	}
 }
