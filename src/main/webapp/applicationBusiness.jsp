@@ -89,26 +89,7 @@
 	%>
 
 	<header id="header" class="sub">
-		<div class="inner">
-			<div class="wrap">
-				<a href="/index.html">
-					<div class="logo wrap">
-						<img src="./images/header/logo_main.png" alt="착한가격안심가게 로고">
-					</div>
-					<div class="sub_logo wrap">
-						<img src="./images/header/logo_sub.png" alt="착한가격안심가게 로고">
-					</div>
-				</a>
-
-				<div class="nav">
-					<ul class="gnb dap1">
-						<li class="lnb"><a href="#">착한가격안심가게업소 찾기</a></li>
-						<li class="lnb"><a href="#">폐업가게 업데이트</a></li>
-						<li class="lnb"><a href="#">폐업신청</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
+		<jsp:include page="header.jsp" />
 	</header>
 
 	<!-- 검색 데이터베이스 정보 자바스크립트 배열 객체 내 저장 -->

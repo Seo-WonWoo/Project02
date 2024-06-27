@@ -45,25 +45,7 @@
 </head>
 <body>
 	<header id="header">
-		<div class="inner">
-			<div class="wrap">
-				<a href="<%= request.getContextPath() %>/index3.jsp">
-					<div class="logo wrap">
-						<img src="./images/header/logo_main.png" alt="착한가격안심가게 로고">
-					</div>
-					<div class="sub_logo wrap">
-						<img src="./images/header/logo_sub.png" alt="착한가격안심가게 로고">
-					</div>
-				</a>
-
-				<div class="nav">
-					<ul class="gnb dap1">
-						<li class="lnb"><a href="<%= request.getContextPath() %>/index2.jsp">착한가격모범식당업소 찾기</a></li>
-						<li class="lnb"><a href="<%= request.getContextPath() %>/index2.jsp">폐업신청</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
+		<jsp:include page="header.jsp" />
 	</header>
 
 	<section id="visual">
