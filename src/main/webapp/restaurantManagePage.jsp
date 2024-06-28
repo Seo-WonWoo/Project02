@@ -62,11 +62,12 @@
 
 			<table id="find_business_table" class="new_tbl_board tb01 mt40 mb80">
 				<colgroup>
-					<col style="width: 4%;">
-					<col style="width: 15%;">
+					<col style="width: 6%;">
+					<col style="width: 10%;">
 					<col style="width: 10%;">
 					<col style="width: 25%;">
-					<col style="width: 1%;">
+					<col style="width: 10%;">
+					<col style="width: 10%;">
 				</colgroup>
 				<thead>
 					<tr>
@@ -75,7 +76,7 @@
 						<th scope="col" class="hd">업소 전화번호</th>
 						<th scope="col">주소</th>
 						<th scope="col">운영상태</th>
-						<th scope="col"></th>
+						<th scope="col">폐업관리</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -94,8 +95,7 @@
 						RestaurantDTO restaurant = restaurantList.get(i);
 						int restaurantNumber = i + 1;
 					%>
-					<tr
-						onclick="location.href='restaurantManagePage.jsp'">
+					<tr>
 						<td><%=restaurantNumber%></td>
 						<td><%=restaurant.getRestaurantName()%></td>
 						<td><%=restaurant.getRestaurantTel()%></td>
@@ -115,14 +115,16 @@
 						if(restaurant.getRestaurantState().equals(pendingState)){
 					%>	
 						<td><div class="btn2" style="width:130px; padding: 8px 0;"
-						onclick="location.href='shutDownAction.jsp?restaurantId=<%=restaurant.getRestaurantId() %>'">폐업신청</div></td>
-					</tr>
+						onclick="location.href='shutDownAction.jsp?restaurantId=<%=restaurant.getRestaurantId() %>'">폐업신청</div></td>					
 					<%
 						} else {						
 					%>
 						<td></td>
 					<%					
 						}
+					%>
+					</tr>
+					<%
 					}
 					%>
 				</tbody>

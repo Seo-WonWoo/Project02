@@ -50,17 +50,19 @@
 
 	<section id="visual">
 		<div class="inner">
+			<form action="searchPage.jsp" method="get" id="search_form1">
 			<div class="visual_search">
 				<div class="wrap">
-					<input type="text" class="input" name="inputSearch"
+					<input type="text" class="input" name="search_restaurant_name"
 						id="inputSearch" onkeypress="enterkey(event);">
-					<div class="btn">
+					<div class="btn" onclick="searchSubmit1()">
 						<img src="./images/visual/Icon material-twotone-saved-search.svg"
 							alt="">
 					</div>
 				</div>
 			</div>
-
+			</form>
+			
 			<div class="title_info">
 				<img src="./images/visual/info01.png" alt="" class="mb30"> <img
 					src="./images/visual/info02.png" alt="" class="mb20"> <img
@@ -74,17 +76,19 @@
 			<div class="wrap mb50">
 				<h1>착한가격모범식당업소 찾기</h1>
 				<p>
-					<a href="#">전체보기 +</a>
+					<a href="searchPage.jsp">전체보기 +</a>
 				</p>
 			</div>
 			<div class="mb70">
 				<div class="wrap">
+					<form action="searchPage.jsp" method="get" id="search_form2">
 					<div class="wrap_s">
 						<div class="item">
 							<div class="col3">
 								<div class="field">
 									<div class="td">
-										<label style="display: none">업종</label> <select>
+										<label style="display: none">업종</label>
+										<select name="search_restaurant_sector" >
 											<option value="" selected>업종 전체</option>
 											<%
 											RestaurantSectorDAO restaurantSectorDAO = new RestaurantSectorDAO();
@@ -99,7 +103,8 @@
 									</div>
 
 									<div class="td ml30">
-										<label style="display: none">인증 구분</label> <select>
+										<label style="display: none">인증 구분</label> 
+										<select name="search_certification" >
 											<option value="" selected>인증 전체</option>
 											<%
 											CertificationDAO certificationDAO = new CertificationDAO();
@@ -120,11 +125,12 @@
 							<div class="btn2">
 								<div class="center">
 									<img src="./images/content/main/Icon ion-ios-search.svg" alt="">
-									<h3 class="ml10">검색하기</h3>
+									<h3 class="ml10" onclick="searchSubmit2()">검색하기</h3>
 								</div>
 							</div>
 						</div>
 					</div>
+					</form>
 					<div class="swiper_btn wrap">
 						<div class="swiper-button-prev">
 							<img src="./images/content/main/Icon akar-chevron-left-small.svg"
@@ -156,7 +162,8 @@
 					List<RestaurantDTO> restaurantList = restaurantDAO.findRestaurantList();
 					for (RestaurantDTO restaurant : restaurantList) {
 					%>
-					<div class="swiper-slide box">
+					<div class="swiper-slide box"
+					onclick="location.href='detailPage.jsp?restaurantId=<%=restaurant.getRestaurantId() %>'">
 						<div class="pic">
 							<img
 								src="./images/content/main/restaurant_img/restaurant<%=restaurant.getRestaurantId()%>.jpg"
@@ -459,5 +466,13 @@
 				</div>
 			</div>
 	</section>
+	<script>
+		function searchSubmit1(){
+			document.getElementById('search_form1').submit();
+		}
+		function searchSubmit2(){
+			document.getElementById('search_form2').submit();
+		}
+	</script>
 </body>
 </html>

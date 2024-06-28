@@ -47,47 +47,6 @@
 
 </head>
 <body>
-		<%
-			request.setCharacterEncoding("UTF-8"); //문자인코딩 설정  한글깨짐 방지
-		
-			int sCity = (request.getParameter("surch_city") != null && !request.getParameter("surch_city").isEmpty())
-					? Integer.parseInt(request.getParameter("surch_city"))
-					: 0;
-			int sCountry = (request.getParameter("surch_country") != null && !request.getParameter("surch_country").isEmpty())
-					? Integer.parseInt(request.getParameter("surch_country"))
-					: 0;
-			int sDong = (request.getParameter("surch_dong") != null && !request.getParameter("surch_dong").isEmpty())
-					? Integer.parseInt(request.getParameter("surch_dong"))
-					: 0;
-			int sRS = (request.getParameter("surch_restaurant_sector") != null
-					&& !request.getParameter("surch_restaurant_sector").isEmpty())
-					? Integer.parseInt(request.getParameter("surch_restaurant_sector"))
-					: 0;
-			int sCert = (request.getParameter("surch_certification") != null
-					&& !request.getParameter("surch_certification").isEmpty())
-					? Integer.parseInt(request.getParameter("surch_certification"))
-					: 0;
-		
-			int sConv1 = (request.getParameter("surch_convenience_1") != null
-					&& !request.getParameter("surch_convenience_1").isEmpty()) ? 1 : 0;
-			int sConv2 = (request.getParameter("surch_convenience_2") != null
-					&& !request.getParameter("surch_convenience_2").isEmpty()) ? 2 : 0;
-			int sConv3 = (request.getParameter("surch_convenience_3") != null
-					&& !request.getParameter("surch_convenience_3").isEmpty()) ? 3 : 0;
-			int sConv4 = (request.getParameter("surch_convenience_4") != null
-					&& !request.getParameter("surch_convenience_4").isEmpty()) ? 4 : 0;
-			int sConv5 = (request.getParameter("surch_convenience_5") != null
-					&& !request.getParameter("surch_convenience_5").isEmpty()) ? 5 : 0;
-			int sConv6 = (request.getParameter("surch_convenience_6") != null
-					&& !request.getParameter("surch_convenience_6").isEmpty()) ? 6 : 0;
-			int sConv7 = (request.getParameter("surch_convenience_7") != null
-					&& !request.getParameter("surch_convenience_7").isEmpty()) ? 7 : 0;
-			int sConv8 = (request.getParameter("surch_convenience_8") != null
-					&& !request.getParameter("surch_convenience_8").isEmpty()) ? 8 : 0;
-		
-			String sRN = request.getParameter("surch_restaurant_name");
-			String sKW = request.getParameter("surch_keyword");
-			%>
 
 	<header id="header" class="sub">
 		<jsp:include page="header.jsp" />
@@ -126,6 +85,7 @@
 						<th scope="col">주소</th>
 						<th scope="col">직급</th>
 						<th scope="col">계정상태</th>
+						<th scope="col">계정상태관리</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -154,6 +114,23 @@
 						<td><%=member.getMemberAddress()%></td>
 						<td><%=member.getMemberPosition() %></td>
 						<td><%=member.getMemberState()%></td>
+						
+					<%
+						String sleepAccountState = "F";
+						String awakeState = "T";
+						if(member.getMemberState().endsWith(awakeState)) {
+					%>
+						<td><div class="btn2" style="width:130px; padding: 8px 0;"
+						onclick="location.href='sleepAccountAction.jsp?memberNumber=<%=member.getMemberNumber()%>&memberState=<%=member.getMemberState()%>'">휴먼상태전환</div></td>
+					<%
+						} else {						
+					%>
+						<td><div class="btn2" style="width:130px; padding: 8px 0;"
+						onclick="location.href='sleepAccountAction.jsp?memberNumber=<%=member.getMemberNumber()%>&memberState=<%=member.getMemberState()%>'">휴먼상태해제</div></td>
+					<%
+						}					
+					%>
+						
 					</tr>
 					<%
 					}
@@ -204,41 +181,7 @@
 
 	<script>	
 	
-		function countryListByCitySelect(){			
-			let str = '<option value="" selected>전체</option>';
-			countryList.forEach( (item, index) =>{
-				if(document.querySelector('#city_select').value == item.cityId)
-				str += `<option value="` + item.countryId + `">` + item.countryName + `</option>`;				
-			});
-			document.querySelector('#country_select').innerHTML = str;
-			
-		}
-	    
-		
-		function dongListByCountrySelect(){			
-			let str = '<option value="" selected>전체</option>';
-			dongList.forEach( (item, index) =>{
-				if(document.querySelector('#country_select').value == item.countryId)
-				str += `<option value="` + item.dongId + `">` + item.dongName + `</option>`;				
-			});
-			document.querySelector('#dong_select').innerHTML = str;
-		}
-		
-		function surchSubmit(){
-			document.getElementById('surch_form').submit();
-		}
-		
-		
-		function allCheckSelect(){
-			console.log(document.querySelector('#AllcheckYn').checked);
-			
-			convenienceList.forEach( (item, index) =>{
-				if(document.querySelector('#AllcheckYn').checked == true)
-					document.querySelector('#check_'+item.convenienceId).checked = true;
-				if(document.querySelector('#AllcheckYn').checked == false)
-					document.querySelector('#check_'+item.convenienceId).checked = false;				
-			})
-		}
+
 	</script>
 
 </body>

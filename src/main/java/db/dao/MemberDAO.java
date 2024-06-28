@@ -83,6 +83,39 @@ public class MemberDAO {
        return member;
 	}
 	
+	public MemberDTO findMemberById(String memberId) {
+	       MemberDTO member = null;
+	       try {
+	           conn = DBConnectionManager.connectDB();
+	           String query = " select * "
+	           				+ " from member_list "
+	           				+ " where "
+	           				+ " member_id = ? ";
+	           psmt = conn.prepareStatement(query);
+	           psmt.setString(1, memberId);
+	           rs = psmt.executeQuery();	           
+	           if (rs.next()) {
+	        	   member = new MemberDTO(
+	                   rs.getInt("MEMBER_NUMBER"),	                   
+	                   rs.getString("MEMBER_ID"),
+	                   rs.getString("MEMBER_PW"),
+	                   rs.getString("MEMBER_NAME"),
+	                   rs.getString("MEMBER_JUMINNUMBER"),
+	                   rs.getString("MEMBER_TEL"),
+	                   rs.getString("MEMBER_ADDRESS"),
+	                   rs.getString("MEMBER_POSITION"),
+	                   rs.getString("MEMBER_STATE")
+	               );	               
+	           }
+	       } catch (SQLException e) {
+	           e.printStackTrace();
+	       } finally {
+	           DBConnectionManager.disconnectDB(conn, psmt, rs);
+	       }
+	       return member;
+		}
+	
+	
 	public int addMember(String memberId, String memberPw, String memberName,
 			String memberJuminNumber, String memberTel, String memberAddress) {
 		int result = 0;
@@ -117,6 +150,44 @@ public class MemberDAO {
 			psmt.setInt(1, memberNumber);
 			result = psmt.executeUpdate();
 		} catch (SQLException e) {			
+			e.printStackTrace();
+		} finally {
+			DBConnectionManager.disconnectDB(conn, psmt, null);
+		}
+		return result;
+	}
+	
+	public int modifySleepAccountMemberbyMemberNumber(int memberNumber) {		
+		int result = 0;
+		
+		try {
+			conn = DBConnectionManager.connectDB();
+			String query = " update member_list "
+						 + " set member_state = 'F' "
+						 + " where member_number = ? ";
+			psmt = conn.prepareStatement(query);
+			psmt.setInt(1, memberNumber );
+			result = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBConnectionManager.disconnectDB(conn, psmt, null);
+		}
+		return result;
+	}
+	
+	public int modifyAwakeMemberbyMemberNumber(int memberNumber) {		
+		int result = 0;
+		
+		try {
+			conn = DBConnectionManager.connectDB();
+			String query = " update member_list "
+						 + " set member_state = 'T' "
+						 + " where member_number = ? ";
+			psmt = conn.prepareStatement(query);
+			psmt.setInt(1, memberNumber );
+			result = psmt.executeUpdate();
+		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			DBConnectionManager.disconnectDB(conn, psmt, null);
