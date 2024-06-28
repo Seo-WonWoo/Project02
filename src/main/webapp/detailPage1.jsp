@@ -29,6 +29,7 @@
 <title>프로젝트</title>
 
 <link rel="stylesheet" href="./css/sub.css">
+<link rel="stylesheet" href="./css/header.css">
 <link rel="stylesheet" href="./css/layout.css">
 <link rel="stylesheet" href="./css/base.css">
 <link rel="stylesheet" href="./css/board.css">
@@ -66,9 +67,27 @@
 	%>
 
 
-	
+
 	<header id="header" class="sub">
-		<jsp:include page="header.jsp" />
+		<div class="inner">
+			<div class="wrap">
+				<a href="/index.html">
+					<div class="logo wrap">
+						<img src="./images/header/logo_main.png" alt="착한가격안심가게 로고">
+					</div>
+					<div class="sub_logo wrap">
+						<img src="./images/header/logo_sub.png" alt="착한가격안심가게 로고">
+					</div>
+				</a>
+				<div class="nav">
+					<ul class="gnb dap1">
+						<li class="lnb"><a href="#">착한가격안심가게업소 찾기</a></li>
+						<li class="lnb"><a href="#">폐업가게 업데이트</a></li>
+						<li class="lnb"><a href="#">폐업신청</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
 	</header>
 
 	<section class="container content">
@@ -79,15 +98,13 @@
 				<div class="wrap_c mt50">
 					<div class="pic">
 						<div style="background: #ddd; width: 700px; height: 400px;">
-						<img style="width: 700px; height: 400px;" src="./images/content/main/restaurant_img/restaurant<%=restaurant.getRestaurantId() %>.jpg" alt=""></div>
+						<img style="width: 700px; height: 400px;" " src="./images/content/main/restaurant_img/restaurant<%=restaurant.getRestaurantId() %>.jpg" alt=""></div>
 						<p class="mt50">찾아오시는 길</p>
 						<div class="restaurantList mt20">
 							<div class="restaurant">
 								<div id="map_<%=restaurant.getRestaurantId()%>" class="map"
 									style="width: 700px; height: 400px"></div>
 							</div>
-							
-							<div class="btn2 mt50">폐업 신청</div>
 
 							<script type="text/javascript"
 								src="//dapi.kakao.com/v2/maps/sdk.js?appkey=dd47fc85028b09033fe0cae55378ec24&libraries=services"></script>
@@ -320,7 +337,7 @@
 	%>
 									</div>
 
-									<div class="btn2 mt40" onclick="reviewSubmit()">평가제출</div>
+									<div class="btn2" onclick="reviewSubmit()">평가제출</div>
 								</div>
 								<input type="hidden" name="restaurant_id" value='<%=restaurant.getRestaurantId() %>'>
 								<input type="hidden" name="star_score" value='<%=restaurant.getStarScore() %>'>

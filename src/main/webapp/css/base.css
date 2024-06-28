@@ -1,21 +1,14 @@
 @charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&family=Kanit:wght@300&family=Noto+Sans+KR&display=swap');
 *{margin: 0; padding: 0; box-sizing: border-box; font: 400 16px/1 'Roboto', 'Noto Sans KR', sans-serif; -ms-overflow-style: none;}
 ::-webkit-scrollbar {display: none;}
 li{list-style: none;}
 a{text-decoration: none; color: black; display: block;}
-img{display: block; object-fit: cover; background-repeat: no-repeat; background-size: cover;}
+img{ object-fit: cover; background-repeat: no-repeat; background-size: cover;}
 
 div, dl, dt, dd, ul, li, p, table, button, select, input, textarea {font: inherit; font-style: normal; letter-spacing: inherit; color: inherit;}
-button, select {
-    text-transform: none;
-}
-button, input, optgroup, select, textarea {
-    font-family: inherit;
-    font-size: 100%;
-    line-height: 1.15;
-    margin: 0;
-}
 h1, h2, h3, p, a{line-height: 1.6;}
 h1{font-size: 2rem; font-weight: bold;}
 h2{font-size: 1.5rem; font-weight: bold;}
@@ -26,6 +19,16 @@ h4{font-size: 1rem;}
     h1{font-size: 1.3rem;}
     h2{font-size: 1.2rem;}
     h3{font-size: 1.13rem;}
+    .whatonebox .item .item_in,
+    .whatonebox .item .circle {width: 100px;}
+    .whatonebox .item .circle {height: 100px;}
+    .whatonebox .imgunder1 {font-size: 15px;}
+    .whatonebox .item .circle .img img {width: 30px;}
+    .whatonebox .imgunder2 {font-size: 13px;}
+    .whatonebox .item::after {background-size: 17px auto;width: 17px;height: 20px;}
+    .whatonebox .item .item_in {height: 225px;}
+    .whatonebox .item::after {top: 38px;right: -7px;}
+
 }
 
 /* magin */
@@ -50,6 +53,7 @@ h4{font-size: 1rem;}
 .mb60{margin-bottom: 60px;}
 .mb70{margin-bottom: 70px;}
 .mb80{margin-bottom: 80px !important;}
+.mb90{margin-bottom: 90px;}
 
 .ml10{margin-left: 10px;}
 .ml15{margin-left: 15px;}
@@ -60,7 +64,7 @@ h4{font-size: 1rem;}
 
 
 /* button */
-.btn1, .btn2{width: 200px; border-radius: 10px; padding: 15px 20px; text-align: center; cursor: pointer;}
+.btn1, .btn2{width: 200px; border-radius: 10px; padding: 10px 20px; text-align: center; cursor: pointer;}
 .btn1{background: white; border: 1px solid #ddd; color: #3b3b3b;}
 .btn1:hover{border: 1px solid #aaa;}
 .btn2{background: #0F64BB; color: white;}
@@ -85,47 +89,3 @@ h4{font-size: 1rem;}
 .tit h2 span{font-size: 1.3rem;}
 .tit h2::after{content: ''; position: absolute; border-bottom: 2px solid #ddd; width: 387px; top: 45px; left: 0;}
 .tit p{width: 280px; color: #707070;}
-
-@media (max-width:1200px) {
-    .tit h2::after{ width: 100%;}
-}
-@media (max-width:700px) {
-    .tit p{width: 100%;}
-}
-
-/* icon */
-.icon{justify-content: flex-start;}
-.icon li{margin-right: 5px; font-size: 13px; font-family: inherit; text-align: center;}
-.icon li>img{margin: 0 auto; padding: 6px;}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

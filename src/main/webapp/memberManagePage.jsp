@@ -100,7 +100,7 @@
 			<!-- 업체 리스트 정보 데이터베이스 자바 객체 클래스 생성 -->
 			<%
 			MemberDAO memberDAO = new MemberDAO();
-			List<MemberDTO> memberList = memberDAO.findMemberList();
+			List<MemberDTO> memberList = memberDAO.getMemberList();
 			%>
 
 
@@ -124,7 +124,8 @@
 						<th scope="col" class="hd">주민번호</th>
 						<th scope="col" class="hd">전화번호</th>
 						<th scope="col">주소</th>
-						<th scope="col">탈퇴여부</th>
+						<th scope="col">직급</th>
+						<th scope="col">계정상태</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -148,9 +149,10 @@
 						<td><%=member.getMemberId()%></td>
 						<td><%=member.getMemberPw()%></td>
 						<td><%=member.getMemberName()%></td>
-						<td><%=member.getMemberJumin()%></td>
+						<td><%=member.getMemberJuminNumber() %></td>
 						<td><%=member.getMemberTel()%></td>
 						<td><%=member.getMemberAddress()%></td>
+						<td><%=member.getMemberPosition() %></td>
 						<td><%=member.getMemberState()%></td>
 					</tr>
 					<%

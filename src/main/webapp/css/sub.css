@@ -47,3 +47,213 @@
 .center_box .box input{width: auto;}
 
 
+
+
+/*착한가격업소란?*/
+.girl{height: 300px;}
+.girl{height: 20px; margin-left: 150px; margin-top: 20px;}
+.mean{text-align: center; margin-top: 200px;}
+.mean img{overflow-clip-margin: content-box; max-width: 100%; margin-top: 100px;}
+.mean h1{font-size: 5rem; margin: 70px; font-family: "Black Han Sans", sans-serif; font-weight: 200;}
+.mean p{font-size: 2rem; font-family: "Hahmlet", serif;}
+.mean .mg p{ margin-left: 100px;}
+.mean span{color: #152fc2; font-size: 2rem;}
+
+
+.mean h2{font-size: 60px; margin: 60px; font-family: "Black Han Sans", sans-serif; font-weight: 200;}
+
+---------------------------------------------------------------------------------
+
+/*착한 업소 지정 절차*/
+.whatonebox{overflow: hidden; margin: 0 -20px;}
+.whatonebox .item {padding: 0 20px; float: left; width: 20%; position:relative;}
+.whatonebox .item::after {content:''; display:block; width:50px;height: 50px; background:url(../images/mean/whatoneimg6.png) no-repeat 0 0; position:absolute; right:-15px; top: 82px;}
+.whatonebox .item .item_in {width: 200px;margin: 0 auto;}
+.whatonebox .item .circle {width: 200px;height: 200px;background-color: #edeff4;border-radius: 50%;display: flex;align-items: center;justify-content: center;}
+.whatonebox .item .circle .img {margin-bottom: 10px;}
+.whatonebox .item .circle .img img {display: block;margin: 0 auto;}
+.whatonebox .step {margin: 20px 0 10px 0;}
+.whatonebox .step span {margin: 0 auto;display: inline-flex;width: 70px;height: 25px;background-color: #9b9faa;border-radius: 10px;display: flex;align-items: center;justify-content: center;font-size: 16px;color: #fff;font-weight: 500;font-family: "Montserrat", sans-serif;}
+.whatonebox .imgunder1 {text-align: center; font-size:30px; color: #333333; font-weight:500;}
+.whatonebox .imgunder2 {font-size: 24px;color: #366cf0;font-weight: 600;}
+
+
+.whatonebox .item .last::after {display: none;}
+.whatonebox .item .last .circle {background-color: #366cf0;}
+.whatonebox .item .last .imgunder1 {color: #fff;}
+.whatonebox .item .last .step span {background-color: #366cf0;color: #fff;}
+
+
+
+.whatonebox .item.item3::after {display: block;}
+/* .whatonebox .item.item2::after,
+.whatonebox .item.item4::after  {display: none;} */
+
+.whatonebox .item::after {background-size: 17px auto;width: 17px;height: 20px;}
+/* .whatonebox .item::after {top: 38px;right: -7px;} */
+
+
+
+----------------------------------------
+/*착한업소 혜택*/
+.ht{margin-bottom: 50px;}
+.mobum_wrap{display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 100px;
+            }
+.mobum_wrap .mw_box{float:left; padding:50px; position: relative;
+                    height: 500px;}
+
+.mobum_wrap .mw_box::after{
+    content: '';
+    display: block;
+    width: 32px;
+    height: 32px;
+    background: url(../images/mean/whatoneimg7.png) no-repeat 0 0;
+    position: absolute;
+    right: -16px;
+    top: 50%;
+    margin-top: -16px;
+}
+
+::after{box-sizing: border-box;}
+
+.mw_tit{height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #366cf0;
+    font-size: 24px;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 25px 25px 0 0;}
+
+.mw_box .mw_cont{height: 300px;}
+
+.mw_cont{border: 2px solid #366cf0;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 25px 25px;
+    padding: 20px;}
+
+.mw_item1, .mw_item2, .mw_item3{height: auto;}
+.mw_item1, .mw_item2 {margin-bottom: 10px;}
+
+.mw_item1, .mw_item2, .mw_item3, .mw_item4{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    border: 2px dotted #c8ccd5;
+    background-color: #edeff4;
+    font-size: 20px;
+    color: #000;
+    font-weight: 500;
+    width: 100%;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.mw_box2{float: left; padding: 50px; position: relative; height: 400px;}
+.mw_box2 .mw_box_in{width:500px; height: 300px;}
+
+.mw_box_in{border-radius: 25px; }
+
+.mw_box2 .mw_cont{height: 200px;}
+
+.mw_item4{height: 160px;}
+
+
+-------------------------------------------------
+
+/*모범음식점*/
+.man{height: 200px; width: 200px;}
+.man{height: 200px; width: 200px; margin-left: 60px;}
+/* .mean2{text-align: center;} */
+.mean2 h1{ text-align: center; font-size: 5rem; font-family: "Black Han Sans", sans-serif; font-weight: 200;}
+.mean2 h2{text-align:center; font-size: 3rem; margin: 50px; font-family: "Black Han Sans", sans-serif; font-weight: 200;}
+.mean2 p{text-align:center; font-size: 2rem; font-family: "Hahmlet", serif;}
+.mean2 .gj p{ margin-left: 400px;}
+.mean2 span{color: #152fc2; font-size: 2rem;}
+.mean2 img{max-width: 80%;}
+.mean2 img:hover{
+    width: 800px;
+    border-radius: 80%;
+    transition: 2s ease;
+}
+
+
+.mobum_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap:1rem;
+    /* padding: 50px; */
+}
+
+.mobum_box{
+    size: 500px;
+}
+.mobum_container .mobum_box{
+    text-align: center;
+    border: var(--border);
+    display: flex;
+    height: 20rem;
+    flex-direction: column-reverse;
+}
+
+
+.mean2 .box-container{
+    /* display: flex; */
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:1rem;
+}
+
+.mean2 .box-container .box{
+    padding: 1rem;
+    text-align: center;
+}
+
+.mean2 .box p{
+    color: #0F64BB;
+    font-size: 25px;
+}
+
+
+@media (max-width:1200px) {
+    .tit h2::after{ width: 100%;}
+}
+@media (max-width:700px) {
+    .tit p{width: 100%;}
+    .item_in .circle {width: 120px;height: 120px;}
+}
+
+@media (max-width: 575px){
+    .mobum_wrap .mw_box {float: none; padding: 15px 0;}
+}
+
+
+@media (max-width: 1199px){
+    .whatonebox .item {width: 33.333333333%;}
+    .whatonebox .item .item_in, .whatonebox .item .circle {width: 200px;}
+    .whatonebox .item .item_in {height: 350px;}
+    .whatonebox .item .circle {height: 200px;}
+    .whatonebox .item::after {top: 70px;}
+    .whatonebox .item.item3::after {display: none;}
+
+
+}
+
+
+@media (max-width: 991px){
+    .whatonebox .item {width: 50%;}
+    .whatonebox .item.item3::after {display: block;}
+    .whatonebox .item.item2::after,
+    .whatonebox .item.item4::after  {display: none;}
+}

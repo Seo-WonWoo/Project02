@@ -334,7 +334,7 @@
 				</div>
 			</form>
 
-			<h3>search_city=<%=sCity%>&search_country=<%=sCountry%>&search_dong=<%=sDong%>&search_restaurant_sector=<%=sRS%>&search_certification=<%=sCert%>&search_convenience_1=<%=sConv1%>&search_convenience_2=<%=sConv2%>&search_convenience_3=<%=sConv3%>&search_convenience_4=<%=sConv4%>&search_convenience_5=<%=sConv5%>&search_convenience_6=<%=sConv6%>&search_convenience_7=<%=sConv7%>&search_convenience_8=<%=sConv8%>&search_restaurant_name=<%=sRN%>&search_keyword=<%=sKW%></h3>
+			
 			<!-- 업체 리스트 업************************************************************ -->
 
 

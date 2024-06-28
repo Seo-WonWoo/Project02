@@ -9,8 +9,20 @@
 	<div class="top_nav">
 		<div class="inner">
 			<ul class="gnb">
+	<%
+		if(session.getAttribute("loginId") == null){
+	%>
 				<li><a href="login.jsp">로그인</a></li>
 				<li><a href="signUp.jsp">회원가입</a></li>
+	<%		
+		} else{			
+			String loginId = session.getAttribute("loginId").toString();
+	%>
+				<li style="color: white;"><%=loginId%>님 환영합니다~!</li>
+				<li><a href="logoutAction.jsp">로그아웃</a></li>
+	<%
+		}
+	%>		
 			</ul>
 		</div>
 	</div>
@@ -27,9 +39,11 @@
 				</a>
 				<div class="nav">
 					<ul class="gnb dap1">
-						<li class="lnb"><a href="index2.jsp">착한가격안심가게업소 찾기</a></li>
-						<li class="lnb"><a href="applicationBusiness.jsp">업체관리</a></li>
-						<li class="lnb"><a href="memberList.jsp">회원관리</a></li>
+						<li class="lnb"><a href="whatCheepPricePage.jsp">착한가격업소 소개</a></li>
+						<li class="lnb"><a href="whatMobumPage.jsp">모범음식점 소개</a></li>
+						<li class="lnb"><a href="searchPage.jsp">착한가격/모범업소 찾기</a></li>
+						<li class="lnb"><a href="restaurantManagePage.jsp">업체관리</a></li>
+						<li class="lnb"><a href="memberManagePage.jsp">회원관리</a></li>
 					</ul>
 				</div>
 			</div>
