@@ -87,7 +87,7 @@
 									style="width: 700px; height: 400px"></div>
 							</div>
 							
-							<div class="btn2 mt50">폐업 신청</div>
+							<div class="btn2 mt50" onclick="location.href='shutDownSubmitAction.jsp?restaurantId=<%=restaurant.getRestaurantId()%>'">폐업 신청</div>
 
 							<script type="text/javascript"
 								src="//dapi.kakao.com/v2/maps/sdk.js?appkey=dd47fc85028b09033fe0cae55378ec24&libraries=services"></script>
@@ -384,7 +384,6 @@
 	<script>
 		function reviewSubmit(){
 			document.getElementById('appraisal_form').submit();
-			alert('리뷰평가 제출하였습니다.');
 		}
 		
 	</script>
