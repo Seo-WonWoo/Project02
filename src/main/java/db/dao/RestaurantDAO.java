@@ -289,6 +289,25 @@ public class RestaurantDAO {
 		      return new Gson().toJson(restaurantList);
 	}
 	
+	public int modifyShutDownRestaurantSubmitbyRestaurantId(int restId) {		
+		int result = 0;
+		
+		try {
+			conn = DBConnectionManager.connectDB();
+			String query = " update restaurant_list "
+						 + " set restaurant_state = 'P' "
+						 + " where restaurant_id = ? ";
+			psmt = conn.prepareStatement(query);
+			psmt.setInt(1, restId );
+			result = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBConnectionManager.disconnectDB(conn, psmt, null);
+		}
+		return result;
+	}
+	
 	
 	public int modifyShutDownRestaurantStatebyRestaurantId(int restId) {		
 		int result = 0;

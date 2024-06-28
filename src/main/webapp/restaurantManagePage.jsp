@@ -51,7 +51,7 @@
 
 	<section class="container content">
 		<div class="inner">
-		<h2 class="sub_title mt40">폐업업체 관리</h2>
+		<h2 class="sub_title mt40">업체관리(폐업)</h2>
 
 			<!-- 업체 리스트 정보 데이터베이스 자바 객체 클래스 생성 -->
 			<%
