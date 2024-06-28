@@ -12,7 +12,7 @@
 <%@ page import="db.dao.MenuDAO"%>
 <%@ page import="db.dto.AppraisalDTO"%>
 <%@ page import="db.dao.AppraisalDAO"%>
-<%@ page import="com.google.gson.Gson"%>
+<%@ page import="com.google.gson.Gson"%> 
 <%@ page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>

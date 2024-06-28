@@ -312,7 +312,7 @@
 						</div>
 
 					</div>
-					<div class="btn2" onclick="searchSubmit()" style="float: right;">검색</div>
+					<div class="btn2" onclick="searchSubmit()" style="float: right; padding: 15px 0;">검색</div>
 				</div>
 			</form>
 

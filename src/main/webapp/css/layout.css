@@ -4,8 +4,7 @@
 .wrap{display: flex; flex-flow: row wrap; justify-content: space-between; align-items: center;}
 .wrap_s{display: flex; flex-flow: row wrap; justify-content: start; align-items: center;}
 .wrap_c{display: flex; flex-flow: row wrap; justify-content: space-between;}
-.content{width: 100%; padding: 100px;}
-.container.content{padding: 0;}
+.content{width: 100%; padding: 100px 0;}
 
 @media screen and (max-width: 1500px){
     .content{width: 100%; padding: 40px;}
