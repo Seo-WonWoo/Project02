@@ -358,7 +358,7 @@
 					int start = (currentPage - 1) * itemsPerPage;
 					int end = Math.min(start + itemsPerPage, totalItems);
 					%>
-					<%
+					<% 
 					for (int i = start; i < end; i++) {
 						RestaurantDTO restaurant = restaurantList.get(i);
 						int restaurantNumber = i + 1;

@@ -86,6 +86,7 @@ public class RestaurantDAO {
 			String sRN, String sKW) {
 			
 			List<RestaurantDTO> restaurantList = null;
+			System.out.println(sRN);
 			
 			try {
 				conn = DBConnectionManager.connectDB();
@@ -129,12 +130,12 @@ public class RestaurantDAO {
 				if( sConv1 > 0 || sConv2 > 0 || sConv3 > 0 || sConv4 > 0 || sConv5 > 0 || sConv6 > 0 || sConv7 > 0 || sConv8 > 0 )
 					query += " and rc.convenience_id in ( " + sConv1 + ", " + sConv2 + ", " + sConv3 + ", " + sConv4 + ", " + sConv5 + ", " + sConv6 + ", " + sConv7 + ", " + sConv8 + ") ";
 				
-				
-				if( sRN != null)
+				String nullstr = "null";
+				if( sRN != null && !sRN.equals(nullstr))
 					query += " and rl.restaurant_name like '%" + sRN + "%' ";
 				
-				if( sKW != null)
-					query += " and rm.menu_name like '%" + sRN + "%' ";
+				if( sKW != null && !sKW.equals(nullstr))
+					query += " and rm.menu_name like '%" + sKW + "%' ";
 				
 				query += " group by "
 							+ " rl.restaurant_id, "
