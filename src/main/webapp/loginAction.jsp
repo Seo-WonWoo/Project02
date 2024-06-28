@@ -14,6 +14,12 @@
 		String memberId = request.getParameter("id");
 		String memberPw = request.getParameter("pw");
 		
+		%>
+		
+		<%=memberId %>
+		<%=memberPw %>
+		<%
+		
 		MemberDAO memberDAO = new MemberDAO();
 		MemberDTO member = memberDAO.findMemberByIdAndPw(memberId, memberPw);
 		
@@ -21,20 +27,24 @@
 		String managerPosition = "M";
 		String generalPosition = "G"; 
 		
-		if(member.getMemberState().equals(awakeState)){
-			session.setAttribute("loginId", memberId);
-			if(member.getMemberPosition().equals(managerPosition)){
-				session.setAttribute("loginPosition", managerPosition);
-			} else {
-				session.setAttribute("loginPosition", managerPosition);
-			}
+		
+		try{
+			if(member.getMemberState().equals(awakeState)){
+				session.setAttribute("loginId", memberId);
+				
+				if(member.getMemberPosition().equals(managerPosition)){
+					session.setAttribute("loginPosition", managerPosition);
+				} else {
+					session.setAttribute("loginPosition", generalPosition);
+				}
 	%>
-			<script>
-					alert('로그인 성공');					
-					location.href = "mainPage.jsp";	
-			</script>
+				<script>
+						alert('로그인 성공');					
+						location.href = "mainPage.jsp";
+				</script>
 	<%
-		} else {
+			}
+		} catch(NullPointerException e) {
 	%>
 			<script>
 				alert('로그인 실패');
@@ -42,6 +52,8 @@
 			</script>
 	<%
 		}
+		
 	%>	
+	
 </body>
 </html>

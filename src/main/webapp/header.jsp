@@ -17,6 +17,7 @@
 	<%		
 		} else{			
 			String loginId = session.getAttribute("loginId").toString();
+			
 	%>
 				<li style="color: white;"><%=loginId%>님 환영합니다~!</li>
 				<li><a href="logoutAction.jsp">로그아웃</a></li>
