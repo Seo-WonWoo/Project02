@@ -66,13 +66,15 @@
 			<table id="find_business_table" class="new_tbl_board tb01 mt40 mb80">
 				<colgroup>
 					<col style="width: 4%;">
-					<col style="width: 10%;">
-					<col style="width: 10%;">
+					<col style="width: 8%;">
+					<col style="width: 8%;">
 					<col style="width: 6%;">
 					<col style="width: 10%;">
-					<col style="width: 8%;">
+					<col style="width: 10%;">
 					<col style="width: 20%;">
-					<col style="width: 3%;">
+					<col style="width: 6%;">
+					<col style="width: 6%;">
+					<col style="width: 6%;">
 				</colgroup>
 				<thead>
 					<tr>
@@ -103,29 +105,51 @@
 					for (int i = start; i < end; i++) {
 						MemberDTO member = memberList.get(i);
 						int memberNumber = i + 1;
+						String manager = "M";
+						String general = "G";
+						String sleepAccountState = "F";
+						String awakeState = "T";
 					%>
 					<tr>
 						<td><%=memberNumber%></td>
 						<td><%=member.getMemberId()%></td>
-						<td><%=member.getMemberPw()%></td>
+					<%
+						int pwLength = member.getMemberPw().length();
+						String memberPw = "";
+						for(int j=0; j<pwLength; j++){
+							memberPw += "*";
+						}
+					%>						
+						<td><%=memberPw%></td>
 						<td><%=member.getMemberName()%></td>
-						<td><%=member.getMemberJuminNumber() %></td>
+					<%
+						String memberJuminNumber = member.getMemberJuminNumber().substring(0, 8);
+						memberJuminNumber += "******";
+					%>
+						
+						<td><%=memberJuminNumber %></td>
 						<td><%=member.getMemberTel()%></td>
 						<td><%=member.getMemberAddress()%></td>
-						<td><%=member.getMemberPosition() %></td>
-						<td><%=member.getMemberState()%></td>
-						
+					<%						
+						if(member.getMemberPosition().equals(manager)) {
+					%>	
+						<td>관리자</td>
 					<%
-						String sleepAccountState = "F";
-						String awakeState = "T";
-						if(member.getMemberState().endsWith(awakeState)) {
+						} else if(member.getMemberPosition().equals(general)) {						
 					%>
-						<td><div class="btn2" style="width:130px; padding: 8px 0;"
+						<td>일반회원</td>
+					<%						
+						}
+						if(member.getMemberState().equals(awakeState)) {
+					%>
+						<td>정상</td>
+						<td><div class="btn2" style="width:130px; padding: 8px 0; background-color:red"
 						onclick="location.href='sleepAccountAction.jsp?memberNumber=<%=member.getMemberNumber()%>&memberState=<%=member.getMemberState()%>'">휴먼상태전환</div></td>
 					<%
 						} else {						
 					%>
-						<td><div class="btn2" style="width:130px; padding: 8px 0;"
+						<td>휴먼</td>
+						<td><div class="btn2" style="width:130px; padding: 8px 0; background-color:blue"
 						onclick="location.href='sleepAccountAction.jsp?memberNumber=<%=member.getMemberNumber()%>&memberState=<%=member.getMemberState()%>'">휴먼상태해제</div></td>
 					<%
 						}					
