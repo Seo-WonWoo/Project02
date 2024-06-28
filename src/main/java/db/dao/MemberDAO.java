@@ -32,7 +32,8 @@ public class MemberDAO {
 	                       rs.getString("MEMBER_NAME"),
 	                       rs.getString("MEMBER_JUMINNUMBER"),
 	                       rs.getString("MEMBER_TEL"),
-	                       rs.getString("MEMBER_ADDRESS"),	                   
+	                       rs.getString("MEMBER_ADDRESS"),
+	                       rs.getString("MEMBER_POSITION"),
 	                       rs.getString("MEMBER_STATE")
 	               );
 	               memberList.add(member);
@@ -69,7 +70,8 @@ public class MemberDAO {
                    rs.getString("MEMBER_NAME"),
                    rs.getString("MEMBER_JUMINNUMBER"),
                    rs.getString("MEMBER_TEL"),
-                   rs.getString("MEMBER_ADDRESS"),	                   
+                   rs.getString("MEMBER_ADDRESS"),
+                   rs.getString("MEMBER_POSITION"),
                    rs.getString("MEMBER_STATE")
                );	               
            }
@@ -87,14 +89,14 @@ public class MemberDAO {
 		try {
 			conn = DBConnectionManager.connectDB();
 			String query = " insert into member_list values(\r\n"
-					+ "(select max(member_number)+1 from member_list), ?, ?, ?, ?, ?, ?, 'T')";
+					+ "(select max(member_number)+1 from member_list), ?, ?, ?, ?, ?, ?, 'G', 'T')";
 			psmt = conn.prepareStatement(query);			
 			psmt.setString(1, memberId);
 			psmt.setString(2, memberPw);
 			psmt.setString(3, memberName);
 			psmt.setString(4, memberJuminNumber);
 			psmt.setString(5, memberTel);
-			psmt.setString(5, memberAddress);
+			psmt.setString(6, memberAddress);
 			result = psmt.executeUpdate();
 		} catch (SQLException e) {			
 			e.printStackTrace();

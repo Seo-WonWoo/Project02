@@ -10,18 +10,21 @@
 </head>
 <body>
 	<%
+		request.setCharacterEncoding("UTF-8"); //문자인코딩 설정  한글깨짐 방지	
 		String memberId = request.getParameter("id");
 		String memberPw = request.getParameter("pw");
 		
 		MemberDAO memberDAO = new MemberDAO();
 		MemberDTO member = memberDAO.findMemberByIdAndPw(memberId, memberPw);
 		
-		if(member.getMemberState().equals('T')){
-			session.setAttribute("loginId", member.getMemberId());
+		String awakeState = "T";
+		
+		if(member.getMemberState().equals(awakeState)){
+			session.setAttribute("loginId", memberId);
 	%>
 			<script>
-				alert('로그인 성공');
-				location.href = "mainPage.jsp";	
+					alert('로그인 성공');					
+					location.href = "mainPage.jsp";	
 			</script>
 	<%
 		} else {
@@ -33,6 +36,5 @@
 	<%
 		}
 	%>	
-	
 </body>
 </html>

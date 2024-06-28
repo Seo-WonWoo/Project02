@@ -45,7 +45,25 @@
 </head>
 <body>
 	<header id="header">
-		<jsp:include page="header.jsp" />
+		<div class="inner">
+			<div class="wrap">
+				<a href="<%= request.getContextPath() %>/mainPage.jsp">
+					<div class="logo wrap">
+						<img src="./images/header/logo_main.png" alt="착한가격안심가게 로고">
+					</div>
+					<div class="sub_logo wrap">
+						<img src="./images/header/logo_sub.png" alt="착한가격안심가게 로고">
+					</div>
+				</a>
+
+				<div class="nav">
+					<ul class="gnb dap1">
+						<li class="lnb"><a href="<%= request.getContextPath() %>/searchPage.jsp">착한가격모범식당업소 찾기</a></li>
+						<li class="lnb"><a href="<%= request.getContextPath() %>/closeSubmitPage.jsp">폐업신청</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
 	</header>
 
 	<section id="visual">
@@ -164,7 +182,7 @@
 						</div>
 						<div class="info">
 							<div class="wrap">
-								<div class="title_name" ><%=restaurant.getRestaurantName()%></div>
+								<div class="title_name"><%=restaurant.getRestaurantName()%></div>
 								<div class="title_scor wrap">
 									<div class="star">
 										<img src="./images/content/main/Icon fa-solid-star.svg" alt="">
@@ -178,21 +196,7 @@
 								<p class="ml10"><%=restaurant.getRestaurantTel()%></p>
 							</div>
 							<div class="wrap_s mb30">
-								<div class="title_menu" data-max-chars="7"><%=restaurant.getMenuName()%></div>
-								<script>
-							        document.addEventListener("DOMContentLoaded", function() {
-							            const elements = document.querySelectorAll('.info .title_menu');
-							
-							            elements.forEach(function(element) {
-							                const maxChars = parseInt(element.getAttribute('data-max-chars'), 10);
-							                const text = element.textContent;
-							
-							                if (text.length > maxChars) {
-							                    element.textContent = text.substring(0, maxChars) + '...';
-							                }
-							            });
-							        });
-    							</script>
+								<div class="title_menu"><%=restaurant.getMenuName()%></div>
 								<div class="title_price ml20"><%=restaurant.getMenuPrice()%>원
 								</div>
 							</div>
