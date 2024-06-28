@@ -29,7 +29,7 @@
 	<div class="main_nav">
 		<div class="inner">
 			<div class="wrap">
-				<a href="index3.jsp">
+				<a href="mainPage.jsp">
 					<div class="logo wrap">
 						<img src="./images/header/logo_main.png" alt="착한가격안심가게 로고">
 					</div>
@@ -42,8 +42,17 @@
 						<li class="lnb"><a href="whatCheepPricePage.jsp">착한가격업소 소개</a></li>
 						<li class="lnb"><a href="whatMobumPage.jsp">모범음식점 소개</a></li>
 						<li class="lnb"><a href="searchPage.jsp">착한가격/모범업소 찾기</a></li>
+	<%
+		String managerPosition = "M";
+		String loginPosition = session.getAttribute("loginPosition") != null ?
+				session.getAttribute("loginPosition").toString() : "";
+		if(loginPosition.equals(managerPosition)){
+	%>
 						<li class="lnb"><a href="restaurantManagePage.jsp">업체관리</a></li>
 						<li class="lnb"><a href="memberManagePage.jsp">회원관리</a></li>
+	<%		
+		}
+	%>
 					</ul>
 				</div>
 			</div>

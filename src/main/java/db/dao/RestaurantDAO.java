@@ -175,9 +175,11 @@ public class RestaurantDAO {
 			conn = DBConnectionManager.connectDB();
 			
 			String query = " select "
+						 + " restaurant_id, "
 						 + " restaurant_name, "
 						 + " restaurant_tel, "
-						 + " restaurant_state "
+						 + " restaurant_address, "
+						 + " restaurant_state "						 
 						 + " from restaurant_list "
 						 + " where restaurant_state in('P', 'F') ";
 			
@@ -186,8 +188,10 @@ public class RestaurantDAO {
 			restaurantList = new ArrayList<RestaurantDTO>();
 			while (rs.next()) {
 				RestaurantDTO restaurant = new RestaurantDTO();
+				restaurant.setRestaurantId(rs.getInt("restaurant_id"));
 				restaurant.setRestaurantName(rs.getString("restaurant_name"));
 				restaurant.setRestaurantTel(rs.getString("restaurant_tel"));
+				restaurant.setRestaurantAddress(rs.getString("restaurant_address"));
 				restaurant.setRestaurantState(rs.getString("restaurant_state"));
 				restaurantList.add(restaurant);	
 			}
@@ -285,5 +289,24 @@ public class RestaurantDAO {
 		      return new Gson().toJson(restaurantList);
 	}
 	
+	
+	public int modifyShutDownRestaurantStatebyRestaurantId(int restId) {		
+		int result = 0;
+		
+		try {
+			conn = DBConnectionManager.connectDB();
+			String query = " update restaurant_list "
+						 + " set restaurant_state = 'F' "
+						 + " where restaurant_id = ? ";
+			psmt = conn.prepareStatement(query);
+			psmt.setInt(1, restId );
+			result = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBConnectionManager.disconnectDB(conn, psmt, null);
+		}
+		return result;
+	}
 
 }

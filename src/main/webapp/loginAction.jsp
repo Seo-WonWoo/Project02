@@ -18,9 +18,16 @@
 		MemberDTO member = memberDAO.findMemberByIdAndPw(memberId, memberPw);
 		
 		String awakeState = "T";
+		String managerPosition = "M";
+		String generalPosition = "G"; 
 		
 		if(member.getMemberState().equals(awakeState)){
 			session.setAttribute("loginId", memberId);
+			if(member.getMemberPosition().equals(managerPosition)){
+				session.setAttribute("loginPosition", managerPosition);
+			} else {
+				session.setAttribute("loginPosition", managerPosition);
+			}
 	%>
 			<script>
 					alert('로그인 성공');					
