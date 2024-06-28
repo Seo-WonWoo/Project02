@@ -25,7 +25,7 @@
 </head>
 <body>
 	<div class="field">
-		<form action="loginAction.jsp" method="post" id="login_form">
+		<form action="loginAction.jsp" method="get" id="login_form">
         <div class="store_search_box center_box">
             <h2 class="title mb30">로그인</h2>
             <div class="wrap_s">

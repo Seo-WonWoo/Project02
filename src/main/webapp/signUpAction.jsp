@@ -11,6 +11,7 @@
 <body>
 	
 	<%
+		request.setCharacterEncoding("UTF-8"); //문자인코딩 설정  한글깨짐 방지	
 		String memberId = request.getParameter("id_signUp");
 		String memberPw = request.getParameter("pw_signUp");
 		String memberName = request.getParameter("name_signUp");

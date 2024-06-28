@@ -9,12 +9,13 @@ public class MemberDTO {
 	String memberJuminNumber;
 	String memberTel;
 	String memberAddress;
+	String memberPosition;
 	String memberState;
 	
 	public MemberDTO() {}
 
 	public MemberDTO(int memberNumber, String memberId, String memberPw, String memberName, String memberJuminNumber,
-			String memberTel, String memberAddress, String memberState) {
+			String memberTel, String memberAddress, String memberPosition, String memberState) {
 		super();
 		this.memberNumber = memberNumber;
 		this.memberId = memberId;
@@ -23,6 +24,7 @@ public class MemberDTO {
 		this.memberJuminNumber = memberJuminNumber;
 		this.memberTel = memberTel;
 		this.memberAddress = memberAddress;
+		this.memberPosition = memberPosition;
 		this.memberState = memberState;
 	}
 
@@ -82,6 +84,14 @@ public class MemberDTO {
 		this.memberAddress = memberAddress;
 	}
 
+	public String getMemberPosition() {
+		return memberPosition;
+	}
+
+	public void setMemberPosition(String memberPosition) {
+		this.memberPosition = memberPosition;
+	}
+
 	public String getMemberState() {
 		return memberState;
 	}
@@ -89,6 +99,8 @@ public class MemberDTO {
 	public void setMemberState(String memberState) {
 		this.memberState = memberState;
 	}
+
+	
 	
 	
 	
