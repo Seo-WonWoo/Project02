@@ -28,7 +28,8 @@
 				<div class="nav">
 					<ul class="gnb dap1">
 						<li class="lnb"><a href="index2.jsp">착한가격안심가게업소 찾기</a></li>
-						<li class="lnb"><a href="applicationBusiness.jsp">폐업신청</a></li>
+						<li class="lnb"><a href="applicationBusiness.jsp">업체관리</a></li>
+						<li class="lnb"><a href="memberList.jsp">회원관리</a></li>
 					</ul>
 				</div>
 			</div>
