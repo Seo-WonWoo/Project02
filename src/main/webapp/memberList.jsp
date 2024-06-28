@@ -12,6 +12,8 @@
 <%@ page import="db.dao.ConvenienceDAO"%>
 <%@ page import="db.dto.RestaurantDTO"%>
 <%@ page import="db.dao.RestaurantDAO"%>
+<%@ page import="db.dto.MemberDTO"%>
+<%@ page import="db.dao.MemberDAO"%>
 <%@ page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -93,31 +95,36 @@
 
 	<section class="container content">
 		<div class="inner">
-		<h2 class="sub_title mt40">업체관리</h2>
+		<h2 class="sub_title mt40">회원관리</h2>
 
 			<!-- 업체 리스트 정보 데이터베이스 자바 객체 클래스 생성 -->
 			<%
-			RestaurantDAO restaurantDAO = new RestaurantDAO();
-			List<RestaurantDTO> restaurantList = restaurantDAO.findRestaurantList(sCity, sCountry, sDong, sRS, sCert, sConv1,
-					sConv2, sConv3, sConv4, sConv5, sConv6, sConv7, sConv8, sRN, sKW);
+			MemberDAO memberDAO = new MemberDAO();
+			List<MemberDTO> memberList = memberDAO.findMemberList();
 			%>
 
 
 			<table id="find_business_table" class="new_tbl_board tb01 mt40 mb80">
 				<colgroup>
 					<col style="width: 4%;">
-					<col style="width: 15%;">
 					<col style="width: 10%;">
-					<col style="width: 25%;">
-					<col style="width: 1%;">
+					<col style="width: 10%;">
+					<col style="width: 6%;">
+					<col style="width: 10%;">
+					<col style="width: 8%;">
+					<col style="width: 20%;">
+					<col style="width: 3%;">
 				</colgroup>
 				<thead>
 					<tr>
 						<th scope="col" class="hd">번호</th>
-						<th scope="col" class="hd">업소명</th>
-						<th scope="col" class="hd">업소 전화번호</th>
+						<th scope="col" class="hd">아이디</th>
+						<th scope="col" class="hd">비밀번호</th>
+						<th scope="col" class="hd">이름</th>
+						<th scope="col" class="hd">주민번호</th>
+						<th scope="col" class="hd">전화번호</th>
 						<th scope="col">주소</th>
-						<th scope="col"></th>
+						<th scope="col">탈퇴여부</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -125,7 +132,7 @@
 					<%
 					int itemsPerPage = 10;
 					int currentPage = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
-					int totalItems = restaurantList.size();
+					int totalItems = memberList.size();
 					int totalPages = (int) Math.ceil((double) totalItems / itemsPerPage);
 
 					int start = (currentPage - 1) * itemsPerPage;
@@ -133,16 +140,18 @@
 					%>
 					<%
 					for (int i = start; i < end; i++) {
-						RestaurantDTO restaurant = restaurantList.get(i);
-						int restaurantNumber = i + 1;
+						MemberDTO member = memberList.get(i);
+						int memberNumber = i + 1;
 					%>
-					<tr
-						onclick="location.href='FindBusinessDetail2.jsp?restaurantId=<%=restaurant.getRestaurantId()%>'">
-						<td><%=restaurantNumber%></td>
-						<td><%=restaurant.getRestaurantName()%></td>
-						<td><%=restaurant.getRestaurantTel()%></td>
-						<td><%=restaurant.getRestaurantAddress()%></td>
-						<td><div class="btn2" onclick="" style="width:130px; padding: 8px 0;">폐업신청</div></td>
+					<tr>
+						<td><%=memberNumber%></td>
+						<td><%=member.getMemberId()%></td>
+						<td><%=member.getMemberPw()%></td>
+						<td><%=member.getMemberName()%></td>
+						<td><%=member.getMemberJumin()%></td>
+						<td><%=member.getMemberTel()%></td>
+						<td><%=member.getMemberAddress()%></td>
+						<td><%=member.getMemberState()%></td>
 					</tr>
 					<%
 					}
