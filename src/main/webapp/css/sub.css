@@ -257,3 +257,21 @@
     .whatonebox .item.item2::after,
     .whatonebox .item.item4::after  {display: none;}
 }
+
+
+
+@media (max-width: 500px){
+    .whatonebox h1{font-size: 1.3rem;}
+    .whatonebox h2{font-size: 1.2rem;}
+    .whatonebox h3{font-size: 1.13rem;}
+    .whatonebox .item .item_in,
+    .whatonebox .item .circle {width: 100px;}
+    .whatonebox .item .circle {height: 100px;}
+    .whatonebox .imgunder1 {font-size: 15px;}
+    .whatonebox .item .circle .img img {width: 30px;}
+    .whatonebox .imgunder2 {font-size: 13px;}
+    .whatonebox .item::after {background-size: 17px auto;width: 17px;height: 20px;}
+    .whatonebox .item .item_in {height: 225px;}
+    .whatonebox .item::after {top: 38px;right: -7px;}
+
+}
