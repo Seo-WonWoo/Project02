@@ -4,7 +4,8 @@
 #header .inner{width: 1570px;}
 #header .top_nav{background: #343434; }
 #header .top_nav .gnb{display: flex;justify-content: flex-end;align-items: center;}
-#header .top_nav .gnb li a{padding: 6px 30px; border-left: 1px solid #5f5f5f;}
+#header .top_nav .gnb li{margin-left: 25px;}
+#header .top_nav .gnb li a{padding: 8px 30px; border-left: 1px solid #5f5f5f;}
 #header .top_nav .gnb li:last-child a{border-right: 1px solid #5f5f5f;}
 #header .top_nav a{color: white;}
 #header .main_nav .logo{display: block;}

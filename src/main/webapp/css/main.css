@@ -31,7 +31,7 @@
 #find_business .box .info .title_menu,
 #find_business .box .info .title_price{font-size: 25px; font-weight: bold;}
 #find_business .box .info .title_submenu .lnb{padding: 7px 12px; border: 1px solid #ddd; border-radius: 20px; margin-right: 10px; margin-bottom: 10px}
-#find_business .box .info .title_submenu .lnb:last-child{margin: 0;}
+#find_business .box .info .title_submenu .lnb:last-child{margin-right: 0;}
 
 /* business_update */
 #business_update{background: #F3F3F3;}
