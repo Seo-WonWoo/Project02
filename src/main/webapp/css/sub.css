@@ -53,7 +53,7 @@
 .girl{height: 300px;}
 .girl{height: 20px; margin-left: 150px; margin-top: 20px;}
 .mean{text-align: center; margin-top: 200px;}
-.mean img{overflow-clip-margin: content-box; max-width: 100%; margin-top: 100px;}
+.mean img{overflow-clip-margin: content-box; max-width: 100%; margin: 100px auto;}
 .mean h1{font-size: 5rem; margin: 70px; font-family: "Black Han Sans", sans-serif; font-weight: 200;}
 .mean p{font-size: 2rem; font-family: "Hahmlet", serif;}
 .mean .mg p{ margin-left: 100px;}

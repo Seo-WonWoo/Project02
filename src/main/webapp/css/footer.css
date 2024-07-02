@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+/*footer*/
+#footer{position: relative; background: #333; padding: 50px 40px; color: white;}
+#footer h1{font-weight: bold; color: grey; font-family: 'Sriracha', cursive; letter-spacing: 1px;}
+#footer .total_box{flex-wrap: nowrap;}
+#footer .total_box .logo_img{width: 250px;}
+#footer .total_box .box img{width: 100%;}
+#footer .total_box .box p{text-align: end;}
+#footer .total_box .box .git_url{width: 478px; background: rgb(83, 83, 83); padding: 10px 15px; border-radius: 8px;}
+#footer .total_box .box .aqua a{color: #A8F8FB;}
+#footer .total_box .box .info li{float: right; margin-right: 5px;}
+#footer .total_box .gnb{width: 540px;}
+#footer .total_box .gnb .lnb a{color: #d1d1d1;}
+#footer .total_box .gnb .lnb a::after{content: '|'; margin: 0 10px; color: #898989;}
+#footer .total_box .gnb .lnb:last-child a::after{content: none;}
+
+@media screen and (max-width: 1200px){
+    #footer .total_box ul{margin-bottom: 20px;}
+    #footer .total_box ul:last-child{margin-bottom: 10px;}
+    #footer .total_box .info{width: 100%;}
+    #footer .total_box .box p{text-align: inherit;}
+
+}
+
+@media screen and (max-width: 500px){
+    #footer{padding: 20px;}
+    #footer .total_box .box{width: 100%;}
+    #footer .total_box .f_logo img{margin-left: 2px;}
+}

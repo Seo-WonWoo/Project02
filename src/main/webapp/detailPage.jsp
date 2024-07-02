@@ -318,6 +318,8 @@
 						</div>
 					</div>
 	</section>
+	
+	<jsp:include page="footer.jsp" />
 	<%
 	} catch (NumberFormatException e) {
 	// restaurantId를 Integer로 파싱하는 과정에서 예외 발생 시 처리할 코드

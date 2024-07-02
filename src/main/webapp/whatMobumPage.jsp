@@ -93,8 +93,8 @@
             지정된 후 <span>출임, 검사를 2년간 면제</span>시켜줍니다.<br><br><br><br><br>
 
         </p>
-
-
     </div>
+    
+    <jsp:include page="footer.jsp" />
 </body>
 </html>

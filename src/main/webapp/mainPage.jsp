@@ -340,7 +340,7 @@
 		                if (countryCountList != null && !countryCountList.isEmpty()) {
 		                    RestaurantDTO counts = countryCountList.get(0);
 						%>
-						<p class="scor"><%=counts.getKindRestaurantCount() %></p>
+						<p class="scor"><%=counts.getKindRestaurantCount()%></p> 
 						<%
 		                }
 						%>
@@ -466,6 +466,8 @@
 				</div>
 			</div>
 	</section>
+	
+	<jsp:include page="footer.jsp" />
 	<script>
 		function searchSubmit1(){
 			document.getElementById('search_form1').submit();
