@@ -13,7 +13,7 @@ public class StarScoreDAO {
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
 	
-	
+	//업소 별점 수정 함수(리뷰평가처리페이지)
 	public int modifyStarScore(int restId, double starScore, int starCount, int sStarScore) {		
 		int result = 0;
 		double starScoreCalculate = sStarScore != 0 ?  

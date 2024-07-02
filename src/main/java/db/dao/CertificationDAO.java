@@ -16,6 +16,7 @@ public class CertificationDAO {
 	static PreparedStatement psmt = null;
 	static ResultSet rs = null;	
 	
+	//인증 전체 리스트 호출 함수(메인페이지, 상세페이지)
 	public List<CertificationDTO> getCertificationList() {
 		List<CertificationDTO> certificationList = null;
 		try {

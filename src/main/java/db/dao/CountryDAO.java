@@ -16,6 +16,7 @@ public class CountryDAO {
 	static PreparedStatement psmt = null;
 	static ResultSet rs = null;	
 	
+	//구 전체 리스트 호출 함수
 	public List<CountryDTO> getCountryList() {
 		List<CountryDTO> CountryList = null;
 		try {
@@ -41,7 +42,7 @@ public class CountryDAO {
 		return CountryList;
 	}
 		
-	
+	//시 아이디를 통한 구 리스트 호출 함수(검색페이지)
 	public List<CountryDTO> findCountryByCityId(int cityId) {
 		List<CountryDTO> CountryList = null;
 		try {

@@ -16,6 +16,7 @@ public class ConvenienceDAO {
 	static PreparedStatement psmt = null;
 	static ResultSet rs = null;	
 	
+	//편의기능 전체 리스트 호출 함수(검색페이지)
 	public List<ConvenienceDTO> getConvenienceList() {
 		List<ConvenienceDTO> convenienceList = null;
 		try {
@@ -40,6 +41,7 @@ public class ConvenienceDAO {
 		return convenienceList;
 	}
 	
+	//업소아이디를 통한 편의기능 호출 함수(메인페이지, 상세페이지)
 	public List<ConvenienceDTO> getConvenienceListByRestaurantId(int restaurantId) {
 		List<ConvenienceDTO> convenienceList = null;
 		try {

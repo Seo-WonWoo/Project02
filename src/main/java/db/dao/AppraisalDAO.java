@@ -16,6 +16,8 @@ public class AppraisalDAO {
 	static PreparedStatement psmt = null;
 	static ResultSet rs = null;	
 	
+	
+	//평가 전체 리스트 호출 함수(상세페이지)
 	public List<AppraisalDTO> getAppraisalList() {
 		List<AppraisalDTO> appraisalList = null;
 		try {
@@ -40,6 +42,7 @@ public class AppraisalDAO {
 		return appraisalList;
 	}
 	
+	//업소 아이디를 통한 평가 데이터 호출 함수(상세페이지)
 	public List<AppraisalDTO> getAppraisalListByRestaurantId(int restaurantId) {
 		List<AppraisalDTO> appraisalList = null;
 		try {
@@ -78,6 +81,8 @@ public class AppraisalDAO {
 		return appraisalList;
 	}
 	
+	
+	//업소 아이디를 통한 평가항목 수정 함수(리뷰평가처리페이지)
 	public int modifyAppraisal(int restId, int sAppr, int ApprCount) {		
 		int result = 0;
 		

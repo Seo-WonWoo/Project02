@@ -7,8 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.gson.Gson;
-
 import db.dto.RestaurantDTO;
 import db.util.DBConnectionManager;
 
@@ -18,6 +16,9 @@ public class RestaurantDAO {
 	static PreparedStatement psmt = null;
 	static ResultSet rs = null;	
 	
+	//업소 전체 리스트 호출 함수(메인페이지, 검색페이지)
+	//테이블 조인(restaurant_list, restaurant_sector, restaurant_menu, certification_list,
+	//	  	   restaurant_convenience, restaurant_star_score)
 	public List<RestaurantDTO> findRestaurantList() {
 		
 		List<RestaurantDTO> restaurantList = null;
@@ -79,6 +80,9 @@ public class RestaurantDAO {
 		return restaurantList;
 	}
 	
+	
+	//업소 검색 결과 리스트 호출 함수(검색페이지)
+	//업소 전체 조회 SQL문 + 매개변수(검색 항목) 조건 추가
 	public List<RestaurantDTO> findRestaurantList(
 			int sCity, int sCountry, int sDong, int sRS, int sCert,
 			int sConv1, int sConv2, int sConv3, int sConv4,
@@ -131,6 +135,8 @@ public class RestaurantDAO {
 					query += " and rc.convenience_id in ( " + sConv1 + ", " + sConv2 + ", " + sConv3 + ", " + sConv4 + ", " + sConv5 + ", " + sConv6 + ", " + sConv7 + ", " + sConv8 + ") ";
 				
 				String nullstr = "null";
+				//파라메터 값 처리 후 재 송출간 ""(null) → "null"로 변경 => "null" 조건문 추가
+				
 				if( sRN != null && !sRN.equals(nullstr))
 					query += " and rl.restaurant_name like '%" + sRN + "%' ";
 				
@@ -168,7 +174,10 @@ public class RestaurantDAO {
 			return restaurantList;
 		}
 		
-		public List<RestaurantDTO> shutDownRestaurantList() {
+	
+	//폐업업소(폐업대기, 폐업처리) 리스트 호출 함수(메인페이지, 업체관리페이지)
+	//업소 상태 'P'(pending, 대기) 'F'(false, 폐업처리)	
+	public List<RestaurantDTO> shutDownRestaurantList() {
 		
 		List<RestaurantDTO> restaurantList = null;
 		
@@ -203,7 +212,10 @@ public class RestaurantDAO {
 		}
 		return restaurantList;
 	}
-		
+	
+	
+	//업소 아이디값을 통한 업소 호출 함수(상세페이지)
+	//업소 전체 조회 SQL문 + 매개변수(검색 항목) 조건 추가
 	public RestaurantDTO getRestaurantById(int restaurantId) {
 		      RestaurantDTO restaurant = null;
 		      try {
@@ -254,15 +266,16 @@ public class RestaurantDAO {
 	}
 	
 	
-	public List<RestaurantDTO> findCountryCount() {
+	//대시보드 업체 수 검색 함수(메인페이지)
+	public List<RestaurantDTO> findRestaurantCountByCertification() {
         List<RestaurantDTO> countryCountList = new ArrayList<RestaurantDTO>();
 
         try {
             conn = DBConnectionManager.connectDB();
 
             String query = "SELECT "
-                    + " count(case when county_id = 1 then 1 end) AS count_city_1, "
-                    + " count(case when county_id = 2 then 1 end) AS count_city_2 "
+                    + " count(case when CERTIFICATION_ID = 1 then 1 end) CERTIFICATION_ID_1, "
+                    + " count(case when CERTIFICATION_ID = 2 then 1 end) CERTIFICATION_ID_2 "
                     + " FROM restaurant_list";
 
             psmt = conn.prepareStatement(query);
@@ -270,8 +283,8 @@ public class RestaurantDAO {
 
             if (rs.next()) {
                 RestaurantDTO countryCount = new RestaurantDTO();
-                countryCount.setCountCityKind(rs.getInt("count_city_1"));
-                countryCount.setCountCityExample(rs.getInt("count_city_2"));
+                countryCount.setKindRestaurantCount(rs.getInt("CERTIFICATION_ID_1"));
+                countryCount.setExampleRestaurantCount(rs.getInt("CERTIFICATION_ID_2"));                
                 countryCountList.add(countryCount);
             }
         } catch (SQLException e) {
@@ -283,13 +296,8 @@ public class RestaurantDAO {
     }
 	
 	
-	
-
-	public String getRestaurantListJson() {
-		      List<RestaurantDTO> restaurantList = findRestaurantList();
-		      return new Gson().toJson(restaurantList);
-	}
-	
+	//업소 아이디값을 통한 업소 폐업신청 함수(상세폐이지)
+	//해당 업소 상태 값 폐업대기 변경('T' → 'P')
 	public int modifyShutDownRestaurantSubmitbyRestaurantId(int restId) {		
 		int result = 0;
 		
@@ -309,7 +317,8 @@ public class RestaurantDAO {
 		return result;
 	}
 	
-	
+	//업소 아이디값을 통한 폐업신청업소 폐업처리 함수(업체관리페이지)
+	//해당 업소 상태 값 폐업대기 변경('P' → 'F')	
 	public int modifyShutDownRestaurantStatebyRestaurantId(int restId) {		
 		int result = 0;
 		

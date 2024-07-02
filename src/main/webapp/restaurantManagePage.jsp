@@ -115,7 +115,7 @@
 						if(restaurant.getRestaurantState().equals(pendingState)){
 					%>	
 						<td><div class="btn2" style="width:130px; padding: 8px 0;"
-						onclick="location.href='shutDownAction.jsp?restaurantId=<%=restaurant.getRestaurantId() %>'">폐업신청</div></td>					
+						onclick="location.href='shutDownAction.jsp?restaurantId=<%=restaurant.getRestaurantId() %>'">폐업승인</div></td>					
 					<%
 						} else {						
 					%>

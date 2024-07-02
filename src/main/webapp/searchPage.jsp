@@ -102,8 +102,7 @@
 
 	<!-- 검색 데이터베이스 정보 자바스크립트 배열 객체 내 저장 -->
 	<!-- 배열 객체(시, 군, 동, 편의기능) 생성 -->
-	<script>
-		let cityList = new Array();
+	<script>		
 		let countryList = new Array();
 		let dongList = new Array();
 		let convenienceList = new Array();
@@ -115,7 +114,7 @@
 	List<CityDTO> cityList = cityDAO.getCityList();
 	%>
 
-	<!-- 군 정보 데이터베이스 자바 객체 클래스 생성 및 자바스크립트 객체 배열 정보 추가 -->
+	<!-- 구 정보 데이터베이스 자바 객체 클래스 생성 및 자바스크립트 객체 배열 정보 추가 -->
 	<%
 	CountryDAO countryDAO = new CountryDAO();
 	List<CountryDTO> countryList = countryDAO.getCountryList();
@@ -126,7 +125,7 @@
 										countryName : "<%=country.getCountryName()%>",
 										cityId : <%=country.getCityId()%>
 									  } );
-			</script>
+	</script>
 	<%
 	}
 	%>
@@ -452,8 +451,6 @@
 		
 		
 		function allCheckSelect(){
-			console.log(document.querySelector('#AllcheckYn').checked);
-			
 			convenienceList.forEach( (item, index) =>{
 				if(document.querySelector('#AllcheckYn').checked == true)
 					document.querySelector('#check_'+item.convenienceId).checked = true;

@@ -16,6 +16,8 @@ public class RestaurantSectorDAO {
 	static PreparedStatement psmt = null;
 	static ResultSet rs = null;	
 	
+	
+	//업종 전체 리스트 호출 함수(메인페이지, 검색페이지)
 	public List<RestaurantSectorDTO> getRestaurantSectorList() {
 		List<RestaurantSectorDTO> restaurantSectorList = null;
 		try {

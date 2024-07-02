@@ -336,11 +336,11 @@
 						</div>
 						
 						<%
-		                List<RestaurantDTO> countryCountList = restaurantDAO.findCountryCount();
+		                List<RestaurantDTO> countryCountList = restaurantDAO.findRestaurantCountByCertification();
 		                if (countryCountList != null && !countryCountList.isEmpty()) {
 		                    RestaurantDTO counts = countryCountList.get(0);
 						%>
-						<p class="scor"><%=counts.getCountCityKind()%></p>
+						<p class="scor"><%=counts.getKindRestaurantCount() %></p>
 						<%
 		                }
 						%>
@@ -354,7 +354,7 @@
 			                if (countryCountList != null && !countryCountList.isEmpty()) {
 			                    RestaurantDTO counts = countryCountList.get(0);
 			            %>
-						<p class="scor"><%=counts.getCountCityExample()%></p>
+						<p class="scor"><%=counts.getExampleRestaurantCount()%></p>
 						<%
 			                }
 						%>

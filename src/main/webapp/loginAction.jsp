@@ -14,12 +14,6 @@
 		String memberId = request.getParameter("id");
 		String memberPw = request.getParameter("pw");
 		
-		%>
-		
-		<%=memberId %>
-		<%=memberPw %>
-		<%
-		
 		MemberDAO memberDAO = new MemberDAO();
 		MemberDTO member = memberDAO.findMemberByIdAndPw(memberId, memberPw);
 		

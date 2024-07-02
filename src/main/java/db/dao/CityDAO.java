@@ -16,6 +16,7 @@ public class CityDAO {
 	static PreparedStatement psmt = null;
 	static ResultSet rs = null;	
 	
+	//시 전체 리스트 호출 함수(검색페이지)
 	public List<CityDTO> getCityList() {
 		List<CityDTO> cityList = null;
 		try {
