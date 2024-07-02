@@ -1,4 +1,4 @@
-package db.dao;
+ package db.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,6 +16,7 @@ public class MenuSectorDAO {
 	static PreparedStatement psmt = null;
 	static ResultSet rs = null;	
 	
+	//주요메뉴군 전체 리스트 호출 함수(메인페이지)
 	public List<MenuSectorDTO> getMenuSectorList() {
 		List<MenuSectorDTO> menuSectorList = null;
 		try {

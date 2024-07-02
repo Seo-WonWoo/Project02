@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import db.dto.MemberAppraisalDTO;
-import db.dto.MemberDTO;
 import db.util.DBConnectionManager;
 
 public class MemberAppraisalDAO {
@@ -15,6 +14,8 @@ public class MemberAppraisalDAO {
 	static PreparedStatement psmt = null;
 	static ResultSet rs = null;	
 	
+	
+	//회원번호, 업소아이디를 통한 리뷰평가 이력 검색 함수(리뷰평가처리페이지)
 	public MemberAppraisalDTO findMemberAppraisalByMemberNumberAndRestaurantId(int memberNumber, int restaurantId) {
 		MemberAppraisalDTO memberAppraisal = null;
 	       try {
@@ -40,6 +41,8 @@ public class MemberAppraisalDAO {
 	       return memberAppraisal;
 	}
 	
+	
+	//회원번호, 업소아이디를 통한 리뷰평가 이력 추가 함수(리뷰평가처리페이지)
 	public int addMemberAppraisal(int memberNumber, int restaurantId) {
 		int result = 0;
 		try {

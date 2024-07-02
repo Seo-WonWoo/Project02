@@ -50,16 +50,17 @@
 	if (restaurantIdParam != null && !restaurantIdParam.isEmpty()) {
 		try {
 			int restaurantId = Integer.parseInt(restaurantIdParam);
+			// DAO 객체 생성
 			RestaurantDAO restaurantDAO = new RestaurantDAO();
 			RestaurantDTO restaurant = restaurantDAO.getRestaurantById(restaurantId);
 			MenuDAO menuDAO = new MenuDAO();
-			List<MenuDTO> menuList = menuDAO.getMenuByRestaurantId(restaurantId);
+			List<MenuDTO> menuList = menuDAO.getMenuByRestaurantId(restaurantId);		
+			
 	%>
 	<%
-	// DAO 객체 생성
-	RestaurantDAO restaurantListDAO = new RestaurantDAO();
+	
 	// DAO를 통해 데이터베이스에서 모든 레스토랑 리스트 가져오기
-	List<RestaurantDTO> restaurantList = restaurantListDAO.findRestaurantList();
+	List<RestaurantDTO> restaurantList = restaurantDAO.findRestaurantList();
 
 	// restaurantList를 JSON 형태로 변환
 	String jsonRestaurantList = new Gson().toJson(restaurantList);
@@ -93,6 +94,7 @@
 								src="//dapi.kakao.com/v2/maps/sdk.js?appkey=dd47fc85028b09033fe0cae55378ec24&libraries=services"></script>
 							<script>
         var geocoder = new kakao.maps.services.Geocoder();
+        //
         var restaurantList = <%=jsonRestaurantList%>;
 
         // 주소 문자열에서 불필요한 줄 바꿈 및 공백 제거 함수
@@ -104,10 +106,10 @@
         }
 
         // 각 레스토랑의 주소를 가져와서 지도에 마커 표시하기
-        restaurantList.forEach(function(restaurant) {
-            var restaurantName = restaurant.restaurantName;
-            var restaurantId = restaurant.restaurantId;
-            var restaurantAddress = cleanAddress(restaurant.restaurantAddress);
+        restaurantList.forEach(function(restaurantItem) {
+            var restaurantName = restaurantItem.restaurantName;
+            var restaurantId = restaurantItem.restaurantId;
+            var restaurantAddress = cleanAddress(restaurantItem.restaurantAddress);
             var mapContainerId = 'map_' + restaurantId; // 수정: restaurantId를 사용
 
             geocoder.addressSearch(restaurantAddress, function(result, status) {
@@ -176,18 +178,7 @@
 								<img src="./images/content/main/Icon fa-solid-star.svg" alt="">
 							</div>
 							<p class="scor ml10">
-								<%
-								Double starScore = restaurant != null ? restaurant.getStarScore() : null;
-								if (starScore != null) {
-								%>
-								<%=starScore%>
-								<%
-								} else {
-								%>
-								별점 정보를 찾을 수 없습니다
-								<%
-								}
-								%>								
+								<%=restaurant.getStarScore()%>								
 							</p>
 						</div>
 						<div class="box mb30">
@@ -198,15 +189,15 @@
 							<ul class="gnb">
 								<li class="wrap_s">
 									<p class="title">주소</p>
-									<p class="ml30"><%=restaurant != null ? restaurant.getRestaurantAddress() : ""%></p>
+									<p class="ml30"><%=restaurant.getRestaurantAddress()%></p>
 								</li>
 								<li class="wrap_s">
 									<p class="title">업소 전화번호</p>
-									<p class="ml30"><%=restaurant != null ? restaurant.getRestaurantTel() : ""%></p>
+									<p class="ml30"><%=restaurant.getRestaurantTel()%></p>
 								</li>
 								<li class="wrap_s">
 									<p class="title">업종</p>
-									<p class="ml30"><%=restaurant != null ? restaurant.getRestaurantSectorName() : ""%></p>
+									<p class="ml30"><%=restaurant.getRestaurantSectorName()%></p>
 								</li>
 							</ul>
 						</div>
@@ -243,8 +234,7 @@
 							List<ConvenienceDTO> convenienceList = convenienceDAO.getConvenienceListByRestaurantId(restaurant.getRestaurantId());
 							if(convenienceList != null){
 								for(ConvenienceDTO convenience : convenienceList){
-									if(convenience.getConvenienceId() > 0){	
-								
+									if(convenience.getConvenienceId() > 0){						
 	%>
 										<li class="lnb"><%=convenience.getConvenienceName()%></li>
 	<%
@@ -264,8 +254,7 @@
 							List<AppraisalDTO> appraisal = appraisalDAO.getAppraisalListByRestaurantId(restaurant.getRestaurantId());
 							if(appraisal != null){
 								for(AppraisalDTO appraisalItem : appraisal){
-									if(appraisalItem.getAppraisalId() > 0){	
-								
+									if(appraisalItem.getAppraisalId() > 0){
 	%>
 										<li class="wrap_s">
 											<img style="width: 30px; height: 30px;" src="./images/content/sub/appraisal_icon/appraisal_icon<%=appraisalItem.getAppraisalId()%>.png" alt="">
@@ -292,15 +281,15 @@
 										</div>
 									</div>
 									<div class="answer_sel mt10 mb20">
-										<input name="select_star_score" type="radio"  value="5">
+										<input name="select_star_score" id="answer01" type="radio" value="5">
 										<label for="answer01">5점(매우 만족)</label>
-										 <input name="select_star_score" type="radio"  value="4">
+										<input name="select_star_score" id="answer02" type="radio" value="4">
 										<label for="answer02">4점(만족)</label> 
-										<input name="select_star_score" type="radio"  value="3"> 
+										<input name="select_star_score" id="answer03" type="radio" value="3"> 
 										<label for="answer03">3점(보통)</label>
-										<input name="select_star_score" type="radio" value="2">
+										<input name="select_star_score" id="answer04" type="radio" value="2">
 										<label for="answer04">2점(불만)</label> 
-										<input name="select_star_score" type="radio" value="1"> 
+										<input name="select_star_score" id="answer05" type="radio" value="1"> 
 										<label for="answer05">1점(매우 불만)</label>
 									</div>
 
@@ -314,8 +303,7 @@
 											<input type="checkbox" name="select<%=appraisalItem.getAppraisalId() %>" id="select<%=appraisalItem.getAppraisalId() %>"> <label
 												for="select<%=appraisalItem.getAppraisalId() %>"><%=appraisalItem.getAppraisalName() %></label>
 										</div>							
-	<%
-									
+	<%							
 							}
 	%>
 									</div>
@@ -330,51 +318,11 @@
 						</div>
 					</div>
 	</section>
-
-	<script>
-    var mapContainer = document.getElementById('map'); // 지도를 표시할 div
-    var mapOption = {
-        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-        level: 3 // 지도의 확대 레벨
-    };
-
-    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-
-    // 주소-좌표 변환 객체를 생성합니다
-    var geocoder = new kakao.maps.services.Geocoder();
-
-    // 주소로 좌표를 검색합니다
-    geocoder.addressSearch('<%=restaurant != null ? restaurant.getRestaurantAddress() : ""%>', function(result, status) {
-        // 정상적으로 검색이 완료됐으면
-        if (status === kakao.maps.services.Status.OK) {
-            var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-
-            // 결과값으로 받은 위치를 마커로 표시합니다
-            var marker = new kakao.maps.Marker({
-                map: map,
-                position: coords
-            });
-
-            // 인포윈도우로 장소에 대한 설명을 표시합니다
-            var infowindow = new kakao.maps.InfoWindow({
-                content: '<div style="width:150px;text-align:center;padding:6px 0;">'
-                    + '<%=restaurant != null ? restaurant.getRestaurantName() : ""%>
-		'
-													+ '</div>'
-										});
-								infowindow.open(map, marker);
-
-								// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-								map.setCenter(coords);
-							}
-						});
-	</script>
-
 	<%
 	} catch (NumberFormatException e) {
 	// restaurantId를 Integer로 파싱하는 과정에서 예외 발생 시 처리할 코드
 	// 예: 오류 메시지 출력 또는 리다이렉트 등
-	e.printStackTrace(); // 혹은 다른 예외 처리 로직
+		e.printStackTrace(); // 혹은 다른 예외 처리 로직
 	}
 	} else {
 	// restaurantId 파라미터가 없을 때 처리할 코드

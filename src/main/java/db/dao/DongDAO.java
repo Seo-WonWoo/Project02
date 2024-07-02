@@ -16,6 +16,7 @@ public class DongDAO {
 	static PreparedStatement psmt = null;
 	static ResultSet rs = null;	
 	
+	//구 전체 리스트 호출 함수
 	public List<DongDTO> getDongList() {
 		List<DongDTO> DongList = null;
 		try {
@@ -42,7 +43,7 @@ public class DongDAO {
 		return DongList;
 	}
 	
-	
+	//구 아이디를 통한 동 리스트 호출 함수(검색페이지)
 	public DongDTO findDongByCountryId(int CountryId) {
 		DongDTO Dong = null;
 		try {

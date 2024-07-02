@@ -82,14 +82,14 @@
 						</script>
 					
 	<%			
-						} else{
+				} else{
 	%>
 						<script>			
 							alert('평가 적용 실패');
 							history.back();
 						</script>		
 	<%
-						}
+				}
 	
 				
 			} else {				
