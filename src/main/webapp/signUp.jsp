@@ -36,7 +36,7 @@
 		<form action="signUpAction.jsp" method="post" id=" ">
         <div class="store_search_box  sign_up_box center_box">
             <h2 class="title mb30">회원가입</h2>
-            
+            <!-- 아이디 중복 확인 -->
             <%
 			if( checkId == 1){
             %>      
@@ -116,8 +116,7 @@
     </div>
     
     <script>
- 	
-    	//input 
+
     	let inputValue = document.querySelectorAll('.input-value');
     	let inputCheckMsg = document.querySelectorAll('.input-check');
     	let inputCheck = [ false, false, false, false, false, false ];
@@ -128,15 +127,16 @@
     		inputCheck[0] = true;
     	}
     	
-    	
-    	let idLimit = /^[a-zA-Z0-9-_]{5,12}$/;  // a~z, A~Z, 0~9, -, _만 5~12자리 입력가능
-    	let pwLimit = /^[a-zA-Z0-9~!@#$%^&*()_-]{5,12}$/; // a~z, A~Z, 0~9,~!@#$%^&*()_-특수문자 만 5~12자리 입력가능
-    	let juminLimit1 = /^[0-9]{6}$/; // 0~9내에서만 6자리 입력가능    	
-    	let juminLimit2 = /^[0-9]{7}$/; // 0~9내에서만 7자리 입력가능
-    	let pnumLimit1 = /^[0-9]{2,3}$/; // 0~9내에서만 2~3자리 입력가능    	
-    	let pnumLimit2 = /^[0-9]{3,4}$/; // 0~9내에서만 3~4자리 입력가능
-        let pnumLimit3 = /^[0-9]{4}$/; // 0~9내에서만 4자리 입력가능
+    	//회원가입 입력 조건
+    	let idLimit = /^[a-zA-Z0-9-_]{5,12}$/;  // 아이디 : a~z, A~Z, 0~9, -, _만 5~12자리 입력가능
+    	let pwLimit = /^[a-zA-Z0-9~!@#$%^&*()_-]{5,12}$/; // 비밀번호 : a~z, A~Z, 0~9,~!@#$%^&*()_-특수문자 만 5~12자리 입력가능
+    	let juminLimit1 = /^[0-9]{6}$/; // 주민번호 앞부분:  0~9내에서만 6자리 입력가능    	
+    	let juminLimit2 = /^[0-9]{7}$/; // 주민번호 뒷부분 : 0~9내에서만 7자리 입력가능
+    	let pnumLimit1 = /^[0-9]{2,3}$/; // 전화번호 앞부분 : 0~9내에서만 2~3자리 입력가능    	
+    	let pnumLimit2 = /^[0-9]{3,4}$/; // 전화번호 중간부분 : 0~9내에서만 3~4자리 입력가능
+        let pnumLimit3 = /^[0-9]{4}$/; // 전화번호 뒷부분 : 0~9내에서만 4자리 입력가능
     
+        //입력 항목별 입력 조건 확인 및 오류 메세지
         inputValue[0].addEventListener('keyup', ()=>{
             if( idLimit.test(inputValue[0].value) ){
             	inputCheckMsg[0].innerHTML = "아이디 중복 확인 필요합니다.";
@@ -173,7 +173,7 @@
             	inputCheckMsg[3].innerHTML = "";
             	inputCheck[3] = true;
             } else{
-            	inputCheckMsg[3].innerHTML = "다음의 양식으로 입력하시기 바랍니다. 000000-0000000";
+            	inputCheckMsg[3].innerHTML = "다음의 양식으로 입력하시기 바랍니다.<br>000000-0000000";
             	inputCheck[3] = false;
             }
         })
@@ -185,7 +185,7 @@
             	inputCheckMsg[4].innerHTML = "";
             	inputCheck[4] = true;
             } else{
-            	inputCheckMsg[4].innerHTML = "다음의 양식으로 입력하시기 바랍니다. 000(2~3자리)-0000(3~4자리)-0000";
+            	inputCheckMsg[4].innerHTML = "다음의 양식으로 입력하시기 바랍니다.<br>000(2~3자리)-0000(3~4자리)-0000";
             	inputCheck[4] = false;
             }
         })
@@ -200,6 +200,7 @@
             }
         })
         
+        //아이디 중복 확인 제출
         function idCheckSubmit(){
         	if(inputIdCheckSubmit == true){        		
         		location.href = "idCheck.jsp?input_id=" + inputValue[0].value;
@@ -210,7 +211,7 @@
         	
         }
         
-        
+        //회원가입 양식 제출
     	function signUpSubmit(){
         	for(let i=0; i<6; i++){
         		if(inputCheck[i] == false){
