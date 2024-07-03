@@ -108,6 +108,7 @@
 						String manager = "M";
 						String general = "G";
 						String sleepAccountState = "F";
+						String pendingState = "P";
 						String awakeState = "T";
 					%>
 					<tr>
@@ -146,11 +147,16 @@
 						<td><div class="btn2" style="width:130px; padding: 8px 0; background-color:red"
 						onclick="location.href='sleepAccountAction.jsp?memberNumber=<%=member.getMemberNumber()%>&memberState=<%=member.getMemberState()%>'">휴먼상태전환</div></td>
 					<%
+						} else if(member.getMemberState().equals(pendingState)) {
+					%>
+						<td>휴먼해제신청</td>
+						<td><div class="btn2" style="width:130px; padding: 8px 0; background-color:blue"
+						onclick="location.href='sleepAccountAction.jsp?memberNumber=<%=member.getMemberNumber()%>&memberState=F'">휴먼상태해제</div></td>					
+					<%	
 						} else {						
 					%>
 						<td>휴먼</td>
-						<td><div class="btn2" style="width:130px; padding: 8px 0; background-color:blue"
-						onclick="location.href='sleepAccountAction.jsp?memberNumber=<%=member.getMemberNumber()%>&memberState=<%=member.getMemberState()%>'">휴먼상태해제</div></td>
+						<td></td>
 					<%
 						}					
 					%>

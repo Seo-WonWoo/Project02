@@ -42,17 +42,17 @@
             
             <div class="wrap_s box mt20">
                 <p class="text">이름</p>
-                <input type="text" name="name_signUp">
-            </div>
+                <input type="text" name="name_signUp" placeholder="홍길동">                
+            </div>            
 
             <div class="wrap_s box mt20">
                 <p class="text">주민번호</p>
-                <input type="text" name="jumin_signUp">
+                <input type="text" name="jumin_signUp" placeholder="000000-0000000">
             </div>
 
             <div class="wrap_s box mt20">
                 <p class="text">전화번호</p>
-                <input type="tel" name="tel_signUp">
+                <input type="tel" name="tel_signUp"  placeholder="010-0000-0000">
             </div>
 
             <div class="wrap_s box mt20">
@@ -66,6 +66,7 @@
     </div>
     
     <script>
+ 	//ID 입력문자 유효성검사    
     	function signUpSubmit(){
 			document.getElementById('signUp_form').submit();
 		}

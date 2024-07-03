@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="./css/header.css">
 </head>
 <body>
+	<!-- 상단바 메뉴 : 로그인/회원가입(로그인 이전) 및 로그인상태표시/로그아웃(로그인 이후) -->
 	<div class="top_nav">
 		<div class="inner">
 			<ul class="gnb">
@@ -38,6 +39,7 @@
 						<img src="./images/header/logo_sub.png" alt="착한가격안심가게 로고">
 					</div>
 				</a>
+				<!-- 헤더 메뉴 : 업소 소개/업소 찾기(일반회원), 업체관리/회원관리(관리자) -->
 				<div class="nav">
 					<ul class="gnb dap1">
 						<li class="lnb"><a href="whatCheepPricePage.jsp">착한가격업소 소개</a></li>

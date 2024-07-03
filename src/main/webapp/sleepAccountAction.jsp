@@ -18,34 +18,45 @@
 	String memberState = request.getParameter("memberState");
 	
 	String sleepAccountState = "F";
+	String pendingState = "P";
 	String awakeState = "T";
 	
-	int result = 0;
+	int result1 = 0;
+	int result2 = 0;
 	
 	MemberDAO memberDAO = new MemberDAO();
 	
 	if(memberState.equals(awakeState)) {
-		result = memberDAO.modifySleepAccountMemberbyMemberNumber(memberNumber);
+		result1 = memberDAO.modifySleepAccountMemberbyMemberNumber(memberNumber);
+	} else if(memberState.equals(pendingState)){
+		result2 = memberDAO.modifySleepAccountMemberSubmitbyMemberNumber(memberNumber);
 	} else if(memberState.equals(sleepAccountState)){
-		result = memberDAO.modifyAwakeMemberbyMemberNumber(memberNumber);
+		result1 = memberDAO.modifyAwakeMemberbyMemberNumber(memberNumber);
 	}
 	
-	if(result > 0){
+	if(result1 > 0){
 	%>
 		<script>
 			alert('회원상태처리 완료');
 			location.href="memberManagePage.jsp";
 		</script>
+	<%
+	} else if(result2 > 0){
+	%>
+		<script>
+			alert('휴먼해제 신청되었습니다\n관리자 승인후 로그인 가능합니다');
+			location.href="mainPage.jsp";
+		</script>
 	
 	<%			
-		} else{
+	} else{
 	%>
 		<script>			
 			alert('회원상태처리 실패');
 			history.back();
 		</script>		
 	<%
-		}
+	}
 	%>
 
 </body>

@@ -164,6 +164,26 @@ public class MemberDAO {
 		return result;
 	}
 	
+	//멤버 넘버를 통한 회원 휴먼계정 복구 함수(회원관리페이지)
+		public int modifySleepAccountMemberSubmitbyMemberNumber(int memberNumber) {		
+			int result = 0;
+			
+			try {
+				conn = DBConnectionManager.connectDB();
+				String query = " update member_list "
+							 + " set member_state = 'P' "
+							 + " where member_number = ? ";
+				psmt = conn.prepareStatement(query);
+				psmt.setInt(1, memberNumber );
+				result = psmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				DBConnectionManager.disconnectDB(conn, psmt, null);
+			}
+			return result;
+		}
+	
 	
 	//멤버 넘버를 통한 회원 휴먼계정 복구 함수(회원관리페이지)
 	public int modifyAwakeMemberbyMemberNumber(int memberNumber) {		
