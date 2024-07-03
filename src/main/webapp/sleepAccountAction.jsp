@@ -29,7 +29,7 @@
 	if(memberState.equals(awakeState)) {
 		result1 = memberDAO.modifySleepAccountMemberbyMemberNumber(memberNumber);
 	} else if(memberState.equals(pendingState)){
-		result2 = memberDAO.modifySleepAccountMemberSubmitbyMemberNumber(memberNumber);
+		result2 = memberDAO.modifySleepAccountMemberSubmitbyMemberNumber(memberNumber); 
 	} else if(memberState.equals(sleepAccountState)){
 		result1 = memberDAO.modifyAwakeMemberbyMemberNumber(memberNumber);
 	}

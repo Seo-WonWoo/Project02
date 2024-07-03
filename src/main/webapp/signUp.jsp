@@ -26,13 +26,19 @@
 <body>
 	<div class="field">
 		<form action="signUpAction.jsp" method="post" id="signUp_form">
-        <div class="store_search_box center_box">
+        <div class="store_search_box  sign_up_box center_box">
             <h2 class="title mb30">회원가입</h2>
             <div class="wrap_s">
-                <div class="wrap_s box">
+                <div class="wrap_s" style="align-items: flex-start;">
+                <div class="wrap_s box id_box">
                     <p class="text">아이디</p>
-                    <input type="text" name="id_signUp">
+                    <div style="width: 220px;">
+	                    <input type="text">
+	                    <p class="info">?자리수가 맞지않습니다</p>
+                    </div>
                 </div>
+                <div class="btn2" style="width: 100px; padding: 14px;">중복확인</div>
+            </div>
             </div>
             
             <div class="wrap_s box mt20">
