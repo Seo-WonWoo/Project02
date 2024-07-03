@@ -42,12 +42,11 @@
 /* signUp, login */
 .center_box{width: auto !important; padding: 50px 60px; background: #E9F4FF; box-shadow: 0 3px 6px 0 rgb(0 0 0 / 20%); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}
 .center_box .title{padding-bottom: 20px; border-bottom: 1px solid #ddd;}
-.center_box .box{width: 100%;}
-.center_box .box .text{width: 80px; font-size: 18px; font-weight: bold;}
-.center_box .box .info{color: #aaa; font-size: 15px; margin-top: 5px;}
+.center_box .box{width: 100%;align-items: flex-start ;}
+.center_box .box .text{width: 80px; font-size: 18px; font-weight: bold;margin-top: 10px;}
+.center_box .box .info{max-width: 300px; color: #aaa; font-size: 15px; margin-top: 5px;}
 .center_box .box input{width: auto;}
-.center_box .id_box{width: 300px; align-items: flex-start ;}
-.center_box .id_box .text{margin-top: 10px;}
+.center_box .id_box{width: 300px; }
 .center_box .id_box input{width: 95% !important;}
 .sign_up_box .box input{width: 320px; max-width: 320px;}
 
