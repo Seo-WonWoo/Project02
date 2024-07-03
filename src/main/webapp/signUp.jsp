@@ -33,7 +33,7 @@
 	%>
 
 	<div class="field">
-		<form action="signUpAction.jsp" method="post" id=" ">
+		<form action="signUpAction.jsp" method="post" id="signUp_form">
         <div class="store_search_box  sign_up_box center_box">
             <h2 class="title mb30">회원가입</h2>
             <!-- 아이디 중복 확인 -->
@@ -45,7 +45,7 @@
                 <div class="wrap_s box id_box">
                     <p class="text">아이디</p>
                     <div style="width: 220px;">                    
-	                    <input type="text" class="input-value" value="<%=inputId%>" readonly>
+	                    <input type="text" name="id_signUp" class="input-value" value="<%=inputId%>" readonly>
 	                    <p class="info input-check"></p>
                     </div>
                 </div>                
@@ -60,7 +60,7 @@
                 <div class="wrap_s box id_box">
                     <p class="text">아이디</p>
                     <div style="width: 220px;">                    
-	                    <input type="text" class="input-value">
+	                    <input type="text" name="id_signUp" class="input-value">
 	                    <p class="info input-check"></p>
                     </div>
                 </div>
