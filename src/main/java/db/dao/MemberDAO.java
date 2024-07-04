@@ -85,7 +85,7 @@ public class MemberDAO {
 	}
 	
 	
-	//회원아이디를 통한 등록회원 호출 함수(리뷰평가처리페이지)
+	//회원아이디를 통한 등록회원 호출 함수(리뷰평가처리페이지, 회원가입처리페이지)
 	public MemberDTO findMemberById(String memberId) {
 	       MemberDTO member = null;
 	       try {

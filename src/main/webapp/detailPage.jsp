@@ -62,7 +62,7 @@
 	// DAO를 통해 데이터베이스에서 모든 레스토랑 리스트 가져오기
 	List<RestaurantDTO> restaurantList = restaurantDAO.findRestaurantList();
 
-	// restaurantList를 JSON 형태로 변환
+	// restaurantList를 JSON 형태로 문자열 변환
 	String jsonRestaurantList = new Gson().toJson(restaurantList);
 	%>
 
@@ -208,7 +208,7 @@
 							</div>
 							<ul class="gnb">
 								<%
-								if (menuList != null && !menuList.isEmpty()) {
+								if (menuList != null && !menuList.isEmpty()) { //업소내 메뉴리스트 존재시 내역 표기
 									for (MenuDTO menu : menuList) {
 								%>
 								<li class="wrap_s">
@@ -231,9 +231,9 @@
 						<ul class="title_submenu wrap_s mb40">
 							<%
 							ConvenienceDAO convenienceDAO = new ConvenienceDAO();
-							List<ConvenienceDTO> convenienceList = convenienceDAO.getConvenienceListByRestaurantId(restaurant.getRestaurantId());
+							List<ConvenienceDTO> convenienceList = convenienceDAO.getConvenienceListByRestaurantId(restaurant.getRestaurantId()); //업소 편의시설 호출 함수 실행 및 리스트 변수 저장
 							if(convenienceList != null){
-								for(ConvenienceDTO convenience : convenienceList){
+								for(ConvenienceDTO convenience : convenienceList){ //업소내 편의시설 존재시 내역 표기
 									if(convenience.getConvenienceId() > 0){						
 	%>
 										<li class="lnb"><%=convenience.getConvenienceName()%></li>
@@ -251,10 +251,10 @@
 							<ul class="gnb">
 							<%
 							AppraisalDAO appraisalDAO = new AppraisalDAO(); 
-							List<AppraisalDTO> appraisal = appraisalDAO.getAppraisalListByRestaurantId(restaurant.getRestaurantId());
+							List<AppraisalDTO> appraisal = appraisalDAO.getAppraisalListByRestaurantId(restaurant.getRestaurantId()); //업소 리뷰 항목 리스트 호출 함수 실행 및 리스트 변수 저장
 							if(appraisal != null){
 								for(AppraisalDTO appraisalItem : appraisal){
-									if(appraisalItem.getAppraisalId() > 0){
+									if(appraisalItem.getAppraisalId() > 0){ //리뷰항목 평가수 0 이상 존재시 내역 출력
 	%>
 										<li class="wrap_s">
 											<img style="width: 30px; height: 30px;" src="./images/content/sub/appraisal_icon/appraisal_icon<%=appraisalItem.getAppraisalId()%>.png" alt="">
@@ -296,8 +296,8 @@
 									<div class="icheck_wrap">
 									
 	<%
-										List<AppraisalDTO> appraisalList = appraisalDAO.getAppraisalList();
-										for (AppraisalDTO appraisalItem : appraisalList) {
+										List<AppraisalDTO> appraisalList = appraisalDAO.getAppraisalList(); //리뷰항목 전체리스트 호출 함수 실행 및 리스트 변수 저장
+										for (AppraisalDTO appraisalItem : appraisalList) { //리뷰 전체 항목 체크 항목 추가
 										%>
 										<div class="icheck mar">
 											<input type="checkbox" name="select<%=appraisalItem.getAppraisalId() %>" id="select<%=appraisalItem.getAppraisalId() %>"> <label
@@ -332,7 +332,7 @@
 	}
 	%>
 	<script>
-		function reviewSubmit(){
+		function reviewSubmit(){ //리뷰평가 form 입력값 제출
 			document.getElementById('appraisal_form').submit();
 		}
 		

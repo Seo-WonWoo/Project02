@@ -17,7 +17,7 @@
 			: 0;
 	
 	RestaurantDAO restaurantDAO = new RestaurantDAO();
-	int result = restaurantDAO.modifyShutDownRestaurantStatebyRestaurantId(restId);
+	int result = restaurantDAO.modifyShutDownRestaurantStatebyRestaurantId(restId); //데이터베이스 해당업소 폐업처리 상태 변경
 	
 	
 	if(result > 0){

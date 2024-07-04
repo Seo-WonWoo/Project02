@@ -17,18 +17,18 @@
 			: 0;
 	String memberState = request.getParameter("memberState");
 	
-	String sleepAccountState = "F";
-	String pendingState = "P";
-	String awakeState = "T";
+	String sleepAccountState = "F"; //폐업처리완료 상태
+	String pendingState = "P"; //폐업처리신청 상태
+	String awakeState = "T"; //정상운영 상태
 	
 	int result1 = 0;
 	int result2 = 0;
 	
 	MemberDAO memberDAO = new MemberDAO();
 	
-	if(memberState.equals(awakeState)) {
+	if(memberState.equals(awakeState)) { //폐업처리 신고 경우
 		result1 = memberDAO.modifySleepAccountMemberbyMemberNumber(memberNumber);
-	} else if(memberState.equals(pendingState)){
+	} else if(memberState.equals(pendingState)){ //폐업처리 승인 경우
 		result2 = memberDAO.modifySleepAccountMemberSubmitbyMemberNumber(memberNumber); 
 	} else if(memberState.equals(sleepAccountState)){
 		result1 = memberDAO.modifyAwakeMemberbyMemberNumber(memberNumber);

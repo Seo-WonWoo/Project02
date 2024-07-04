@@ -22,17 +22,16 @@
 		String awakeState = "T";
 		String managerPosition = "M";
 		String generalPosition = "G"; 
-		
-		//호출결과, 등록회원 존재할 경우 로그인 진행
-		try{
+				
+		try{ //등록회원 존재할 경우 다음 진행
 			
-			if(member.getMemberState().equals(awakeState)){
-				session.setAttribute("loginId", memberId);
+			if(member.getMemberState().equals(awakeState)){	//등록회원이 정상상태 경우(로그인 진행)
+				session.setAttribute("loginId", memberId);	//로그인아이디 세션 등록
 				
 				if(member.getMemberPosition().equals(managerPosition)){
-					session.setAttribute("loginPosition", managerPosition);
+					session.setAttribute("loginPosition", managerPosition); //로그인회원직급(관리자) 세션 등록
 				} else {
-					session.setAttribute("loginPosition", generalPosition);
+					session.setAttribute("loginPosition", generalPosition); //로그인회원직급(일반회원) 세션 등록
 				}
 	%>
 				<script>
@@ -40,19 +39,19 @@
 						location.href = "mainPage.jsp";
 				</script>
 	<%
-			} else{
+			} else{	//등록회원이 휴먼상태 경우
 	%>
 				<script>
 				let isSleepAccount = confirm('현재 휴먼 계정으로 로그인이 불가합니다.\n휴먼해제 신청 하시겠습니까?');
-				if(isSleepAccount){
+				if(isSleepAccount){	//등록회원 휴먼상태 해제 신청
 					location.href = "sleepAccountAction.jsp?memberNumber=<%=member.getMemberNumber()%>&memberState=P";
-				} else{
+				} else{	//신청 미동의(돌아가기)
 					history.back();
 				}	
 				</script>
 	<%
 			}
-		} catch(NullPointerException e) {
+		} catch(NullPointerException e) {	//등록회원 없을 경우 로그인 실패(예외처리)
 	%>
 			<script>
 				alert('로그인 실패');

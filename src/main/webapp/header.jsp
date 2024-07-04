@@ -11,12 +11,12 @@
 		<div class="inner">
 			<ul class="gnb">
 				<%
-					if(session.getAttribute("loginId") == null){
+					if(session.getAttribute("loginId") == null){ //로그아웃 상태 경우
 				%>
 							<li><a href="login.jsp">로그인</a></li>
 							<li><a href="signUp.jsp">회원가입</a></li>
 				<%		
-					} else{			
+					} else{	//로그인 상태 경우		
 						String loginId = session.getAttribute("loginId").toString();
 						
 				%>
@@ -49,7 +49,7 @@
 								String managerPosition = "M";
 								String loginPosition = session.getAttribute("loginPosition") != null ?
 										session.getAttribute("loginPosition").toString() : "";
-								if(loginPosition.equals(managerPosition)){
+								if(loginPosition.equals(managerPosition)){ //관리자 로그인 경우 관리자 메뉴 추가
 							%>
 								<li class="lnb"><a href="restaurantManagePage.jsp">업체관리</a></li>
 								<li class="lnb"><a href="memberManagePage.jsp">회원관리</a></li>

@@ -92,7 +92,7 @@
 											<option value="" selected>업종 전체</option>
 											<%
 											RestaurantSectorDAO restaurantSectorDAO = new RestaurantSectorDAO();
-											List<RestaurantSectorDTO> restaurantSectorList = restaurantSectorDAO.getRestaurantSectorList();
+											List<RestaurantSectorDTO> restaurantSectorList = restaurantSectorDAO.getRestaurantSectorList(); //업종 전체 리스트 호출함수 실행
 											for (RestaurantSectorDTO restaurantSector : restaurantSectorList) {
 											%>
 											<option value=<%=restaurantSector.getRestaurantSectorId()%>><%=restaurantSector.getRestaurantSectorName()%></option>
@@ -108,7 +108,7 @@
 											<option value="" selected>인증 전체</option>
 											<%
 											CertificationDAO certificationDAO = new CertificationDAO();
-											List<CertificationDTO> certificationList = certificationDAO.getCertificationList();
+											List<CertificationDTO> certificationList = certificationDAO.getCertificationList(); //인증 전체 리스트 호출함수 실행
 											for (CertificationDTO certification : certificationList) {
 											%>
 											<option value=<%=certification.getCertificationId()%>><%=certification.getCertificationName()%></option>
@@ -159,7 +159,7 @@
 					RestaurantDAO restaurantDAO = new RestaurantDAO();
 					ConvenienceDAO convenienceDAO = new ConvenienceDAO();
 
-					List<RestaurantDTO> restaurantList = restaurantDAO.findRestaurantList();
+					List<RestaurantDTO> restaurantList = restaurantDAO.findRestaurantList(); //운영업소 전체 리스트 호출함수 실행
 					for (RestaurantDTO restaurant : restaurantList) {
 					%>
 					<div class="swiper-slide box"
@@ -205,7 +205,7 @@
 							</div>
 							<ul class="title_submenu wrap_s">
 								<%
-								List<ConvenienceDTO> convenienceList = convenienceDAO.getConvenienceListByRestaurantId(restaurant.getRestaurantId());
+								List<ConvenienceDTO> convenienceList = convenienceDAO.getConvenienceListByRestaurantId(restaurant.getRestaurantId()); //해당업소 편의시설 리스트 호출 함수 실행
 								if (convenienceList != null) {
 									for (ConvenienceDTO convenience : convenienceList) {
 										if (convenience.getConvenienceId() > 0) {
@@ -259,7 +259,7 @@
 				<div class="swiper-wrapper">
 
 					<%
-					List<RestaurantDTO> shutDouwnRestaurantList = restaurantDAO.shutDownRestaurantList();
+					List<RestaurantDTO> shutDouwnRestaurantList = restaurantDAO.shutDownRestaurantList(); //폐업업소(신청대기,승인) 전체 리스트 호출함수 실행
 					String falseStr = "F";
 					String pending = "P";
 					for (RestaurantDTO shutDouwnRestaurant : shutDouwnRestaurantList) {
@@ -267,11 +267,11 @@
 					<div class="swiper-slide box">
 						<div class="info">
 							<%
-							if (shutDouwnRestaurant.getRestaurantState().equals(falseStr)) {
+							if (shutDouwnRestaurant.getRestaurantState().equals(falseStr)) { //관리자 폐업승인상태 경우
 							%>
 							<div class="title_approval">승인완료</div>
 							<%
-							} else if (shutDouwnRestaurant.getRestaurantState().equals(pending)) {
+							} else if (shutDouwnRestaurant.getRestaurantState().equals(pending)) { //폐업신청대기 경우
 							%>
 							<div class="title_approval active">승인대기</div>
 							<%
@@ -302,9 +302,9 @@
 			<div class="wrap mb40">
 				<%
 				MenuSectorDAO menuSectorDAO = new MenuSectorDAO();
-				List<MenuSectorDTO> menuSectorList = menuSectorDAO.getMenuSectorList();
+				List<MenuSectorDTO> menuSectorList = menuSectorDAO.getMenuSectorList(); //메뉴군별 전체리스트 호출 함수
 				for (MenuSectorDTO menuSector : menuSectorList) {
-					if (menuSector.getMenuSectorId() <= 8) {
+					if (menuSector.getMenuSectorId() <= 8) { //기타(id 9) 제외 실행
 				%>
 				<div class="box">
 					<div class="pic">
@@ -336,7 +336,7 @@
 						</div>
 						
 						<%
-		                List<RestaurantDTO> countryCountList = restaurantDAO.findRestaurantCountByCertification();
+		                List<RestaurantDTO> countryCountList = restaurantDAO.findRestaurantCountByCertification(); //인증별 업소수 호출 함수 실행
 		                if (countryCountList != null && !countryCountList.isEmpty()) {
 		                    RestaurantDTO counts = countryCountList.get(0);
 						%>
@@ -469,10 +469,10 @@
 	
 	<jsp:include page="footer.jsp" />
 	<script>
-		function searchSubmit1(){
+		function searchSubmit1(){ //form1(업소이름) 제출
 			document.getElementById('search_form1').submit();
 		}
-		function searchSubmit2(){
+		function searchSubmit2(){ //form2(업종,인증) 제출
 			document.getElementById('search_form2').submit();
 		}
 	</script>

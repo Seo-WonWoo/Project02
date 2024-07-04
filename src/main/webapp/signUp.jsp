@@ -38,22 +38,23 @@
             <h2 class="title mb30">회원가입</h2>
             <!-- 아이디 중복 확인 -->
             <%
-			if( checkId == 1){
+			if( checkId == 1){	//중복확인 완료(아이디 사용가능)
             %>      
             <div class="wrap_s">
                 <div class="wrap_s" style="align-items: flex-start;">
                 <div class="wrap_s box id_box">
                     <p class="text">아이디</p>
                     <div style="width: 220px;">                    
-	                    <input type="text" name="id_signUp" class="input-value" value="<%=inputId%>" readonly>
+	                    <input type="text" name="id_signUp" class="input-value active" value="<%=inputId%>" readonly>
 	                    <p class="info input-check"></p>
                     </div>
                 </div>                
+                <div class="btn2 active" style="width: 100px; padding: 14px;">중복확인</div> 
             	</div>
             </div>
             
 			<%
-			} else {
+			} else { //중복확인 전
            	%>
             	<div class="wrap_s">
                 <div class="wrap_s" style="align-items: flex-start;">
@@ -202,11 +203,11 @@
         
         //아이디 중복 확인 제출
         function idCheckSubmit(){
-        	if(inputIdCheckSubmit == true){        		
+        	if(inputIdCheckSubmit == true){ //아이디 입력조건 맞을 경우 중복확인페이지 이동
         		location.href = "idCheck.jsp?input_id=" + inputValue[0].value;
         	} else {
         		alert('아이디를 양식에 맞게 입력해주세요');
-        		inputValue[0].focus();
+        		inputValue[0].focus(); //아이디 입력창 이동
         	}
         	
         }
@@ -214,13 +215,13 @@
         //회원가입 양식 제출
     	function signUpSubmit(){
         	for(let i=0; i<6; i++){
-        		if(inputCheck[i] == false){
-        			alert(inputName[i] + " 입력해주세요")
-        			inputValue[i].focus();
-        			return false;
+        		if(inputCheck[i] == false){	//입력섹터별 오류 발생시
+        			alert(inputName[i] + " 입력해주세요"); //입력대상 알림
+        			inputValue[i].focus(); //해당입력섹터 이동
+        			return false; //함수 종료
         		}
         	}
-			document.getElementById('signUp_form').submit();
+			document.getElementById('signUp_form').submit(); //회원가입정보 입력값 제출
 		}
     </script>
 </body>

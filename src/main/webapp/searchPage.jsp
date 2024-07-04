@@ -51,22 +51,23 @@
 
 	int sCity = (request.getParameter("search_city") != null && !request.getParameter("search_city").isEmpty())
 			? Integer.parseInt(request.getParameter("search_city"))
-			: 0;
+			: 0; //시 파라메터값 정수변수 저장 
 	int sCountry = (request.getParameter("search_country") != null && !request.getParameter("search_country").isEmpty())
 			? Integer.parseInt(request.getParameter("search_country"))
-			: 0;
+			: 0; //구 파라메터값 정수변수 저장
 	int sDong = (request.getParameter("search_dong") != null && !request.getParameter("search_dong").isEmpty())
 			? Integer.parseInt(request.getParameter("search_dong"))
-			: 0;
+			: 0; //동 파라메터값 정수변수 저장
 	int sRS = (request.getParameter("search_restaurant_sector") != null
 			&& !request.getParameter("search_restaurant_sector").isEmpty())
 			? Integer.parseInt(request.getParameter("search_restaurant_sector"))
-			: 0;
+			: 0; //업종 파라메터값 정수변수 저장
 	int sCert = (request.getParameter("search_certification") != null
 			&& !request.getParameter("search_certification").isEmpty())
 			? Integer.parseInt(request.getParameter("search_certification"))
-			: 0;
+			: 0; //인증 파라메터값 정수변수 저장
 
+	//편의시설 파라메터값(1~8) 정수변수 저장
 	int sConv1 = (request.getParameter("search_convenience_1") != null
 			&& !request.getParameter("search_convenience_1").isEmpty()) ? 
 				Integer.parseInt(request.getParameter("search_convenience_1").trim()) : 0;
@@ -92,8 +93,8 @@
 			&& !request.getParameter("search_convenience_8").isEmpty()) ?
 				Integer.parseInt(request.getParameter("search_convenience_8").trim()) : 0;
 
-	String sRN = request.getParameter("search_restaurant_name");
-	String sKW = request.getParameter("search_keyword");
+	String sRN = request.getParameter("search_restaurant_name"); //업종이름 파라메터값 문자열변수 저장
+	String sKW = request.getParameter("search_keyword"); //메뉴이름 파라메터값 문자열변수 저장
 	%>
 
 	<header id="header" class="sub">
@@ -149,14 +150,14 @@
 	<!-- 업종 정보 데이터베이스 자바 객체 클래스 생성 -->
 	<%
 	RestaurantSectorDAO restaurantSectorDAO = new RestaurantSectorDAO();
-	List<RestaurantSectorDTO> restaurantSectorList = restaurantSectorDAO.getRestaurantSectorList();
+	List<RestaurantSectorDTO> restaurantSectorList = restaurantSectorDAO.getRestaurantSectorList(); //업종 전체 리스트 호출 함수 실행 및 리스트 변수 저장
 	%>
 
 
 	<!-- 인증 정보 데이터베이스 자바 객체 클래스 생성 -->
 	<%
 	CertificationDAO certificationDAO = new CertificationDAO();
-	List<CertificationDTO> certificationList = certificationDAO.getCertificationList();
+	List<CertificationDTO> certificationList = certificationDAO.getCertificationList(); //인증 전체 리스트 호출 함수 실행 및 리스트 변수 저장
 	%>
 
 
@@ -180,7 +181,7 @@
 										onclick="countryListByCitySelect()">
 										<option value="" selected>전체</option>
 										<%
-										for (CityDTO city : cityList) {
+										for (CityDTO city : cityList) { //시 리스트 선택항목 추가
 										%>
 										<option value=<%=city.getCityId()%>><%=city.getCityName()%></option>
 										<%
@@ -223,7 +224,7 @@
 										name="search_restaurant_sector" size="1">
 										<option value="" selected>전체</option>
 										<%
-										for (RestaurantSectorDTO restaurantSector : restaurantSectorList) {
+										for (RestaurantSectorDTO restaurantSector : restaurantSectorList) { //업종 리스트 선택항목 추가
 										%>
 										<option value=<%=restaurantSector.getRestaurantSectorId()%>><%=restaurantSector.getRestaurantSectorName()%></option>
 										<%
@@ -242,7 +243,7 @@
 										name="search_certification" size="1">
 										<option value="" selected>전체</option>
 										<%
-										for (CertificationDTO certification : certificationList) {
+										for (CertificationDTO certification : certificationList) { //인증 리스트 선택항목 추가
 										%>
 										<option value=<%=certification.getCertificationId()%>><%=certification.getCertificationName()%></option>
 										<%
@@ -265,10 +266,10 @@
 									</div>
 									<%
 									ConvenienceDAO convenienceDAO = new ConvenienceDAO();
-									List<ConvenienceDTO> convenienceList = convenienceDAO.getConvenienceList();
+									List<ConvenienceDTO> convenienceList = convenienceDAO.getConvenienceList(); //편의시설 전체 리스트 호출 및 리스트 변수 저장
 									%>
 									<%
-									for (ConvenienceDTO convenience : convenienceList) {
+									for (ConvenienceDTO convenience : convenienceList) { //편의시설 전체리스트 체크박스 항목 추가
 									%>
 									<div class="icheck mar">
 										<input type="checkbox"
@@ -278,10 +279,11 @@
 									</div>
 
 									<script>
+									//전체 체크항목 클릭시 편의시설 체크항목 연동하기 위한 자바 변수값 -> 자바스크립트 변수값 저장 
 									convenienceList.push( { convenienceId : <%=convenience.getConvenienceId()%>,
 															convenienceName : "<%=convenience.getConvenienceName()%>"
 														} );
-								</script>
+									</script>
 									<%
 									}
 									%>
@@ -324,7 +326,7 @@
 			<%
 			RestaurantDAO restaurantDAO = new RestaurantDAO();
 			List<RestaurantDTO> restaurantList = restaurantDAO.findRestaurantList(sCity, sCountry, sDong, sRS, sCert, sConv1,
-					sConv2, sConv3, sConv4, sConv5, sConv6, sConv7, sConv8, sRN, sKW);			
+					sConv2, sConv3, sConv4, sConv5, sConv6, sConv7, sConv8, sRN, sKW); //검색항목 입력값을 통하여 조건 업소리스트 호출 함수 실행 및 리스트 변수 저장
 			%>
 
 			<table id="find_business_table" class="new_tbl_board tb01 mt100 mb80">
@@ -349,18 +351,20 @@
 				<tbody>
 
 					<%
-					int itemsPerPage = 10;
-					int currentPage = request.getParameter("page") == null || "".equals(request.getParameter("page")) ? 1 : Integer.parseInt(request.getParameter("page"));
-					int totalItems = restaurantList.size();
-					int totalPages = (int) Math.ceil((double) totalItems / itemsPerPage);
+					int itemsPerPage = 10; //한페이지 출력 업소 갯수 
+					//페이지 파라메터값 현재페이지 정수변수 저장(파라메터 없을경우 1 적용)
+					int currentPage = request.getParameter("page") == null || "".equals(request.getParameter("page")) ? 1 : Integer.parseInt(request.getParameter("page"));					
+					int totalItems = restaurantList.size(); //전체 업소갯수
+					int totalPages = (int) Math.ceil((double) totalItems / itemsPerPage); //전체 페이지 갯수(올림 함수 적용)
 
-					int start = (currentPage - 1) * itemsPerPage;
-					int end = Math.min(start + itemsPerPage, totalItems);
+					int start = (currentPage - 1) * itemsPerPage; //표기될 현재페이지 시작 업소 순번
+					int end = Math.min(start + itemsPerPage, totalItems); //표기될 현재페이지 마지막 업소 순번
 					%>
 					<% 
 					for (int i = start; i < end; i++) {
-						RestaurantDTO restaurant = restaurantList.get(i);
+						RestaurantDTO restaurant = restaurantList.get(i); //검색 결과 업소리스트 중 표기될 시작~마지막순번 업소리스트 리스트 변수 저장
 						int restaurantNumber = i + 1;
+						//해당업소 tr,td 태그 출력(업소 클릭시 해당업소 상세페이지 이동) 
 					%>
 					<tr
 						onclick="location.href='detailPage.jsp?restaurantId=<%=restaurant.getRestaurantId()%>'">
@@ -395,7 +399,7 @@
 				<div id="page-numbers" class="page-numbers">
 					<%
 					for (int i = 1; i <= totalPages; i++) {
-						String activeClass = (i == currentPage) ? "on" : "";
+						String activeClass = (i == currentPage) ? "on" : ""; //현재페이지 확인용 데이터 속성값 적용
 					%>
 					<div class="number <%=activeClass%>" data-page="<%=i%>">
 						<a href="?page=<%=i%>&search_city=<%=sCity%>&search_country=<%=sCountry%>&search_dong=<%=sDong%>&search_restaurant_sector=<%=sRS%>&search_certification=<%=sCert%>&search_convenience_1=<%=sConv1%>&search_convenience_2=<%=sConv2%>&search_convenience_3=<%=sConv3%>&search_convenience_4=<%=sConv4%>&search_convenience_5=<%=sConv5%>&search_convenience_6=<%=sConv6%>&search_convenience_7=<%=sConv7%>&search_convenience_8=<%=sConv8%>&search_restaurant_name=<%=sRN%>&search_keyword=<%=sKW%>"><%=i%></a>
@@ -427,10 +431,10 @@
 
 	<script>	
 	
-		function countryListByCitySelect(){			
+		function countryListByCitySelect(){ //시 선택항목 클릭시 해당 구 리스트 연동 함수
 			let str = '<option value="" selected>전체</option>';
 			countryList.forEach( (item, index) =>{
-				if(document.querySelector('#city_select').value == item.cityId)
+				if(document.querySelector('#city_select').value == item.cityId) //구 리스트 객체 내 시 객체 아이디 값 동일시 해당 구 내역 항목 추가
 				str += `<option value="` + item.countryId + `">` + item.countryName + `</option>`;				
 			});
 			document.querySelector('#country_select').innerHTML = str;
@@ -438,25 +442,25 @@
 		}
 	    
 		
-		function dongListByCountrySelect(){			
+		function dongListByCountrySelect(){ //구 선택항목 클릭시 해당 동 리스트 연동 함수			
 			let str = '<option value="" selected>전체</option>';
 			dongList.forEach( (item, index) =>{
-				if(document.querySelector('#country_select').value == item.countryId)
+				if(document.querySelector('#country_select').value == item.countryId) //동 리스트 객체 내 구 객체 아이디 값 동일시 해당 동 내역 항목 추가
 				str += `<option value="` + item.dongId + `">` + item.dongName + `</option>`;				
 			});
 			document.querySelector('#dong_select').innerHTML = str;
 		}
 		
-		function searchSubmit(){
+		function searchSubmit(){ //검색항목 form 정보 제출
 			document.getElementById('search_form').submit();
 		}
 		
 		
-		function allCheckSelect(){
+		function allCheckSelect(){ //전체체크항목 클릭시 실행함수
 			convenienceList.forEach( (item, index) =>{
-				if(document.querySelector('#AllcheckYn').checked == true)
+				if(document.querySelector('#AllcheckYn').checked == true) //전체항목 체크온시 전체 편의시설 체크항목 체크온
 					document.querySelector('#check_'+item.convenienceId).checked = true;
-				if(document.querySelector('#AllcheckYn').checked == false)
+				if(document.querySelector('#AllcheckYn').checked == false) //전체항목 체크아웃시 전체 편의시설 체크항목 체크아웃
 					document.querySelector('#check_'+item.convenienceId).checked = false;				
 			})
 		}

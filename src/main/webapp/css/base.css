@@ -66,6 +66,8 @@ h4{font-size: 1rem;}
 .btn1:hover{border: 1px solid #aaa;}
 .btn2{background: #0F64BB; color: white;}
 .btn2:hover{background: #0c5094;}
+.btn2.active{background: #aaa;  pointer-events : none;}
+
 .btn3{background: #DB3CCB; border-radius: 50px; padding: 5px 20px; color: white;}
 .btn3:hover{background: #bb29ac;}
 

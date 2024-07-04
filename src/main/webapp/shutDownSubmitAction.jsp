@@ -11,7 +11,7 @@
 <body>
 
 	<%
-		if(session.getAttribute("loginId") == null){
+		if(session.getAttribute("loginId") == null){ //로그아웃 경우 폐업신청 불가
 	%>	
 		<script>
 			alert('로그인이 필요합니다.');
@@ -19,13 +19,13 @@
 		</script>
 				
 	<%		
-		} else{
+		} else{ //로그인 경우 폐업신청 진행
 			request.setCharacterEncoding("UTF-8"); //문자인코딩 설정  한글깨짐 방지
 	
 			int restId = (request.getParameter("restaurant_id") != null && !request.getParameter("restaurant_id").isEmpty()) ? Integer.parseInt(request.getParameter("restaurant_id")) : 0;
 			
 			RestaurantDAO restaurantDAO = new RestaurantDAO();
-			int result = restaurantDAO.modifyShutDownRestaurantSubmitbyRestaurantId(restId);
+			int result = restaurantDAO.modifyShutDownRestaurantSubmitbyRestaurantId(restId); //데이터베이스 해당업소 폐업처리신청 상태 변경
 			
 			if(result > 0){
 	%>

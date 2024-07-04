@@ -48,6 +48,7 @@
 .center_box .box input{width: auto;}
 .center_box .id_box{width: 300px; }
 .center_box .id_box input{width: 95% !important;}
+.center_box .id_box input.active{background: #eee; pointer-events : none;}
 .sign_up_box .box input{width: 320px; max-width: 320px;}
 
 

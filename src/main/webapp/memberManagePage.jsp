@@ -55,11 +55,10 @@
 	<section class="container content">
 		<div class="inner">
 		<h2 class="sub_title mt40">회원관리</h2>
-
-			<!-- 업체 리스트 정보 데이터베이스 자바 객체 클래스 생성 -->
+			
 			<%
 			MemberDAO memberDAO = new MemberDAO();
-			List<MemberDTO> memberList = memberDAO.getMemberList();
+			List<MemberDTO> memberList = memberDAO.getMemberList(); //등록회원 전체 리스트 호출 및 리스트 변수 저장
 			%>
 
 
@@ -93,6 +92,7 @@
 				<tbody>
 
 					<%
+					//페이지 기능은 검색페이지 내용과 동일
 					int itemsPerPage = 10;
 					int currentPage = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
 					int totalItems = memberList.size();
@@ -105,16 +105,17 @@
 					for (int i = start; i < end; i++) {
 						MemberDTO member = memberList.get(i);
 						int memberNumber = i + 1;
-						String manager = "M";
-						String general = "G";
-						String sleepAccountState = "F";
-						String pendingState = "P";
-						String awakeState = "T";
+						String manager = "M"; //관리자
+						String general = "G"; //일반회원
+						String sleepAccountState = "F"; //휴먼상태
+						String pendingState = "P"; //휴먼해제신청상태
+						String awakeState = "T"; //정상상태
 					%>
 					<tr>
 						<td><%=memberNumber%></td>
 						<td><%=member.getMemberId()%></td>
 					<%
+						//비밀번호 "*" 표기(보안)
 						int pwLength = member.getMemberPw().length();
 						String memberPw = "";
 						for(int j=0; j<pwLength; j++){
@@ -124,6 +125,7 @@
 						<td><%=memberPw%></td>
 						<td><%=member.getMemberName()%></td>
 					<%
+						//주민번호 뒷자리 "*" 표기(보안)
 						String memberJuminNumber = member.getMemberJuminNumber().substring(0, 8);
 						memberJuminNumber += "******";
 					%>
@@ -132,28 +134,28 @@
 						<td><%=member.getMemberTel()%></td>
 						<td><%=member.getMemberAddress()%></td>
 					<%						
-						if(member.getMemberPosition().equals(manager)) {
+						if(member.getMemberPosition().equals(manager)) { //관리자 경우
 					%>	
 						<td>관리자</td>
 					<%
-						} else if(member.getMemberPosition().equals(general)) {						
+						} else if(member.getMemberPosition().equals(general)) {	//일반회원 경우					
 					%>
 						<td>일반회원</td>
 					<%						
 						}
-						if(member.getMemberState().equals(awakeState)) {
+						if(member.getMemberState().equals(awakeState)) { //정상상태 경우
 					%>
 						<td>정상</td>
 						<td><div class="btn2" style="width:130px; padding: 8px 0; background-color:red"
 						onclick="location.href='sleepAccountAction.jsp?memberNumber=<%=member.getMemberNumber()%>&memberState=<%=member.getMemberState()%>'">휴먼상태전환</div></td>
 					<%
-						} else if(member.getMemberState().equals(pendingState)) {
+						} else if(member.getMemberState().equals(pendingState)) { //휴먼해제신청상태 경우
 					%>
 						<td>휴먼해제신청</td>
 						<td><div class="btn2" style="width:130px; padding: 8px 0; background-color:blue"
 						onclick="location.href='sleepAccountAction.jsp?memberNumber=<%=member.getMemberNumber()%>&memberState=F'">휴먼상태해제</div></td>					
 					<%	
-						} else {						
+						} else { //휴먼상태 경우						
 					%>
 						<td>휴먼</td>
 						<td></td>
@@ -209,10 +211,7 @@
 	</section>
 	<jsp:include page="footer.jsp" />
 
-	<script>	
-	
 
-	</script>
 
 </body>
 </html>

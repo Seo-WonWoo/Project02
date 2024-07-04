@@ -52,11 +52,10 @@
 	<section class="container content">
 		<div class="inner">
 		<h2 class="sub_title mt40">업체관리(폐업)</h2>
-
-			<!-- 업체 리스트 정보 데이터베이스 자바 객체 클래스 생성 -->
+			
 			<%
 			RestaurantDAO restaurantDAO = new RestaurantDAO();
-			List<RestaurantDTO> restaurantList = restaurantDAO.shutDownRestaurantList();
+			List<RestaurantDTO> restaurantList = restaurantDAO.shutDownRestaurantList(); //폐업업체 전체 리스트 호출 및 리스트 변수 저장
 			%>
 
 
@@ -82,6 +81,7 @@
 				<tbody>
 
 					<%
+					//페이지 기능은 검색페이지 내용과 동일
 					int itemsPerPage = 10;
 					int currentPage = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
 					int totalItems = restaurantList.size();
@@ -101,18 +101,18 @@
 						<td><%=restaurant.getRestaurantTel()%></td>
 						<td><%=restaurant.getRestaurantAddress()%></td>
 					<%
-						String shutDouwState = "F";
-						String pendingState = "P";
-						if(restaurant.getRestaurantState().equals(shutDouwState)){
+						String shutDouwState = "F"; //폐업처리완료 상태
+						String pendingState = "P"; //폐업처리신청 상태
+						if(restaurant.getRestaurantState().equals(shutDouwState)){ //폐업처리완료 상태 경우
 					%>
 						<td>폐업완료</td>
 					<%
-						} else {						
+						} else { //폐업처리신청 상태	경우					
 					%>
 						<td>폐업신청대기</td>
 					<%
 						}
-						if(restaurant.getRestaurantState().equals(pendingState)){
+						if(restaurant.getRestaurantState().equals(pendingState)){ //폐업처리신청 상태 폐업처리 승인 버튼 추가
 					%>	
 						<td><div class="btn2" style="width:130px; padding: 8px 0;"
 						onclick="location.href='shutDownAction.jsp?restaurantId=<%=restaurant.getRestaurantId() %>'">폐업승인</div></td>					
@@ -172,14 +172,6 @@
 	
 	<jsp:include page="footer.jsp" />
 
-
-	<script>
-		
-		function surchSubmit(){
-			document.getElementById('surch_form').submit();
-		}
-		
-	</script>
 
 </body>
 </html>
